@@ -1,0 +1,8 @@
+loguru
+mkdocs
+pip
+python-dotenv
+ruff
+tqdm
+typer
+-e .
