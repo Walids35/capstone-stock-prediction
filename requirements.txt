@@ -5,4 +5,12 @@ python-dotenv
 ruff
 tqdm
 typer
+torch
+pytz
+pandas
+numpy
+matplotlib
+scikit-learn
+scipy
+statsmodels
 -e .
