@@ -4,7 +4,7 @@
 
 PROJECT_NAME = capstone-stock-prediction
 PYTHON_VERSION = 3.10
-PYTHON_INTERPRETER = python
+PYTHON_INTERPRETER = python3
 
 #################################################################################
 # COMMANDS                                                                      #
@@ -16,8 +16,6 @@ PYTHON_INTERPRETER = python
 requirements:
 	$(PYTHON_INTERPRETER) -m pip install -U pip
 	$(PYTHON_INTERPRETER) -m pip install -r requirements.txt
-	
-
 
 
 ## Delete all compiled Python files
@@ -40,7 +38,15 @@ format:
 	ruff format
 
 
+## Run the training script
+.PHONY: train
+train:
+	$(PYTHON_INTERPRETER) stock_prediction/modeling/train.py
 
+## Run the prediction script
+.PHONY: predict
+predict:
+	$(PYTHON_INTERPRETER) stock_prediction/modeling/predict.py
 
 
 ## Set up Python interpreter environment
