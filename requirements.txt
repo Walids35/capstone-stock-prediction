@@ -12,5 +12,8 @@ numpy
 matplotlib
 scikit-learn
 scipy
+venny4py
+seaborn
 statsmodels
+transformers
 -e .
