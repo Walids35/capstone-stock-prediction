@@ -7,7 +7,7 @@ import pandas as pd
 import numpy as np
 import torch
 from torch.utils.data import DataLoader, TensorDataset
-from stock_prediction.modeling.lstm_model import LSTMModel
+from stock_prediction.modeling.LSTM import LSTMModel
 
 from stock_prediction.config import MODELS_DIR, PROCESSED_DATA_DIR
 from stock_prediction.dataset_pipeline import TimeSeriesDatasetPipeline

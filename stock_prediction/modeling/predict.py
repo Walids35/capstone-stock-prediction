@@ -7,7 +7,7 @@ import typer
 import pandas as pd
 import numpy as np
 import torch
-from stock_prediction.modeling.lstm_model import LSTMModel
+from stock_prediction.modeling.LSTM import LSTMModel
 from stock_prediction.dataset_pipeline import TimeSeriesDatasetPipeline
 
 from stock_prediction.config import MODELS_DIR, PROCESSED_DATA_DIR
