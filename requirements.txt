@@ -16,4 +16,5 @@ venny4py
 seaborn
 statsmodels
 transformers
+joblib
 -e .

@@ -12,7 +12,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 def main():
-    '''
+    
     # Run the sentiment analysis of Roberta, FinBERT and DeBERTa models with SentFiN-v1.1 dataset and save the results
     dataset_paths = [
         PROJ_ROOT / "data/raw/human_labeled/SEntFiN-v1.1.csv",
@@ -50,7 +50,6 @@ def main():
     model_trainer.train_logistic_regression()
     model_trainer.train_svm()
     model_trainer.train_random_forest()
-   '''
 
     from pathlib import Path
     dataset_paths = [
@@ -75,14 +74,31 @@ def main():
         results_df.to_csv(f"{PROJ_ROOT}/data/interim/{results_file}", index=False)
         agreement_matrix.to_csv(f"{PROJ_ROOT}/data/interim/{agree_file}")
 
-        print("→  Analysis complete!  Files saved:")
-        print(f"   – {results_file}")
-        print(f"   – {agree_file}")
-        print(f"     DataFrame shape: {results_df.shape}")
-        print("     Columns:")
+        logger.info("→  Analysis complete!  Files saved:")
+        logger.info(f"   – {results_file}")
+        logger.info(f"   – {agree_file}")
+        logger.info(f"     DataFrame shape: {results_df.shape}")
+        logger.info("     Columns:")
         for col in results_df.columns:
-            print(f"       · {col}")
+            logger.info(f"       · {col}")
+    
 
+    dataset_paths = [
+        PROJ_ROOT / "data/interim/AAPL_financial_news_sentiment_analysis_results.csv",
+        PROJ_ROOT / "data/interim/TSLA_financial_news_sentiment_analysis_results.csv",
+        PROJ_ROOT / "data/interim/AMZN_financial_news_sentiment_analysis_results.csv",
+        PROJ_ROOT / "data/interim/NFLX_financial_news_sentiment_analysis_results.csv",
+        PROJ_ROOT / "data/interim/MSFT_financial_news_sentiment_analysis_results.csv",
+    ]
+    
+
+    for csv_path in dataset_paths:
+        print(f"\n=== Processing: {csv_path} ===")
+        source_name = Path(csv_path).stem
+
+        df = pd.read_csv(csv_path)
+        analyzer = StockSentimentComparison(path=None, ticker=source_name)
+        df = analyzer.create_comparison_table(df, models_dir=str(PROJ_ROOT / "models"))
 
 if __name__ == "__main__":
     main()
