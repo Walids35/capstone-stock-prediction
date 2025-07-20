@@ -61,15 +61,15 @@ sentiment_analysis:
 	$(PYTHON_INTERPRETER) sentiment_analysis/main.py
 
 
+## Process dataset with arguments (usage: make data STOCK=AAPL)
+.PHONY: data
+data:
+	$(PYTHON_INTERPRETER) stock_prediction/dataset.py
+
+
 #################################################################################
 # PROJECT RULES                                                                 #
 #################################################################################
-
-
-## Make dataset
-.PHONY: data
-data: requirements
-	$(PYTHON_INTERPRETER) stock_prediction/dataset.py
 
 
 #################################################################################
