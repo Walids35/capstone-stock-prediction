@@ -1,12 +1,19 @@
-# stock-prediction
+# Stock Prediction Framework
 
-<a target="_blank" href="https://cookiecutter-data-science.drivendata.org/">
-    <img src="https://img.shields.io/badge/CCDS-Project%20template-328F97?logo=cookiecutter" />
-</a>
+A comprehensive framework for predicting stock prices by analyzing the effect of financial news on stock movements. This project integrates data collection, sentiment analysis, feature engineering, and machine learning modeling to study and forecast stock price trends, with a focus on leveraging news sentiment as a predictive signal.
 
-A stock prediction framework that studies the effect of macro-economical data and financial news on stock price.
+## Project Description
 
-## Project Organization
+This repository provides tools and pipelines for:
+- Collecting and processing financial news and stock market data
+- Performing sentiment analysis on news articles using state-of-the-art NLP models
+- Engineering features from both news and market data
+- Training and evaluating machine learning models (including deep learning models in PyTorch) for stock price prediction
+- Visualizing results and generating reports for analysis
+
+The framework is modular, allowing for easy extension and experimentation with different models, features, and data sources.
+
+## Project Structure
 
 ```
 ├── LICENSE            <- Open-source license if one is chosen
@@ -56,6 +63,35 @@ A stock prediction framework that studies the effect of macro-economical data an
     │
     └── plots.py                <- Code to create visualizations
 ```
+
+## Getting started
+
+### Getting Started
+
+1. **Create a Python virtual environment**  
+   We recommend using [virtualenv](https://virtualenv.pypa.io/) or [venv](https://docs.python.org/3/library/venv.html) to manage your project dependencies.
+
+2. **Install project requirements**  
+   ```
+   make requirements
+   ```
+
+3. **Run sentiment analysis preprocessing**  
+   ```
+   make sentiment_analysis
+   ```
+
+4. **Process and prepare the dataset**  
+   ```
+   make data
+   ```
+
+5. **Train or run models**  
+   Use the provided scripts in `stock_prediction/modeling/` to train or make predictions. For example:
+   ```
+   make train
+   make predict
+   ```
 
 --------
 
