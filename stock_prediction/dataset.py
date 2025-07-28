@@ -41,9 +41,7 @@ def load_sentiment_data(stock_symbol: str) -> pd.DataFrame:
     """Load sentiment analysis results for a given stock symbol."""
     # Try different possible file names
     possible_files = [
-        INTERIM_DATA_DIR / f"{stock_symbol}_financial_news_sentiment_analysis_results_with_classical_models.csv",
-        INTERIM_DATA_DIR / f"{stock_symbol}_financial_news_sentiment_analysis_results.csv",
-        INTERIM_DATA_DIR / "models" / f"{stock_symbol}_financial_news_sentiment_analysis_results.csv"
+        INTERIM_DATA_DIR / "models" / f"{stock_symbol}_financial_news_sentiment_analysis_results_with_classical_models.csv"
     ]
     
     for file_path in possible_files:
@@ -168,7 +166,7 @@ def merge_price_and_sentiment(price_df: pd.DataFrame, sentiment_df: pd.DataFrame
 
 @app.command()
 def main(
-    stock_symbol: str = typer.Option("NFLX", help="Stock symbol to process"),
+    stock_symbol: str = typer.Option("TSLA", help="Stock symbol to process"),
     input_path: Optional[Path] = typer.Option(None, help="Custom path to price data file"),
     news_path: Optional[Path] = typer.Option(None, help="Custom path to sentiment data file"),
     output_path: Optional[Path] = typer.Option(None, help="Custom output path"),

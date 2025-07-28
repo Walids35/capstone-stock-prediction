@@ -357,11 +357,11 @@ class FinancialNewsAnalyzer:
 
 @app.command()
 def main(
-    input_path: Path = PROCESSED_DATA_DIR / "AMZN_preprocessed_dataset_with_features.csv"
+    input_path: Path = PROCESSED_DATA_DIR / "MSFT_preprocessed_dataset_with_features.csv"
 ):
     logger.info("Generating plot from data...")
     df = pd.read_csv(input_path)
-    analyzer = FinancialNewsAnalyzer(df=df, stock_symbol="AMZN")
+    analyzer = FinancialNewsAnalyzer(df=df, stock_symbol="MSFT")
     analyzer.run_complete_analysis()
     logger.success("Plot generation complete.") 
 

@@ -13,8 +13,8 @@ app = typer.Typer()
 @app.command()
 def main(
     # ---- REPLACE DEFAULT PATHS AS APPROPRIATE ----
-    input_path: Path = PROCESSED_DATA_DIR / "AAPL_preprocessed_dataset.csv",
-    output_path: Path = PROCESSED_DATA_DIR / "AAPL_preprocessed_dataset_with_features.csv",
+    input_path: Path = PROCESSED_DATA_DIR / "TSLA_preprocessed_dataset.csv",
+    output_path: Path = PROCESSED_DATA_DIR / "TSLA_preprocessed_dataset_with_features.csv",
     # -----------------------------------------
 ):
     # ---- REPLACE THIS WITH YOUR OWN CODE ----
