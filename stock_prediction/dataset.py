@@ -121,14 +121,18 @@ def aggregate_sentiment_by_date(news_df: pd.DataFrame, model_cols: Dict[str, str
             ('std_score', 'std')
         ]).reset_index()
         
+        # Flatten column index if it's a MultiIndex
+        if isinstance(grouped.columns, pd.MultiIndex):
+            grouped.columns = grouped.columns.droplevel(0)
+        
         # Rename columns to include model name
-        grouped = grouped.rename(columns={
-            'majority_vote': f'majority_vote_{model_name}',
-            'min_score': f'min_score_{model_name}',
-            'max_score': f'max_score_{model_name}',
-            'mean_score': f'mean_score_{model_name}',
-            'std_score': f'std_score_{model_name}'
-        })
+        rename_dict = {}
+        for col in grouped.columns:
+            if col != 'date_only':  # Don't rename the date column
+                if col in ['majority_vote', 'min_score', 'max_score', 'mean_score', 'std_score']:
+                    rename_dict[col] = f'{col}_{model_name}'
+        
+        grouped = grouped.rename(columns=rename_dict)
         
         # Merge with result dataframe
         result_df = result_df.merge(grouped, on='date_only', how='left')
