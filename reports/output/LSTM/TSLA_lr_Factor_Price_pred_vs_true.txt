@@ -1,0 +1,9 @@
+Date: 2025-07-31 11:53:47.355500 
+Ticker: TSLA 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'lr_majority_vote', 'lr_count_positive', 'lr_count_negative', 'lr_count_neutral'] 
+Target Column: Factor_Price 
+Sequence Length: 30 
+Hidden Size: 64 
+Number of Layers: 2 
+Dropout: 0.5 
+Metrics: {'RSE': 1.662540903209393, 'CORR': 0.09420426186434781, 'MAE': 0.04107542048919865, 'MAPE': 0.041949362767062674, 'RMSE': 0.04826716557609779, 'MSLE': 0.000583542014838629} 

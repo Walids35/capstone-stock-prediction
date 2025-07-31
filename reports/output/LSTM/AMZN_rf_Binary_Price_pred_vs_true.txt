@@ -1,0 +1,9 @@
+Date: 2025-07-31 12:01:55.632476 
+Ticker: AMZN 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'rf_majority_vote', 'rf_count_positive', 'rf_count_negative', 'rf_count_neutral'] 
+Target Column: Binary_Price 
+Sequence Length: 30 
+Hidden Size: 64 
+Number of Layers: 2 
+Dropout: 0.5 
+Metrics: {'optimal_threshold': 0.49859628081321716, 'auc': 0.5602564102564103, 'accuracy': 0.581081081081081, 'confusion_matrix': [[31, 39], [23, 55]], 'classification_report': {'0': {'precision': 0.5740740740740741, 'recall': 0.44285714285714284, 'f1-score': 0.5, 'support': 70.0}, '1': {'precision': 0.5851063829787234, 'recall': 0.7051282051282052, 'f1-score': 0.6395348837209303, 'support': 78.0}, 'accuracy': 0.581081081081081, 'macro avg': {'precision': 0.5795902285263987, 'recall': 0.573992673992674, 'f1-score': 0.5697674418604651, 'support': 148.0}, 'weighted avg': {'precision': 0.5798883990373351, 'recall': 0.581081081081081, 'f1-score': 0.5735386549340038, 'support': 148.0}}} 

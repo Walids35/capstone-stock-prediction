@@ -1,0 +1,9 @@
+Date: 2025-07-31 11:34:17.842477 
+Ticker: NFLX 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'deberta_label_negative_sum', 'deberta_label_positive_sum', 'deberta_label_neutral_sum', 'deberta_majority_vote', 'deberta_count_positive', 'deberta_count_negative', 'deberta_count_neutral'] 
+Target Column: Float_Price 
+Sequence Length: 30 
+Hidden Size: 64 
+Number of Layers: 2 
+Dropout: 0.5 
+Metrics: {'RSE': 0.5044642904836243, 'CORR': 0.8875959555460713, 'MAE': 26.908558231397574, 'MAPE': 0.057296175581298944, 'RMSE': 30.315875499072003, 'MSLE': 0.0044472531878039035} 

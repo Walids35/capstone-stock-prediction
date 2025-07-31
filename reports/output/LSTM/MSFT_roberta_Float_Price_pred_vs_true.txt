@@ -1,0 +1,9 @@
+Date: 2025-07-31 11:29:02.167849 
+Ticker: MSFT 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'roberta_label_negative_sum', 'roberta_label_positive_sum', 'roberta_label_neutral_sum', 'roberta_majority_vote', 'roberta_count_positive', 'roberta_count_negative', 'roberta_count_neutral'] 
+Target Column: Float_Price 
+Sequence Length: 30 
+Hidden Size: 64 
+Number of Layers: 2 
+Dropout: 0.5 
+Metrics: {'RSE': 0.9812116322580823, 'CORR': 0.9573992368101167, 'MAE': 22.585035902221513, 'MAPE': 0.05960066942953474, 'RMSE': 24.579396562751946, 'MSLE': 0.004393632486519683} 

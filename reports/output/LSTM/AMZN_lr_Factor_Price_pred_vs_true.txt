@@ -1,0 +1,9 @@
+Date: 2025-07-31 11:53:35.561958 
+Ticker: AMZN 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'lr_majority_vote', 'lr_count_positive', 'lr_count_negative', 'lr_count_neutral'] 
+Target Column: Factor_Price 
+Sequence Length: 30 
+Hidden Size: 64 
+Number of Layers: 2 
+Dropout: 0.5 
+Metrics: {'RSE': 2.1451684470993384, 'CORR': 0.16906475646106497, 'MAE': 0.03499519172064608, 'MAPE': 0.03527677145761191, 'RMSE': 0.03905892410703507, 'MSLE': 0.000377439956639218} 
