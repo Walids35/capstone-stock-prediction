@@ -51,6 +51,7 @@ def main():
     model_trainer.train_svm()
     model_trainer.train_random_forest()
 
+    # Running Bert-based models for the financial news of each ticker
     from pathlib import Path
     dataset_paths = [
         PROJ_ROOT / "data/raw/news data/AAPL_financial_news.csv",
@@ -83,6 +84,7 @@ def main():
             logger.info(f"       · {col}")
     
 
+    # Added trained lr, svm and rf with the financial news
     dataset_paths = [
         PROJ_ROOT / "data/interim/AAPL_financial_news_sentiment_analysis_results.csv",
         PROJ_ROOT / "data/interim/TSLA_financial_news_sentiment_analysis_results.csv",
