@@ -98,44 +98,136 @@ def identify_model_columns(news_df: pd.DataFrame) -> Dict[str, str]:
     return model_cols
 
 
-def aggregate_sentiment_by_date(news_df: pd.DataFrame, model_cols: Dict[str, str]) -> pd.DataFrame:
-    """Aggregate sentiment scores by date for each model in horizontal format."""
+def aggregate_sentiment_by_date(
+    news_df: pd.DataFrame
+) -> pd.DataFrame:
+    """Aggregate sentiment scores by date, then set 'mean_score' to the max
+       of all per-model mean scores (i.e. take the highest confidence)."""
     news_df = news_df.copy()
     news_df["date_only"] = extract_date_column(news_df)
+
+    # Base: total news count per date
+    result_df = (
+        news_df
+        .groupby("date_only")
+        .size()
+        .reset_index(name="total_news_count")
+    )
+
+    def majority_vote(series):
+        return series.mode().iloc[0] if not series.mode().empty else None
+
+    # Group by date and apply aggregations
+    aggregation = {
+        # Combined aggregations for each sentiment model (majority vote, min, max, and count by label)
+        'finbert_sentiment': [
+            majority_vote, 'min', 'max',
+            lambda x: (x == 2).sum(), 
+            lambda x: (x == 0).sum(), 
+            lambda x: (x == 1).sum()
+        ],
+        'roberta_sentiment': [
+            majority_vote, 'min', 'max',
+            lambda x: (x == 2).sum(), 
+            lambda x: (x == 0).sum(), 
+            lambda x: (x == 1).sum()
+        ],
+        'deberta_sentiment': [
+            majority_vote, 'min', 'max',
+            lambda x: (x == 2).sum(), 
+            lambda x: (x == 0).sum(), 
+            lambda x: (x == 1).sum()
+        ],
+        'svm_sentiment': [
+            majority_vote, 'min', 'max',
+            lambda x: (x == 2).sum(), 
+            lambda x: (x == 0).sum(), 
+            lambda x: (x == 1).sum()
+        ],
+        'rf_sentiment': [
+            majority_vote, 'min', 'max',
+            lambda x: (x == 2).sum(), 
+            lambda x: (x == 0).sum(), 
+            lambda x: (x == 1).sum()
+        ],
+        'lr_sentiment': [
+            majority_vote, 'min', 'max',
+            lambda x: (x == 2).sum(), 
+            lambda x: (x == 0).sum(), 
+            lambda x: (x == 1).sum()
+        ],
+
+        # Confidence sum
+        'finbert_label_positive': 'sum',
+        'finbert_label_negative': 'sum',
+        'finbert_label_neutral': 'sum',
+        'roberta_label_positive': 'sum',
+        'roberta_label_negative': 'sum',
+        'roberta_label_neutral': 'sum',
+        'deberta_label_bearish': 'sum',
+        'deberta_label_bullish': 'sum',
+        'deberta_label_neutral': 'sum',
+    }
+
+    # Perform aggregation
+    grouped = news_df.groupby('date_only').agg(aggregation)
     
-    # Start with the date column
-    result_df = news_df.groupby("date_only").size().reset_index(name='total_news_count')
+    # Flatten column names first
+    grouped.columns = ['_'.join(col).strip() for col in grouped.columns.values]
     
-    # For each model, calculate aggregations and add as columns
-    for model_name, col_name in model_cols.items():
-        if col_name not in news_df.columns:
-            logger.warning(f"Column {col_name} not found for model {model_name}")
-            continue
-            
-        # Group by date and aggregate for this model
-        grouped = news_df.groupby("date_only")[col_name].agg([
-            ('majority_vote', lambda x: x.value_counts().idxmax() if len(x) > 0 else np.nan),
-            ('min_score', 'min'),
-            ('max_score', 'max'),
-            ('mean_score', 'mean'),
-            ('std_score', 'std')
-        ]).reset_index()
+    # Now rename the flattened columns
+    grouped.rename(columns={
+        # Majority vote, min, max columns
+        "finbert_sentiment_majority_vote": "finbert_majority_vote",
+        "finbert_sentiment_min": "finbert_min",
+        "finbert_sentiment_max": "finbert_max",
+        "roberta_sentiment_majority_vote": "roberta_majority_vote",
+        "roberta_sentiment_min": "roberta_min",
+        "roberta_sentiment_max": "roberta_max",
+        "deberta_sentiment_majority_vote": "deberta_majority_vote",
+        "deberta_sentiment_min": "deberta_min",
+        "deberta_sentiment_max": "deberta_max",
+        "svm_sentiment_majority_vote": "svm_majority_vote",
+        "svm_sentiment_min": "svm_min",
+        "svm_sentiment_max": "svm_max",
+        "lr_sentiment_majority_vote": "lr_majority_vote",
+        "lr_sentiment_min": "lr_min",
+        "lr_sentiment_max": "lr_max",
+        "rf_sentiment_majority_vote": "rf_majority_vote",
+        "rf_sentiment_min": "rf_min",
+        "rf_sentiment_max": "rf_max",
         
-        # Rename columns to include model name
-        grouped = grouped.rename(columns={
-            'majority_vote': f'majority_vote_{model_name}',
-            'min_score': f'min_score_{model_name}',
-            'max_score': f'max_score_{model_name}',
-            'mean_score': f'mean_score_{model_name}',
-            'std_score': f'std_score_{model_name}'
-        })
-        
-        # Merge with result dataframe
-        result_df = result_df.merge(grouped, on='date_only', how='left')
+        # Count columns
+        "finbert_sentiment_<lambda_0>": "finbert_count_negative",
+        "finbert_sentiment_<lambda_1>": "finbert_count_neutral",
+        "finbert_sentiment_<lambda_2>": "finbert_count_positive",
+        "deberta_sentiment_<lambda_0>": "deberta_count_negative",
+        "deberta_sentiment_<lambda_1>": "deberta_count_neutral",
+        "deberta_sentiment_<lambda_2>": "deberta_count_positive",
+        "roberta_sentiment_<lambda_0>": "roberta_count_negative",
+        "roberta_sentiment_<lambda_1>": "roberta_count_neutral",
+        "roberta_sentiment_<lambda_2>": "roberta_count_positive",
+        "svm_sentiment_<lambda_0>": "svm_count_negative",
+        "svm_sentiment_<lambda_1>": "svm_count_neutral",
+        "svm_sentiment_<lambda_2>": "svm_count_positive",
+        "lr_sentiment_<lambda_0>": "lr_count_negative",
+        "lr_sentiment_<lambda_1>": "lr_count_neutral",
+        "lr_sentiment_<lambda_2>": "lr_count_positive",
+        "rf_sentiment_<lambda_0>": "rf_count_negative",
+        "rf_sentiment_<lambda_1>": "rf_count_neutral",
+        "rf_sentiment_<lambda_2>": "rf_count_positive",
+        "deberta_label_bearish_sum": "deberta_label_negative_sum",
+        "deberta_label_bullish_sum": "deberta_label_positive_sum",
+        "deberta_label_neutral_sum": "deberta_label_neutral_sum",
+    }, inplace=True)
     
-    if len(result_df.columns) == 1:  # Only date_only column
+    grouped = grouped.reset_index()
+
+    result_df = result_df.merge(grouped, on="date_only", how="left")
+    
+    if len(result_df.columns) == 1:
         raise ValueError("No valid model columns found for aggregation")
-    
+
     return result_df
 
 
@@ -202,7 +294,7 @@ def main(
         logger.info(f"Found model columns: {list(model_cols.keys())}")
         
         # Aggregate sentiment by date
-        sentiment_agg_df = aggregate_sentiment_by_date(news_df, model_cols)
+        sentiment_agg_df = aggregate_sentiment_by_date(news_df)
         logger.info(f"Aggregated sentiment data shape: {sentiment_agg_df.shape}")
         
         # Merge with price data
