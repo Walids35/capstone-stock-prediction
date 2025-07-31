@@ -16,3 +16,8 @@ class ExpConfigs:
     lr: float
     batch_size: int
     epochs: int
+    feature_columns: list
+    target_column: str
+    ticker: str
+    news_model: str
+    force_retrain: bool

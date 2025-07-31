@@ -1,5 +1,6 @@
 import torch
 import numpy as np
+import random
 
 class EarlyStopping:
     def __init__(self, patience=10, verbose=False, delta=0):
@@ -28,3 +29,17 @@ class EarlyStopping:
             print(f"Validation loss decreased ({self.val_loss_min:.6f} --> {val_loss:.6f}).  Saving model...")
         torch.save(model.state_dict(), 'checkpoint.pt')
         self.val_loss_min = val_loss
+
+class Seeding:
+    def __init__(self, seed: int = 42):
+        self.seed = seed
+
+    def set(self):
+        random.seed(self.seed)
+        np.random.seed(self.seed)
+        torch.manual_seed(self.seed)
+        torch.cuda.manual_seed(self.seed)
+        torch.cuda.manual_seed_all(self.seed)
+        torch.backends.cudnn.deterministic = True
+        torch.backends.cudnn.benchmark = False
+        print(f"✅ Torch seed set to {self.seed}")
