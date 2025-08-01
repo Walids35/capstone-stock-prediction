@@ -47,7 +47,7 @@ def model_evaluation(y_pred, y_test, ticker, news_model, target_column):
   plt.legend(loc='lower right')
   plt.grid(True)
   plt.tight_layout()
-  plt.savefig(f"reports/output/LSTM/{ticker}_{news_model}_{target_column}_roc_curve.png")
+  plt.savefig(f"reports/output/LSTM_wo_count_sum/{ticker}_{news_model}_{target_column}_roc_curve.png")
 
   return y_pred_binary, optimal_threshold
 
@@ -182,10 +182,10 @@ def main(
     plt.ylabel("Value" if not is_classification else "Class")
     plt.legend()
     plt.tight_layout()
-    plt.savefig(f"reports/output/LSTM/{ticker}_{news_model}_{target_column}_pred_vs_true.png")
+    plt.savefig(f"reports/output/LSTM_wo_count_sum/{ticker}_{news_model}_{target_column}_pred_vs_true.png")
 
     # --- Save run info ---
-    with open(f"reports/output/LSTM/{ticker}_{news_model}_{target_column}_pred_vs_true.txt", "w") as f:
+    with open(f"reports/output/LSTM_wo_count_sum/{ticker}_{news_model}_{target_column}_pred_vs_true.txt", "w") as f:
         f.write(f"Date: {datetime.now()} \n")
         f.write(f"Ticker: {ticker} \n")
         f.write(f"Feature Columns: {feature_columns} \n")
