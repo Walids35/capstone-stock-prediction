@@ -1,0 +1,12 @@
+Date: 2025-08-01 14:39:52.034763 
+Ticker: AMZN 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'rf_majority_vote', 'rf_count_positive', 'rf_count_negative', 'rf_count_neutral'] 
+Target Column: Binary_Price 
+Sequence Length: 30 
+Model: tPatchGNN 
+Patch Length: 10 
+Time Embedding Dim: 16 
+Node Dimension: 32 
+Attention Heads: 4 
+Dropout: 0.3 
+Metrics: {'optimal_threshold': inf, 'auc': 0.5, 'accuracy': 0.47297297297297297, 'confusion_matrix': [[70, 0], [78, 0]], 'classification_report': {'0.0': {'precision': 0.47297297297297297, 'recall': 1.0, 'f1-score': 0.6422018348623854, 'support': 70.0}, '1.0': {'precision': 0.0, 'recall': 0.0, 'f1-score': 0.0, 'support': 78.0}, 'accuracy': 0.47297297297297297, 'macro avg': {'precision': 0.23648648648648649, 'recall': 0.5, 'f1-score': 0.3211009174311927, 'support': 148.0}, 'weighted avg': {'precision': 0.2237034331628926, 'recall': 0.47297297297297297, 'f1-score': 0.30374411108356064, 'support': 148.0}}} 

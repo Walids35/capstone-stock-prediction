@@ -1,0 +1,9 @@
+Date: 2025-07-31 13:56:06.843918 
+Ticker: TSLA 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'deberta_majority_vote'] 
+Target Column: Factor_Price 
+Sequence Length: 30 
+Hidden Size: 64 
+Number of Layers: 2 
+Dropout: 0.5 
+Metrics: {'RSE': 1.675859122097266, 'CORR': 0.15796680481452366, 'MAE': 0.04147223629369681, 'MAPE': 0.04235239624975431, 'RMSE': 0.04865382233443604, 'MSLE': 0.0005927235551599529} 

@@ -1,0 +1,12 @@
+Date: 2025-08-01 14:23:09.140524 
+Ticker: MSFT 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'finbert_majority_vote', 'finbert_count_positive', 'finbert_count_negative', 'finbert_count_neutral', 'finbert_label_positive_sum', 'finbert_label_negative_sum', 'finbert_label_neutral_sum'] 
+Target Column: Factor_Price 
+Sequence Length: 30 
+Model: tPatchGNN 
+Patch Length: 10 
+Time Embedding Dim: 16 
+Node Dimension: 32 
+Attention Heads: 4 
+Dropout: 0.3 
+Metrics: {'RSE': 2.793204, 'CORR': 0.08570653192574845, 'MAE': 0.19805464, 'MAPE': 0.43386176, 'RMSE': 0.2121108, 'MSLE': 0.018336724} 

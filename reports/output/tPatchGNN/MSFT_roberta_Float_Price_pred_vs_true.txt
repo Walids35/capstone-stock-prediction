@@ -1,0 +1,12 @@
+Date: 2025-08-01 14:41:45.480619 
+Ticker: MSFT 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'roberta_majority_vote', 'roberta_count_positive', 'roberta_count_negative', 'roberta_count_neutral', 'roberta_label_positive_sum', 'roberta_label_negative_sum', 'roberta_label_neutral_sum'] 
+Target Column: Float_Price 
+Sequence Length: 30 
+Model: tPatchGNN 
+Patch Length: 10 
+Time Embedding Dim: 16 
+Node Dimension: 32 
+Attention Heads: 4 
+Dropout: 0.3 
+Metrics: {'RSE': 1.2986779, 'CORR': 0.6867313184289232, 'MAE': 0.13334875, 'MAPE': 0.1601449, 'RMSE': 0.16177994, 'MSLE': 0.008346931} 

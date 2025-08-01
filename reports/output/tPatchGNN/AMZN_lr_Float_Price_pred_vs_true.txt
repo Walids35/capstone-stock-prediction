@@ -1,0 +1,12 @@
+Date: 2025-08-01 14:28:08.362710 
+Ticker: AMZN 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'lr_majority_vote', 'lr_count_positive', 'lr_count_negative', 'lr_count_neutral'] 
+Target Column: Float_Price 
+Sequence Length: 30 
+Model: tPatchGNN 
+Patch Length: 10 
+Time Embedding Dim: 16 
+Node Dimension: 32 
+Attention Heads: 4 
+Dropout: 0.3 
+Metrics: {'RSE': 0.789716, 'CORR': 0.7598133844816638, 'MAE': 0.06713885, 'MAPE': 0.080333136, 'RMSE': 0.0909742, 'MSLE': 0.002501296} 

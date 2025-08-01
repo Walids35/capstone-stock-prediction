@@ -1,0 +1,9 @@
+Date: 2025-07-31 12:52:24.840188 
+Ticker: AAPL 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'deberta_label_negative_sum', 'deberta_label_positive_sum', 'deberta_label_neutral_sum', 'deberta_majority_vote'] 
+Target Column: Delta_Price 
+Sequence Length: 30 
+Hidden Size: 64 
+Number of Layers: 2 
+Dropout: 0.5 
+Metrics: {'RSE': 1.948295389884032, 'CORR': 0.08892639265954562, 'MAE': 5.798599247710831, 'MAPE': inf, 'RMSE': 6.651462272449102, 'MSLE': nan} 

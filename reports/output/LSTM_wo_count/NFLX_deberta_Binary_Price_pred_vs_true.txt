@@ -1,0 +1,9 @@
+Date: 2025-07-31 12:53:55.243909 
+Ticker: NFLX 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'deberta_label_negative_sum', 'deberta_label_positive_sum', 'deberta_label_neutral_sum', 'deberta_majority_vote'] 
+Target Column: Binary_Price 
+Sequence Length: 30 
+Hidden Size: 64 
+Number of Layers: 2 
+Dropout: 0.5 
+Metrics: {'optimal_threshold': 0.5108052492141724, 'auc': 0.5055643879173292, 'accuracy': 0.5352112676056338, 'confusion_matrix': [[22, 12], [21, 16]], 'classification_report': {'0': {'precision': 0.5116279069767442, 'recall': 0.6470588235294118, 'f1-score': 0.5714285714285714, 'support': 34.0}, '1': {'precision': 0.5714285714285714, 'recall': 0.43243243243243246, 'f1-score': 0.49230769230769234, 'support': 37.0}, 'accuracy': 0.5352112676056338, 'macro avg': {'precision': 0.5415282392026578, 'recall': 0.5397456279809221, 'f1-score': 0.5318681318681319, 'support': 71.0}, 'weighted avg': {'precision': 0.5427916335220627, 'recall': 0.5352112676056338, 'f1-score': 0.5301965639993809, 'support': 71.0}}} 

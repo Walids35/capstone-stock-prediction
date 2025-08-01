@@ -1,0 +1,9 @@
+Date: 2025-07-31 14:13:09.409710 
+Ticker: AMZN 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'svm_majority_vote'] 
+Target Column: Binary_Price 
+Sequence Length: 30 
+Hidden Size: 64 
+Number of Layers: 2 
+Dropout: 0.5 
+Metrics: {'optimal_threshold': 0.49577686190605164, 'auc': 0.5844322344322345, 'accuracy': 0.581081081081081, 'confusion_matrix': [[42, 28], [34, 44]], 'classification_report': {'0': {'precision': 0.5526315789473685, 'recall': 0.6, 'f1-score': 0.5753424657534246, 'support': 70.0}, '1': {'precision': 0.6111111111111112, 'recall': 0.5641025641025641, 'f1-score': 0.5866666666666667, 'support': 78.0}, 'accuracy': 0.581081081081081, 'macro avg': {'precision': 0.5818713450292399, 'recall': 0.582051282051282, 'f1-score': 0.5810045662100456, 'support': 148.0}, 'weighted avg': {'precision': 0.5834518729255572, 'recall': 0.581081081081081, 'f1-score': 0.5813106256941873, 'support': 148.0}}} 

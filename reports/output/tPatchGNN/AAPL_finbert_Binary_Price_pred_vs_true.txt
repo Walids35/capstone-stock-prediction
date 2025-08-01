@@ -1,0 +1,12 @@
+Date: 2025-08-01 14:26:14.084634 
+Ticker: AAPL 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'finbert_majority_vote', 'finbert_count_positive', 'finbert_count_negative', 'finbert_count_neutral', 'finbert_label_positive_sum', 'finbert_label_negative_sum', 'finbert_label_neutral_sum'] 
+Target Column: Binary_Price 
+Sequence Length: 30 
+Model: tPatchGNN 
+Patch Length: 10 
+Time Embedding Dim: 16 
+Node Dimension: 32 
+Attention Heads: 4 
+Dropout: 0.3 
+Metrics: {'optimal_threshold': 0.5027049, 'auc': 0.5033088235294118, 'accuracy': 0.5337837837837838, 'confusion_matrix': [[51, 17], [52, 28]], 'classification_report': {'0.0': {'precision': 0.49514563106796117, 'recall': 0.75, 'f1-score': 0.5964912280701754, 'support': 68.0}, '1.0': {'precision': 0.6222222222222222, 'recall': 0.35, 'f1-score': 0.448, 'support': 80.0}, 'accuracy': 0.5337837837837838, 'macro avg': {'precision': 0.5586839266450917, 'recall': 0.55, 'f1-score': 0.5222456140350877, 'support': 148.0}, 'weighted avg': {'precision': 0.5638356803405348, 'recall': 0.5337837837837838, 'f1-score': 0.5162256993835941, 'support': 148.0}}} 

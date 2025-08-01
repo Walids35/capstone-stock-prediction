@@ -1,0 +1,12 @@
+Date: 2025-08-01 15:32:23.466889 
+Ticker: MSFT 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'rf_majority_vote', 'rf_count_positive', 'rf_count_negative', 'rf_count_neutral'] 
+Target Column: Factor_Price 
+Sequence Length: 30 
+Model: PatchTST 
+Patch Length: 12 
+Model Dimension: 256 
+Attention Heads: 8 
+Encoder Layers: 6 
+Dropout: 0.5 
+Metrics: {'RSE': 10.628675, 'CORR': -0.1164443018298839, 'MAE': 0.7999129, 'MAPE': 1.671695, 'RMSE': 0.8071222, 'MSLE': 0.18723418} 

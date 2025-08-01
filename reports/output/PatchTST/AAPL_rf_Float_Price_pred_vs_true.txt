@@ -1,0 +1,12 @@
+Date: 2025-08-01 15:30:12.226933 
+Ticker: AAPL 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'rf_majority_vote', 'rf_count_positive', 'rf_count_negative', 'rf_count_neutral'] 
+Target Column: Float_Price 
+Sequence Length: 30 
+Model: PatchTST 
+Patch Length: 12 
+Model Dimension: 256 
+Attention Heads: 8 
+Encoder Layers: 6 
+Dropout: 0.5 
+Metrics: {'RSE': 4.6532874, 'CORR': 0.4704953589323842, 'MAE': 0.35149193, 'MAPE': 0.4380718, 'RMSE': 0.36132357, 'MSLE': 0.050386015} 

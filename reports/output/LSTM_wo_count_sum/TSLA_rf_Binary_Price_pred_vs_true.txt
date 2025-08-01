@@ -1,0 +1,9 @@
+Date: 2025-07-31 14:08:24.677024 
+Ticker: TSLA 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'rf_majority_vote'] 
+Target Column: Binary_Price 
+Sequence Length: 30 
+Hidden Size: 64 
+Number of Layers: 2 
+Dropout: 0.5 
+Metrics: {'optimal_threshold': 0.5077650547027588, 'auc': 0.6264775413711584, 'accuracy': 0.6521739130434783, 'confusion_matrix': [[17, 28], [4, 43]], 'classification_report': {'0': {'precision': 0.8095238095238095, 'recall': 0.37777777777777777, 'f1-score': 0.5151515151515151, 'support': 45.0}, '1': {'precision': 0.6056338028169014, 'recall': 0.9148936170212766, 'f1-score': 0.7288135593220338, 'support': 47.0}, 'accuracy': 0.6521739130434783, 'macro avg': {'precision': 0.7075788061703554, 'recall': 0.6463356973995271, 'f1-score': 0.6219825372367744, 'support': 92.0}, 'weighted avg': {'precision': 0.7053626104452804, 'recall': 0.6521739130434783, 'f1-score': 0.6243049507603671, 'support': 92.0}}} 

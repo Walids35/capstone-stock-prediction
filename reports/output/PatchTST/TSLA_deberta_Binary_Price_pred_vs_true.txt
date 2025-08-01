@@ -1,0 +1,12 @@
+Date: 2025-08-01 15:03:32.133806 
+Ticker: TSLA 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'deberta_majority_vote', 'deberta_count_positive', 'deberta_count_negative', 'deberta_count_neutral', 'deberta_label_positive_sum', 'deberta_label_negative_sum', 'deberta_label_neutral_sum'] 
+Target Column: Binary_Price 
+Sequence Length: 30 
+Model: PatchTST 
+Patch Length: 12 
+Model Dimension: 256 
+Attention Heads: 8 
+Encoder Layers: 6 
+Dropout: 0.5 
+Metrics: {'optimal_threshold': 0.20706227, 'auc': 0.49881796690307323, 'accuracy': 0.5543478260869565, 'confusion_matrix': [[4, 41], [0, 47]], 'classification_report': {'0.0': {'precision': 1.0, 'recall': 0.08888888888888889, 'f1-score': 0.16326530612244897, 'support': 45.0}, '1.0': {'precision': 0.5340909090909091, 'recall': 1.0, 'f1-score': 0.6962962962962963, 'support': 47.0}, 'accuracy': 0.5543478260869565, 'macro avg': {'precision': 0.7670454545454546, 'recall': 0.5444444444444444, 'f1-score': 0.4297808012093726, 'support': 92.0}, 'weighted avg': {'precision': 0.7619812252964426, 'recall': 0.5543478260869565, 'f1-score': 0.435574616319958, 'support': 92.0}}} 

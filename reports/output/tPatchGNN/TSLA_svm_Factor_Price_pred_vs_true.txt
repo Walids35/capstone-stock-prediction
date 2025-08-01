@@ -1,0 +1,12 @@
+Date: 2025-08-01 14:50:19.293655 
+Ticker: TSLA 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'svm_majority_vote', 'svm_count_positive', 'svm_count_negative', 'svm_count_neutral'] 
+Target Column: Factor_Price 
+Sequence Length: 30 
+Model: tPatchGNN 
+Patch Length: 10 
+Time Embedding Dim: 16 
+Node Dimension: 32 
+Attention Heads: 4 
+Dropout: 0.3 
+Metrics: {'RSE': 1.7828755, 'CORR': 0.29087409876896503, 'MAE': 0.19215922, 'MAPE': 1.9416944, 'RMSE': 0.2226994, 'MSLE': 0.021545425} 

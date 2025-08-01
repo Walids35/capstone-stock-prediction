@@ -1,0 +1,12 @@
+Date: 2025-08-01 15:17:52.824068 
+Ticker: AAPL 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'finbert_majority_vote', 'finbert_count_positive', 'finbert_count_negative', 'finbert_count_neutral', 'finbert_label_positive_sum', 'finbert_label_negative_sum', 'finbert_label_neutral_sum'] 
+Target Column: Delta_Price 
+Sequence Length: 30 
+Model: PatchTST 
+Patch Length: 12 
+Model Dimension: 256 
+Attention Heads: 8 
+Encoder Layers: 6 
+Dropout: 0.5 
+Metrics: {'RSE': 1.5387698, 'CORR': 0.06431991443622435, 'MAE': 0.16476297, 'MAPE': inf, 'RMSE': 0.20542525, 'MSLE': 0.019897157} 

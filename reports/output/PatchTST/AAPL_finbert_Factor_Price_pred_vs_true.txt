@@ -1,0 +1,12 @@
+Date: 2025-08-01 15:15:50.452263 
+Ticker: AAPL 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'finbert_majority_vote', 'finbert_count_positive', 'finbert_count_negative', 'finbert_count_neutral', 'finbert_label_positive_sum', 'finbert_label_negative_sum', 'finbert_label_neutral_sum'] 
+Target Column: Factor_Price 
+Sequence Length: 30 
+Model: PatchTST 
+Patch Length: 12 
+Model Dimension: 256 
+Attention Heads: 8 
+Encoder Layers: 6 
+Dropout: 0.5 
+Metrics: {'RSE': 3.6606522, 'CORR': 0.029269555850073552, 'MAE': 0.3391737, 'MAPE': 1.0407456, 'RMSE': 0.3656599, 'MSLE': 0.055748887} 

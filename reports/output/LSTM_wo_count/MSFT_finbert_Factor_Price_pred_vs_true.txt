@@ -1,0 +1,9 @@
+Date: 2025-07-31 12:41:42.321481 
+Ticker: MSFT 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'finbert_label_negative_sum', 'finbert_label_positive_sum', 'finbert_label_neutral_sum', 'finbert_majority_vote'] 
+Target Column: Factor_Price 
+Sequence Length: 30 
+Hidden Size: 64 
+Number of Layers: 2 
+Dropout: 0.5 
+Metrics: {'RSE': 2.728234045407972, 'CORR': 0.1441767123690861, 'MAE': 0.030756879755045784, 'MAPE': 0.030828015403009758, 'RMSE': 0.03302910284511249, 'MSLE': 0.00026911118764307197} 

@@ -1,0 +1,12 @@
+Date: 2025-08-01 15:09:57.356813 
+Ticker: TSLA 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'deberta_majority_vote', 'deberta_count_positive', 'deberta_count_negative', 'deberta_count_neutral', 'deberta_label_positive_sum', 'deberta_label_negative_sum', 'deberta_label_neutral_sum'] 
+Target Column: Delta_Price 
+Sequence Length: 30 
+Model: PatchTST 
+Patch Length: 12 
+Model Dimension: 256 
+Attention Heads: 8 
+Encoder Layers: 6 
+Dropout: 0.5 
+Metrics: {'RSE': 2.766088, 'CORR': -0.08830310024814828, 'MAE': 0.23439376, 'MAPE': 0.4488071, 'RMSE': 0.26355758, 'MSLE': 0.024647953} 

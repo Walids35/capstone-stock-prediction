@@ -1,0 +1,9 @@
+Date: 2025-07-31 12:40:21.609594 
+Ticker: AMZN 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'finbert_label_negative_sum', 'finbert_label_positive_sum', 'finbert_label_neutral_sum', 'finbert_majority_vote'] 
+Target Column: Float_Price 
+Sequence Length: 30 
+Hidden Size: 64 
+Number of Layers: 2 
+Dropout: 0.5 
+Metrics: {'RSE': 0.6788190706296704, 'CORR': 0.9278309121294815, 'MAE': 10.272343484911977, 'MAPE': 0.04799190908426325, 'RMSE': 12.530610756807311, 'MSLE': 0.0035217828060124597} 

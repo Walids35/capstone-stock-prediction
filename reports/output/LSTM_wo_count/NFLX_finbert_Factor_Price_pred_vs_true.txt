@@ -1,0 +1,9 @@
+Date: 2025-07-31 12:41:53.869673 
+Ticker: NFLX 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'finbert_label_negative_sum', 'finbert_label_positive_sum', 'finbert_label_neutral_sum', 'finbert_majority_vote'] 
+Target Column: Factor_Price 
+Sequence Length: 30 
+Hidden Size: 64 
+Number of Layers: 2 
+Dropout: 0.5 
+Metrics: {'RSE': 0.991803131874315, 'CORR': 0.241438916165996, 'MAE': 0.015081311792597668, 'MAPE': 0.014627491434629167, 'RMSE': 0.026607957032866135, 'MSLE': 0.00016837820847411807} 

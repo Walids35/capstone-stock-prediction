@@ -1,0 +1,12 @@
+Date: 2025-08-01 14:16:02.792028 
+Ticker: AAPL 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'deberta_majority_vote', 'deberta_count_positive', 'deberta_count_negative', 'deberta_count_neutral', 'deberta_label_positive_sum', 'deberta_label_negative_sum', 'deberta_label_neutral_sum'] 
+Target Column: Factor_Price 
+Sequence Length: 30 
+Model: tPatchGNN 
+Patch Length: 10 
+Time Embedding Dim: 16 
+Node Dimension: 32 
+Attention Heads: 4 
+Dropout: 0.3 
+Metrics: {'RSE': 3.1720338, 'CORR': 0.14856037059453042, 'MAE': 0.30069727, 'MAPE': 0.94601315, 'RMSE': 0.31685215, 'MSLE': 0.044390094} 

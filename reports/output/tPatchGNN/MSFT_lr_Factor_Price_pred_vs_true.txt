@@ -1,0 +1,12 @@
+Date: 2025-08-01 14:29:54.663787 
+Ticker: MSFT 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'lr_majority_vote', 'lr_count_positive', 'lr_count_negative', 'lr_count_neutral'] 
+Target Column: Factor_Price 
+Sequence Length: 30 
+Model: tPatchGNN 
+Patch Length: 10 
+Time Embedding Dim: 16 
+Node Dimension: 32 
+Attention Heads: 4 
+Dropout: 0.3 
+Metrics: {'RSE': 2.8126562, 'CORR': 0.08687179045715673, 'MAE': 0.19963351, 'MAPE': 0.4371048, 'RMSE': 0.21358797, 'MSLE': 0.018570831} 

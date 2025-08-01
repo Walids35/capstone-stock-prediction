@@ -1,0 +1,9 @@
+Date: 2025-07-31 12:48:51.083141 
+Ticker: AAPL 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'roberta_label_negative_sum', 'roberta_label_positive_sum', 'roberta_label_neutral_sum', 'roberta_majority_vote'] 
+Target Column: Binary_Price 
+Sequence Length: 30 
+Hidden Size: 64 
+Number of Layers: 2 
+Dropout: 0.5 
+Metrics: {'optimal_threshold': 0.569689154624939, 'auc': 0.5397058823529413, 'accuracy': 0.5540540540540541, 'confusion_matrix': [[37, 31], [35, 45]], 'classification_report': {'0': {'precision': 0.5138888888888888, 'recall': 0.5441176470588235, 'f1-score': 0.5285714285714286, 'support': 68.0}, '1': {'precision': 0.5921052631578947, 'recall': 0.5625, 'f1-score': 0.5769230769230769, 'support': 80.0}, 'accuracy': 0.5540540540540541, 'macro avg': {'precision': 0.5529970760233918, 'recall': 0.5533088235294117, 'f1-score': 0.5527472527472528, 'support': 148.0}, 'weighted avg': {'precision': 0.5561680101153785, 'recall': 0.5540540540540541, 'f1-score': 0.5547074547074546, 'support': 148.0}}} 

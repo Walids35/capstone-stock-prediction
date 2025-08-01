@@ -1,0 +1,9 @@
+Date: 2025-07-31 12:43:04.788067 
+Ticker: NFLX 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'finbert_label_negative_sum', 'finbert_label_positive_sum', 'finbert_label_neutral_sum', 'finbert_majority_vote'] 
+Target Column: Delta_Price 
+Sequence Length: 30 
+Hidden Size: 64 
+Number of Layers: 2 
+Dropout: 0.5 
+Metrics: {'RSE': 1.06036480185079, 'CORR': 0.28638223940908025, 'MAE': 7.407695545960971, 'MAPE': 1.7859159945287049, 'RMSE': 12.072557465254562, 'MSLE': nan} 

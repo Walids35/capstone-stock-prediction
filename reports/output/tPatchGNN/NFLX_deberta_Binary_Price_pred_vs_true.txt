@@ -1,0 +1,12 @@
+Date: 2025-08-01 14:19:59.540137 
+Ticker: NFLX 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'deberta_majority_vote', 'deberta_count_positive', 'deberta_count_negative', 'deberta_count_neutral', 'deberta_label_positive_sum', 'deberta_label_negative_sum', 'deberta_label_neutral_sum'] 
+Target Column: Binary_Price 
+Sequence Length: 30 
+Model: tPatchGNN 
+Patch Length: 10 
+Time Embedding Dim: 16 
+Node Dimension: 32 
+Attention Heads: 4 
+Dropout: 0.3 
+Metrics: {'optimal_threshold': 0.5011966, 'auc': 0.5222575516693164, 'accuracy': 0.5492957746478874, 'confusion_matrix': [[31, 3], [29, 8]], 'classification_report': {'0.0': {'precision': 0.5166666666666667, 'recall': 0.9117647058823529, 'f1-score': 0.6595744680851063, 'support': 34.0}, '1.0': {'precision': 0.7272727272727273, 'recall': 0.21621621621621623, 'f1-score': 0.3333333333333333, 'support': 37.0}, 'accuracy': 0.5492957746478874, 'macro avg': {'precision': 0.6219696969696971, 'recall': 0.5639904610492845, 'f1-score': 0.4964539007092198, 'support': 71.0}, 'weighted avg': {'precision': 0.626419120785318, 'recall': 0.5492957746478874, 'f1-score': 0.4895614823693936, 'support': 71.0}}} 

@@ -1,0 +1,12 @@
+Date: 2025-08-01 15:28:46.459222 
+Ticker: NFLX 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'rf_majority_vote', 'rf_count_positive', 'rf_count_negative', 'rf_count_neutral'] 
+Target Column: Binary_Price 
+Sequence Length: 30 
+Model: PatchTST 
+Patch Length: 12 
+Model Dimension: 256 
+Attention Heads: 8 
+Encoder Layers: 6 
+Dropout: 0.5 
+Metrics: {'optimal_threshold': 0.36713323, 'auc': 0.5620031796502385, 'accuracy': 0.5915492957746479, 'confusion_matrix': [[16, 18], [11, 26]], 'classification_report': {'0.0': {'precision': 0.5925925925925926, 'recall': 0.47058823529411764, 'f1-score': 0.5245901639344263, 'support': 34.0}, '1.0': {'precision': 0.5909090909090909, 'recall': 0.7027027027027027, 'f1-score': 0.6419753086419753, 'support': 37.0}, 'accuracy': 0.5915492957746479, 'macro avg': {'precision': 0.5917508417508417, 'recall': 0.5866454689984102, 'f1-score': 0.5832827362882007, 'support': 71.0}, 'weighted avg': {'precision': 0.5917152748138663, 'recall': 0.5915492957746479, 'f1-score': 0.5857627041341349, 'support': 71.0}}} 

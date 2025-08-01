@@ -1,0 +1,12 @@
+Date: 2025-08-01 14:16:18.690380 
+Ticker: MSFT 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'deberta_majority_vote', 'deberta_count_positive', 'deberta_count_negative', 'deberta_count_neutral', 'deberta_label_positive_sum', 'deberta_label_negative_sum', 'deberta_label_neutral_sum'] 
+Target Column: Factor_Price 
+Sequence Length: 30 
+Model: tPatchGNN 
+Patch Length: 10 
+Time Embedding Dim: 16 
+Node Dimension: 32 
+Attention Heads: 4 
+Dropout: 0.3 
+Metrics: {'RSE': 2.7949579, 'CORR': 0.10148224615468769, 'MAE': 0.19819844, 'MAPE': 0.43415654, 'RMSE': 0.21224397, 'MSLE': 0.01835778} 

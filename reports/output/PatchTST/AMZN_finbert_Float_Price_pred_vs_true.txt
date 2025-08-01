@@ -1,0 +1,12 @@
+Date: 2025-08-01 15:14:01.247731 
+Ticker: AMZN 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'finbert_majority_vote', 'finbert_count_positive', 'finbert_count_negative', 'finbert_count_neutral', 'finbert_label_positive_sum', 'finbert_label_negative_sum', 'finbert_label_neutral_sum'] 
+Target Column: Float_Price 
+Sequence Length: 30 
+Model: PatchTST 
+Patch Length: 12 
+Model Dimension: 256 
+Attention Heads: 8 
+Encoder Layers: 6 
+Dropout: 0.5 
+Metrics: {'RSE': 3.8020747, 'CORR': 0.3347371297990813, 'MAE': 0.42345998, 'MAPE': 0.53892684, 'RMSE': 0.43799376, 'MSLE': 0.077910796} 

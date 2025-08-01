@@ -1,0 +1,12 @@
+Date: 2025-08-01 15:30:44.874525 
+Ticker: NFLX 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'rf_majority_vote', 'rf_count_positive', 'rf_count_negative', 'rf_count_neutral'] 
+Target Column: Float_Price 
+Sequence Length: 30 
+Model: PatchTST 
+Patch Length: 12 
+Model Dimension: 256 
+Attention Heads: 8 
+Encoder Layers: 6 
+Dropout: 0.5 
+Metrics: {'RSE': 2.2501798, 'CORR': 0.39432462852368755, 'MAE': 0.28734636, 'MAPE': 0.37834215, 'RMSE': 0.31661937, 'MSLE': 0.03947123} 

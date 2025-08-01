@@ -1,0 +1,12 @@
+Date: 2025-08-01 14:23:16.959765 
+Ticker: TSLA 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'finbert_majority_vote', 'finbert_count_positive', 'finbert_count_negative', 'finbert_count_neutral', 'finbert_label_positive_sum', 'finbert_label_negative_sum', 'finbert_label_neutral_sum'] 
+Target Column: Factor_Price 
+Sequence Length: 30 
+Model: tPatchGNN 
+Patch Length: 10 
+Time Embedding Dim: 16 
+Node Dimension: 32 
+Attention Heads: 4 
+Dropout: 0.3 
+Metrics: {'RSE': 1.7740431, 'CORR': 0.21143632695628364, 'MAE': 0.19103059, 'MAPE': 1.9364138, 'RMSE': 0.22159614, 'MSLE': 0.021359948} 

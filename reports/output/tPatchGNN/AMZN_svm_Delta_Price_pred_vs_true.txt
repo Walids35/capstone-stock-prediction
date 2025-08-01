@@ -1,0 +1,12 @@
+Date: 2025-08-01 14:51:46.853390 
+Ticker: AMZN 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'svm_majority_vote', 'svm_count_positive', 'svm_count_negative', 'svm_count_neutral'] 
+Target Column: Delta_Price 
+Sequence Length: 30 
+Model: tPatchGNN 
+Patch Length: 10 
+Time Embedding Dim: 16 
+Node Dimension: 32 
+Attention Heads: 4 
+Dropout: 0.3 
+Metrics: {'RSE': 1.2386909, 'CORR': 0.11312019691724895, 'MAE': 0.10983582, 'MAPE': 0.21236983, 'RMSE': 0.14032046, 'MSLE': 0.007784446} 

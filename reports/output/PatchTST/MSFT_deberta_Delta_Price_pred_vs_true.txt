@@ -1,0 +1,12 @@
+Date: 2025-08-01 15:09:49.308004 
+Ticker: MSFT 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'deberta_majority_vote', 'deberta_count_positive', 'deberta_count_negative', 'deberta_count_neutral', 'deberta_label_positive_sum', 'deberta_label_negative_sum', 'deberta_label_neutral_sum'] 
+Target Column: Delta_Price 
+Sequence Length: 30 
+Model: PatchTST 
+Patch Length: 12 
+Model Dimension: 256 
+Attention Heads: 8 
+Encoder Layers: 6 
+Dropout: 0.5 
+Metrics: {'RSE': 4.816142, 'CORR': -0.014177862187083319, 'MAE': 0.5362003, 'MAPE': 1.1912385, 'RMSE': 0.55630624, 'MSLE': 0.10129269} 

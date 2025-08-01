@@ -1,0 +1,12 @@
+Date: 2025-08-01 15:40:45.410634 
+Ticker: AMZN 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'roberta_majority_vote', 'roberta_count_positive', 'roberta_count_negative', 'roberta_count_neutral', 'roberta_label_positive_sum', 'roberta_label_negative_sum', 'roberta_label_neutral_sum'] 
+Target Column: Factor_Price 
+Sequence Length: 30 
+Model: PatchTST 
+Patch Length: 12 
+Model Dimension: 256 
+Attention Heads: 8 
+Encoder Layers: 6 
+Dropout: 0.5 
+Metrics: {'RSE': 1.4380102, 'CORR': -0.012496436385826799, 'MAE': 0.08107932, 'MAPE': 0.15558037, 'RMSE': 0.09983147, 'MSLE': 0.004176209} 

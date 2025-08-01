@@ -1,0 +1,12 @@
+Date: 2025-08-01 15:45:10.385278 
+Ticker: AMZN 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'svm_majority_vote', 'svm_count_positive', 'svm_count_negative', 'svm_count_neutral'] 
+Target Column: Binary_Price 
+Sequence Length: 30 
+Model: PatchTST 
+Patch Length: 12 
+Model Dimension: 256 
+Attention Heads: 8 
+Encoder Layers: 6 
+Dropout: 0.5 
+Metrics: {'optimal_threshold': 0.66348934, 'auc': 0.4838827838827839, 'accuracy': 0.5067567567567568, 'confusion_matrix': [[63, 7], [66, 12]], 'classification_report': {'0.0': {'precision': 0.4883720930232558, 'recall': 0.9, 'f1-score': 0.6331658291457286, 'support': 70.0}, '1.0': {'precision': 0.631578947368421, 'recall': 0.15384615384615385, 'f1-score': 0.24742268041237114, 'support': 78.0}, 'accuracy': 0.5067567567567568, 'macro avg': {'precision': 0.5599755201958384, 'recall': 0.5269230769230769, 'f1-score': 0.4402942547790499, 'support': 148.0}, 'weighted avg': {'precision': 0.5638459757186807, 'recall': 0.5067567567567568, 'f1-score': 0.4298687642727429, 'support': 148.0}}} 

@@ -1,0 +1,12 @@
+Date: 2025-08-01 15:36:14.140472 
+Ticker: AAPL 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'roberta_majority_vote', 'roberta_count_positive', 'roberta_count_negative', 'roberta_count_neutral', 'roberta_label_positive_sum', 'roberta_label_negative_sum', 'roberta_label_neutral_sum'] 
+Target Column: Binary_Price 
+Sequence Length: 30 
+Model: PatchTST 
+Patch Length: 12 
+Model Dimension: 256 
+Attention Heads: 8 
+Encoder Layers: 6 
+Dropout: 0.5 
+Metrics: {'optimal_threshold': 0.6105964, 'auc': 0.5268382352941177, 'accuracy': 0.5405405405405406, 'confusion_matrix': [[40, 28], [40, 40]], 'classification_report': {'0.0': {'precision': 0.5, 'recall': 0.5882352941176471, 'f1-score': 0.5405405405405406, 'support': 68.0}, '1.0': {'precision': 0.5882352941176471, 'recall': 0.5, 'f1-score': 0.5405405405405406, 'support': 80.0}, 'accuracy': 0.5405405405405406, 'macro avg': {'precision': 0.5441176470588236, 'recall': 0.5441176470588236, 'f1-score': 0.5405405405405406, 'support': 148.0}, 'weighted avg': {'precision': 0.5476947535771065, 'recall': 0.5405405405405406, 'f1-score': 0.5405405405405406, 'support': 148.0}}} 

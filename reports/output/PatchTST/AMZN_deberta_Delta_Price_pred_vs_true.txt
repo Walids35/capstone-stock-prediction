@@ -1,0 +1,12 @@
+Date: 2025-08-01 15:09:41.115926 
+Ticker: AMZN 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'deberta_majority_vote', 'deberta_count_positive', 'deberta_count_negative', 'deberta_count_neutral', 'deberta_label_positive_sum', 'deberta_label_negative_sum', 'deberta_label_neutral_sum'] 
+Target Column: Delta_Price 
+Sequence Length: 30 
+Model: PatchTST 
+Patch Length: 12 
+Model Dimension: 256 
+Attention Heads: 8 
+Encoder Layers: 6 
+Dropout: 0.5 
+Metrics: {'RSE': 1.602844, 'CORR': 0.06084126953130981, 'MAE': 0.15097252, 'MAPE': 0.28209856, 'RMSE': 0.1815722, 'MSLE': 0.012284248} 

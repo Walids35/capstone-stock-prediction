@@ -1,0 +1,12 @@
+Date: 2025-08-01 14:31:21.185687 
+Ticker: AAPL 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'lr_majority_vote', 'lr_count_positive', 'lr_count_negative', 'lr_count_neutral'] 
+Target Column: Delta_Price 
+Sequence Length: 30 
+Model: tPatchGNN 
+Patch Length: 10 
+Time Embedding Dim: 16 
+Node Dimension: 32 
+Attention Heads: 4 
+Dropout: 0.3 
+Metrics: {'RSE': 2.0984747, 'CORR': 0.03239417259931047, 'MAE': 0.24881402, 'MAPE': inf, 'RMSE': 0.28014567, 'MSLE': 0.035097755} 

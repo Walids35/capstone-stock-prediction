@@ -1,0 +1,12 @@
+Date: 2025-08-01 15:09:32.918004 
+Ticker: AAPL 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'deberta_majority_vote', 'deberta_count_positive', 'deberta_count_negative', 'deberta_count_neutral', 'deberta_label_positive_sum', 'deberta_label_negative_sum', 'deberta_label_neutral_sum'] 
+Target Column: Delta_Price 
+Sequence Length: 30 
+Model: PatchTST 
+Patch Length: 12 
+Model Dimension: 256 
+Attention Heads: 8 
+Encoder Layers: 6 
+Dropout: 0.5 
+Metrics: {'RSE': 2.3102283, 'CORR': -0.008362115414222748, 'MAE': 0.26661974, 'MAPE': inf, 'RMSE': 0.3084147, 'MSLE': 0.040633164} 

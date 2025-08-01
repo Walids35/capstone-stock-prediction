@@ -1,0 +1,12 @@
+Date: 2025-08-01 15:26:25.294773 
+Ticker: TSLA 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'lr_majority_vote', 'lr_count_positive', 'lr_count_negative', 'lr_count_neutral'] 
+Target Column: Delta_Price 
+Sequence Length: 30 
+Model: PatchTST 
+Patch Length: 12 
+Model Dimension: 256 
+Attention Heads: 8 
+Encoder Layers: 6 
+Dropout: 0.5 
+Metrics: {'RSE': 4.344662, 'CORR': -0.06991071075253957, 'MAE': 0.39619118, 'MAPE': 0.7345985, 'RMSE': 0.41396683, 'MSLE': 0.055317167} 

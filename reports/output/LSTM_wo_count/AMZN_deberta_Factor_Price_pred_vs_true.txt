@@ -1,0 +1,9 @@
+Date: 2025-07-31 12:51:20.199241 
+Ticker: AMZN 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'deberta_label_negative_sum', 'deberta_label_positive_sum', 'deberta_label_neutral_sum', 'deberta_majority_vote'] 
+Target Column: Factor_Price 
+Sequence Length: 30 
+Hidden Size: 64 
+Number of Layers: 2 
+Dropout: 0.5 
+Metrics: {'RSE': 2.278450769087471, 'CORR': 0.11198244910197151, 'MAE': 0.03762260402332959, 'MAPE': 0.037906344342846954, 'RMSE': 0.04148570980136279, 'MSLE': 0.00042508283091361967} 

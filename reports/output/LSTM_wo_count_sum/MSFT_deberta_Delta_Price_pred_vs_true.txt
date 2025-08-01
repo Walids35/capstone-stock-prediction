@@ -1,0 +1,9 @@
+Date: 2025-07-31 13:57:13.590246 
+Ticker: MSFT 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'deberta_majority_vote'] 
+Target Column: Delta_Price 
+Sequence Length: 30 
+Hidden Size: 64 
+Number of Layers: 2 
+Dropout: 0.5 
+Metrics: {'RSE': 1.7407659497817503, 'CORR': 0.1259513710586194, 'MAE': 6.54747799356439, 'MAPE': 16.28322764410521, 'RMSE': 7.756194981352777, 'MSLE': nan} 

@@ -1,0 +1,12 @@
+Date: 2025-08-01 14:30:10.362006 
+Ticker: NFLX 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'lr_majority_vote', 'lr_count_positive', 'lr_count_negative', 'lr_count_neutral'] 
+Target Column: Factor_Price 
+Sequence Length: 30 
+Model: tPatchGNN 
+Patch Length: 10 
+Time Embedding Dim: 16 
+Node Dimension: 32 
+Attention Heads: 4 
+Dropout: 0.3 
+Metrics: {'RSE': 1.0021697, 'CORR': 0.03719613091755596, 'MAE': 0.031298485, 'MAPE': 0.04319398, 'RMSE': 0.05254124, 'MSLE': 0.0008752198} 

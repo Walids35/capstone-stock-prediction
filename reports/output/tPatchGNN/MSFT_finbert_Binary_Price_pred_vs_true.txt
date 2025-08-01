@@ -1,0 +1,12 @@
+Date: 2025-08-01 14:26:31.599309 
+Ticker: MSFT 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'finbert_majority_vote', 'finbert_count_positive', 'finbert_count_negative', 'finbert_count_neutral', 'finbert_label_positive_sum', 'finbert_label_negative_sum', 'finbert_label_neutral_sum'] 
+Target Column: Binary_Price 
+Sequence Length: 30 
+Model: tPatchGNN 
+Patch Length: 10 
+Time Embedding Dim: 16 
+Node Dimension: 32 
+Attention Heads: 4 
+Dropout: 0.3 
+Metrics: {'optimal_threshold': 0.5027049, 'auc': 0.438083538083538, 'accuracy': 0.44565217391304346, 'confusion_matrix': [[36, 1], [50, 5]], 'classification_report': {'0.0': {'precision': 0.4186046511627907, 'recall': 0.972972972972973, 'f1-score': 0.5853658536585366, 'support': 37.0}, '1.0': {'precision': 0.8333333333333334, 'recall': 0.09090909090909091, 'f1-score': 0.16393442622950818, 'support': 55.0}, 'accuracy': 0.44565217391304346, 'macro avg': {'precision': 0.625968992248062, 'recall': 0.5319410319410319, 'f1-score': 0.37465013994402235, 'support': 92.0}, 'weighted avg': {'precision': 0.6665402763734413, 'recall': 0.44565217391304346, 'f1-score': 0.33342315247813914, 'support': 92.0}}} 

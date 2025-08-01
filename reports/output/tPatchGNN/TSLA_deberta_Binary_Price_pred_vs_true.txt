@@ -1,0 +1,12 @@
+Date: 2025-08-01 14:19:51.191476 
+Ticker: TSLA 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'deberta_majority_vote', 'deberta_count_positive', 'deberta_count_negative', 'deberta_count_neutral', 'deberta_label_positive_sum', 'deberta_label_negative_sum', 'deberta_label_neutral_sum'] 
+Target Column: Binary_Price 
+Sequence Length: 30 
+Model: tPatchGNN 
+Patch Length: 10 
+Time Embedding Dim: 16 
+Node Dimension: 32 
+Attention Heads: 4 
+Dropout: 0.3 
+Metrics: {'optimal_threshold': inf, 'auc': 0.35224586288416077, 'accuracy': 0.4891304347826087, 'confusion_matrix': [[45, 0], [47, 0]], 'classification_report': {'0.0': {'precision': 0.4891304347826087, 'recall': 1.0, 'f1-score': 0.656934306569343, 'support': 45.0}, '1.0': {'precision': 0.0, 'recall': 0.0, 'f1-score': 0.0, 'support': 47.0}, 'accuracy': 0.4891304347826087, 'macro avg': {'precision': 0.24456521739130435, 'recall': 0.5, 'f1-score': 0.3284671532846715, 'support': 92.0}, 'weighted avg': {'precision': 0.2392485822306238, 'recall': 0.4891304347826087, 'f1-score': 0.3213265629958743, 'support': 92.0}}} 

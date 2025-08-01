@@ -1,0 +1,12 @@
+Date: 2025-08-01 14:45:24.737218 
+Ticker: NFLX 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'roberta_majority_vote', 'roberta_count_positive', 'roberta_count_negative', 'roberta_count_neutral', 'roberta_label_positive_sum', 'roberta_label_negative_sum', 'roberta_label_neutral_sum'] 
+Target Column: Delta_Price 
+Sequence Length: 30 
+Model: tPatchGNN 
+Patch Length: 10 
+Time Embedding Dim: 16 
+Node Dimension: 32 
+Attention Heads: 4 
+Dropout: 0.3 
+Metrics: {'RSE': 1.0239578, 'CORR': 0.11336647537528213, 'MAE': 0.044257954, 'MAPE': 0.06215857, 'RMSE': 0.065494694, 'MSLE': 0.0013793331} 

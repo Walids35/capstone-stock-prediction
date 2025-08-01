@@ -1,0 +1,12 @@
+Date: 2025-08-01 15:38:49.116500 
+Ticker: TSLA 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'roberta_majority_vote', 'roberta_count_positive', 'roberta_count_negative', 'roberta_count_neutral', 'roberta_label_positive_sum', 'roberta_label_negative_sum', 'roberta_label_neutral_sum'] 
+Target Column: Float_Price 
+Sequence Length: 30 
+Model: PatchTST 
+Patch Length: 12 
+Model Dimension: 256 
+Attention Heads: 8 
+Encoder Layers: 6 
+Dropout: 0.5 
+Metrics: {'RSE': 2.2731862, 'CORR': -0.1467034387278138, 'MAE': 0.17009103, 'MAPE': 0.38681838, 'RMSE': 0.19368778, 'MSLE': 0.020734636} 

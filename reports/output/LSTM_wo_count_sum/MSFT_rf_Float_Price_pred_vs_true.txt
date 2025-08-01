@@ -1,0 +1,9 @@
+Date: 2025-07-31 14:04:35.091259 
+Ticker: MSFT 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'rf_majority_vote'] 
+Target Column: Float_Price 
+Sequence Length: 30 
+Hidden Size: 64 
+Number of Layers: 2 
+Dropout: 0.5 
+Metrics: {'RSE': 0.6982855674034951, 'CORR': 0.9648920950265844, 'MAE': 15.41927779703388, 'MAPE': 0.040475532851176686, 'RMSE': 17.492085612314025, 'MSLE': 0.0021500136837859446} 

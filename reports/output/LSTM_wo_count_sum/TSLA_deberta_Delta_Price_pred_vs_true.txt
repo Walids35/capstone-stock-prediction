@@ -1,0 +1,9 @@
+Date: 2025-07-31 13:57:19.130252 
+Ticker: TSLA 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'deberta_majority_vote'] 
+Target Column: Delta_Price 
+Sequence Length: 30 
+Hidden Size: 64 
+Number of Layers: 2 
+Dropout: 0.5 
+Metrics: {'RSE': 1.4051938455626285, 'CORR': 0.14390186514330602, 'MAE': 7.23335454258023, 'MAPE': 5.596837641163729, 'RMSE': 9.05091113669846, 'MSLE': nan} 

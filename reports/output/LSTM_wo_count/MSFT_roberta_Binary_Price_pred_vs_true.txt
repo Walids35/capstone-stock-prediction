@@ -1,0 +1,9 @@
+Date: 2025-07-31 12:49:02.623699 
+Ticker: MSFT 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'roberta_label_negative_sum', 'roberta_label_positive_sum', 'roberta_label_neutral_sum', 'roberta_majority_vote'] 
+Target Column: Binary_Price 
+Sequence Length: 30 
+Hidden Size: 64 
+Number of Layers: 2 
+Dropout: 0.5 
+Metrics: {'optimal_threshold': 0.5012262463569641, 'auc': 0.46240786240786236, 'accuracy': 0.6195652173913043, 'confusion_matrix': [[4, 33], [2, 53]], 'classification_report': {'0': {'precision': 0.6666666666666666, 'recall': 0.10810810810810811, 'f1-score': 0.18604651162790697, 'support': 37.0}, '1': {'precision': 0.6162790697674418, 'recall': 0.9636363636363636, 'f1-score': 0.75177304964539, 'support': 55.0}, 'accuracy': 0.6195652173913043, 'macro avg': {'precision': 0.6414728682170543, 'recall': 0.5358722358722359, 'f1-score': 0.4689097806366485, 'support': 92.0}, 'weighted avg': {'precision': 0.6365436467812605, 'recall': 0.6195652173913043, 'f1-score': 0.5242525941383588, 'support': 92.0}}} 
