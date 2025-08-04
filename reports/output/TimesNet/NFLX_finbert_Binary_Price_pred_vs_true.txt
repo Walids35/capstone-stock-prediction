@@ -1,0 +1,11 @@
+Date: 2025-08-04 11:47:03.470479 
+Ticker: NFLX 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'finbert_majority_vote', 'finbert_count_positive', 'finbert_count_negative', 'finbert_count_neutral', 'finbert_label_positive_sum', 'finbert_label_negative_sum', 'finbert_label_neutral_sum'] 
+Target Column: Binary_Price 
+Sequence Length: 30 
+Model: TimesNet 
+Model Dimension: 64 
+Encoder Layers: 2 
+Feed-forward Dimension: 128 
+Dropout: 0.5 
+Metrics: {'optimal_threshold': 0.5124555, 'auc': 0.5127186009538951, 'accuracy': 0.5492957746478874, 'confusion_matrix': [[31, 3], [29, 8]], 'classification_report': {'0.0': {'precision': 0.5166666666666667, 'recall': 0.9117647058823529, 'f1-score': 0.6595744680851063, 'support': 34.0}, '1.0': {'precision': 0.7272727272727273, 'recall': 0.21621621621621623, 'f1-score': 0.3333333333333333, 'support': 37.0}, 'accuracy': 0.5492957746478874, 'macro avg': {'precision': 0.6219696969696971, 'recall': 0.5639904610492845, 'f1-score': 0.4964539007092198, 'support': 71.0}, 'weighted avg': {'precision': 0.626419120785318, 'recall': 0.5492957746478874, 'f1-score': 0.4895614823693936, 'support': 71.0}}} 

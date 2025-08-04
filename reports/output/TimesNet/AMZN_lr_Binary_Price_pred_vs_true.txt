@@ -1,0 +1,11 @@
+Date: 2025-08-04 11:53:39.275330 
+Ticker: AMZN 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'lr_majority_vote', 'lr_count_positive', 'lr_count_negative', 'lr_count_neutral'] 
+Target Column: Binary_Price 
+Sequence Length: 30 
+Model: TimesNet 
+Model Dimension: 64 
+Encoder Layers: 2 
+Feed-forward Dimension: 128 
+Dropout: 0.5 
+Metrics: {'optimal_threshold': 0.50616413, 'auc': 0.5446886446886448, 'accuracy': 0.5743243243243243, 'confusion_matrix': [[45, 25], [38, 40]], 'classification_report': {'0.0': {'precision': 0.5421686746987951, 'recall': 0.6428571428571429, 'f1-score': 0.5882352941176471, 'support': 70.0}, '1.0': {'precision': 0.6153846153846154, 'recall': 0.5128205128205128, 'f1-score': 0.5594405594405595, 'support': 78.0}, 'accuracy': 0.5743243243243243, 'macro avg': {'precision': 0.5787766450417053, 'recall': 0.5778388278388278, 'f1-score': 0.5738379267791033, 'support': 148.0}, 'weighted avg': {'precision': 0.5807554542494302, 'recall': 0.5743243243243243, 'f1-score': 0.5730596907067496, 'support': 148.0}}} 

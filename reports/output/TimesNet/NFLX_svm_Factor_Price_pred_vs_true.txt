@@ -1,0 +1,11 @@
+Date: 2025-08-04 02:13:02.794032 
+Ticker: NFLX 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'svm_majority_vote', 'svm_count_positive', 'svm_count_negative', 'svm_count_neutral'] 
+Target Column: Factor_Price 
+Sequence Length: 30 
+Model: TimesNet 
+Model Dimension: 64 
+Encoder Layers: 2 
+Feed-forward Dimension: 128 
+Dropout: 0.5 
+Metrics: {'RSE': 1.9217845, 'CORR': 0.2090975668493951, 'MAE': 0.08220267, 'MAPE': 0.11809086, 'RMSE': 0.10075434, 'MSLE': 0.0035171772} 

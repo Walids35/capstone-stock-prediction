@@ -1,0 +1,11 @@
+Date: 2025-08-04 11:40:35.789862 
+Ticker: NFLX 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'deberta_majority_vote', 'deberta_count_positive', 'deberta_count_negative', 'deberta_count_neutral', 'deberta_label_positive_sum', 'deberta_label_negative_sum', 'deberta_label_neutral_sum'] 
+Target Column: Binary_Price 
+Sequence Length: 30 
+Model: TimesNet 
+Model Dimension: 64 
+Encoder Layers: 2 
+Feed-forward Dimension: 128 
+Dropout: 0.5 
+Metrics: {'optimal_threshold': 0.5229791, 'auc': 0.5556438791732909, 'accuracy': 0.5915492957746479, 'confusion_matrix': [[24, 10], [19, 18]], 'classification_report': {'0.0': {'precision': 0.5581395348837209, 'recall': 0.7058823529411765, 'f1-score': 0.6233766233766234, 'support': 34.0}, '1.0': {'precision': 0.6428571428571429, 'recall': 0.4864864864864865, 'f1-score': 0.5538461538461539, 'support': 37.0}, 'accuracy': 0.5915492957746479, 'macro avg': {'precision': 0.6004983388704319, 'recall': 0.5961844197138315, 'f1-score': 0.5886113886113886, 'support': 71.0}, 'weighted avg': {'precision': 0.6022881474895887, 'recall': 0.5915492957746479, 'f1-score': 0.587142435029759, 'support': 71.0}}} 

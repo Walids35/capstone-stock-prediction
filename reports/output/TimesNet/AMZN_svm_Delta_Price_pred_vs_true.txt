@@ -1,0 +1,11 @@
+Date: 2025-08-04 02:18:17.349556 
+Ticker: AMZN 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'svm_majority_vote', 'svm_count_positive', 'svm_count_negative', 'svm_count_neutral'] 
+Target Column: Delta_Price 
+Sequence Length: 30 
+Model: TimesNet 
+Model Dimension: 64 
+Encoder Layers: 2 
+Feed-forward Dimension: 128 
+Dropout: 0.5 
+Metrics: {'RSE': 1.7105937, 'CORR': -0.09472619328416548, 'MAE': 0.16011691, 'MAPE': 0.29671612, 'RMSE': 0.19377822, 'MSLE': 0.013829847} 

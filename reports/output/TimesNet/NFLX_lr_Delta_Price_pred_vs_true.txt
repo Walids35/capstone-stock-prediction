@@ -1,0 +1,11 @@
+Date: 2025-08-04 01:19:28.003070 
+Ticker: NFLX 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'lr_majority_vote', 'lr_count_positive', 'lr_count_negative', 'lr_count_neutral'] 
+Target Column: Delta_Price 
+Sequence Length: 30 
+Model: TimesNet 
+Model Dimension: 64 
+Encoder Layers: 2 
+Feed-forward Dimension: 128 
+Dropout: 0.5 
+Metrics: {'RSE': 1.8714958, 'CORR': 0.08321957518314403, 'MAE': 0.096499674, 'MAPE': 0.13678718, 'RMSE': 0.11970517, 'MSLE': 0.004949571} 

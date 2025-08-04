@@ -1,0 +1,11 @@
+Date: 2025-08-04 01:19:20.891687 
+Ticker: TSLA 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'lr_majority_vote', 'lr_count_positive', 'lr_count_negative', 'lr_count_neutral'] 
+Target Column: Delta_Price 
+Sequence Length: 30 
+Model: TimesNet 
+Model Dimension: 64 
+Encoder Layers: 2 
+Feed-forward Dimension: 128 
+Dropout: 0.5 
+Metrics: {'RSE': 2.7419357, 'CORR': 0.021585137651878285, 'MAE': 0.23114638, 'MAPE': 0.44156158, 'RMSE': 0.2612563, 'MSLE': 0.02419815} 

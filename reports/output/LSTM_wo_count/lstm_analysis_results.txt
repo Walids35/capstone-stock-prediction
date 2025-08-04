@@ -1,0 +1,484 @@
+================================================================================
+LSTM RESULTS ANALYSIS
+================================================================================
+
+Found 120 TXT files to analyze...
+
+✓ Processed: AAPL_deberta_Binary_Price_pred_vs_true.txt
+✓ Processed: AAPL_deberta_Delta_Price_pred_vs_true.txt
+✓ Processed: AAPL_deberta_Factor_Price_pred_vs_true.txt
+✓ Processed: AAPL_deberta_Float_Price_pred_vs_true.txt
+✓ Processed: AAPL_finbert_Binary_Price_pred_vs_true.txt
+✓ Processed: AAPL_finbert_Delta_Price_pred_vs_true.txt
+✓ Processed: AAPL_finbert_Factor_Price_pred_vs_true.txt
+✓ Processed: AAPL_finbert_Float_Price_pred_vs_true.txt
+✓ Processed: AAPL_lr_Binary_Price_pred_vs_true.txt
+✓ Processed: AAPL_lr_Delta_Price_pred_vs_true.txt
+✓ Processed: AAPL_lr_Factor_Price_pred_vs_true.txt
+✓ Processed: AAPL_lr_Float_Price_pred_vs_true.txt
+✓ Processed: AAPL_rf_Binary_Price_pred_vs_true.txt
+✓ Processed: AAPL_rf_Delta_Price_pred_vs_true.txt
+✓ Processed: AAPL_rf_Factor_Price_pred_vs_true.txt
+✓ Processed: AAPL_rf_Float_Price_pred_vs_true.txt
+✓ Processed: AAPL_roberta_Binary_Price_pred_vs_true.txt
+✓ Processed: AAPL_roberta_Delta_Price_pred_vs_true.txt
+✓ Processed: AAPL_roberta_Factor_Price_pred_vs_true.txt
+✓ Processed: AAPL_roberta_Float_Price_pred_vs_true.txt
+✓ Processed: AAPL_svm_Binary_Price_pred_vs_true.txt
+✓ Processed: AAPL_svm_Delta_Price_pred_vs_true.txt
+✓ Processed: AAPL_svm_Factor_Price_pred_vs_true.txt
+✓ Processed: AAPL_svm_Float_Price_pred_vs_true.txt
+✓ Processed: AMZN_deberta_Binary_Price_pred_vs_true.txt
+✓ Processed: AMZN_deberta_Delta_Price_pred_vs_true.txt
+✓ Processed: AMZN_deberta_Factor_Price_pred_vs_true.txt
+✓ Processed: AMZN_deberta_Float_Price_pred_vs_true.txt
+✓ Processed: AMZN_finbert_Binary_Price_pred_vs_true.txt
+✓ Processed: AMZN_finbert_Delta_Price_pred_vs_true.txt
+✓ Processed: AMZN_finbert_Factor_Price_pred_vs_true.txt
+✓ Processed: AMZN_finbert_Float_Price_pred_vs_true.txt
+✓ Processed: AMZN_lr_Binary_Price_pred_vs_true.txt
+✓ Processed: AMZN_lr_Delta_Price_pred_vs_true.txt
+✓ Processed: AMZN_lr_Factor_Price_pred_vs_true.txt
+✓ Processed: AMZN_lr_Float_Price_pred_vs_true.txt
+✓ Processed: AMZN_rf_Binary_Price_pred_vs_true.txt
+✓ Processed: AMZN_rf_Delta_Price_pred_vs_true.txt
+✓ Processed: AMZN_rf_Factor_Price_pred_vs_true.txt
+✓ Processed: AMZN_rf_Float_Price_pred_vs_true.txt
+✓ Processed: AMZN_roberta_Binary_Price_pred_vs_true.txt
+✓ Processed: AMZN_roberta_Delta_Price_pred_vs_true.txt
+✓ Processed: AMZN_roberta_Factor_Price_pred_vs_true.txt
+✓ Processed: AMZN_roberta_Float_Price_pred_vs_true.txt
+✓ Processed: AMZN_svm_Binary_Price_pred_vs_true.txt
+✓ Processed: AMZN_svm_Delta_Price_pred_vs_true.txt
+✓ Processed: AMZN_svm_Factor_Price_pred_vs_true.txt
+✓ Processed: AMZN_svm_Float_Price_pred_vs_true.txt
+✓ Processed: MSFT_deberta_Binary_Price_pred_vs_true.txt
+✓ Processed: MSFT_deberta_Delta_Price_pred_vs_true.txt
+✓ Processed: MSFT_deberta_Factor_Price_pred_vs_true.txt
+✓ Processed: MSFT_deberta_Float_Price_pred_vs_true.txt
+✓ Processed: MSFT_finbert_Binary_Price_pred_vs_true.txt
+✓ Processed: MSFT_finbert_Delta_Price_pred_vs_true.txt
+✓ Processed: MSFT_finbert_Factor_Price_pred_vs_true.txt
+✓ Processed: MSFT_finbert_Float_Price_pred_vs_true.txt
+✓ Processed: MSFT_lr_Binary_Price_pred_vs_true.txt
+✓ Processed: MSFT_lr_Delta_Price_pred_vs_true.txt
+✓ Processed: MSFT_lr_Factor_Price_pred_vs_true.txt
+✓ Processed: MSFT_lr_Float_Price_pred_vs_true.txt
+✓ Processed: MSFT_rf_Binary_Price_pred_vs_true.txt
+✓ Processed: MSFT_rf_Delta_Price_pred_vs_true.txt
+✓ Processed: MSFT_rf_Factor_Price_pred_vs_true.txt
+✓ Processed: MSFT_rf_Float_Price_pred_vs_true.txt
+✓ Processed: MSFT_roberta_Binary_Price_pred_vs_true.txt
+✓ Processed: MSFT_roberta_Delta_Price_pred_vs_true.txt
+✓ Processed: MSFT_roberta_Factor_Price_pred_vs_true.txt
+✓ Processed: MSFT_roberta_Float_Price_pred_vs_true.txt
+✓ Processed: MSFT_svm_Binary_Price_pred_vs_true.txt
+✓ Processed: MSFT_svm_Delta_Price_pred_vs_true.txt
+✓ Processed: MSFT_svm_Factor_Price_pred_vs_true.txt
+✓ Processed: MSFT_svm_Float_Price_pred_vs_true.txt
+✓ Processed: NFLX_deberta_Binary_Price_pred_vs_true.txt
+✓ Processed: NFLX_deberta_Delta_Price_pred_vs_true.txt
+✓ Processed: NFLX_deberta_Factor_Price_pred_vs_true.txt
+✓ Processed: NFLX_deberta_Float_Price_pred_vs_true.txt
+✓ Processed: NFLX_finbert_Binary_Price_pred_vs_true.txt
+✓ Processed: NFLX_finbert_Delta_Price_pred_vs_true.txt
+✓ Processed: NFLX_finbert_Factor_Price_pred_vs_true.txt
+✓ Processed: NFLX_finbert_Float_Price_pred_vs_true.txt
+✓ Processed: NFLX_lr_Binary_Price_pred_vs_true.txt
+✓ Processed: NFLX_lr_Delta_Price_pred_vs_true.txt
+✓ Processed: NFLX_lr_Factor_Price_pred_vs_true.txt
+✓ Processed: NFLX_lr_Float_Price_pred_vs_true.txt
+✓ Processed: NFLX_rf_Binary_Price_pred_vs_true.txt
+✓ Processed: NFLX_rf_Delta_Price_pred_vs_true.txt
+✓ Processed: NFLX_rf_Factor_Price_pred_vs_true.txt
+✓ Processed: NFLX_rf_Float_Price_pred_vs_true.txt
+✓ Processed: NFLX_roberta_Binary_Price_pred_vs_true.txt
+✓ Processed: NFLX_roberta_Delta_Price_pred_vs_true.txt
+✓ Processed: NFLX_roberta_Factor_Price_pred_vs_true.txt
+✓ Processed: NFLX_roberta_Float_Price_pred_vs_true.txt
+✓ Processed: NFLX_svm_Binary_Price_pred_vs_true.txt
+✓ Processed: NFLX_svm_Delta_Price_pred_vs_true.txt
+✓ Processed: NFLX_svm_Factor_Price_pred_vs_true.txt
+✓ Processed: NFLX_svm_Float_Price_pred_vs_true.txt
+✓ Processed: TSLA_deberta_Binary_Price_pred_vs_true.txt
+✓ Processed: TSLA_deberta_Delta_Price_pred_vs_true.txt
+✓ Processed: TSLA_deberta_Factor_Price_pred_vs_true.txt
+✓ Processed: TSLA_deberta_Float_Price_pred_vs_true.txt
+✓ Processed: TSLA_finbert_Binary_Price_pred_vs_true.txt
+✓ Processed: TSLA_finbert_Delta_Price_pred_vs_true.txt
+✓ Processed: TSLA_finbert_Factor_Price_pred_vs_true.txt
+✓ Processed: TSLA_finbert_Float_Price_pred_vs_true.txt
+✓ Processed: TSLA_lr_Binary_Price_pred_vs_true.txt
+✓ Processed: TSLA_lr_Delta_Price_pred_vs_true.txt
+✓ Processed: TSLA_lr_Factor_Price_pred_vs_true.txt
+✓ Processed: TSLA_lr_Float_Price_pred_vs_true.txt
+✓ Processed: TSLA_rf_Binary_Price_pred_vs_true.txt
+✓ Processed: TSLA_rf_Delta_Price_pred_vs_true.txt
+✓ Processed: TSLA_rf_Factor_Price_pred_vs_true.txt
+✓ Processed: TSLA_rf_Float_Price_pred_vs_true.txt
+✓ Processed: TSLA_roberta_Binary_Price_pred_vs_true.txt
+✓ Processed: TSLA_roberta_Delta_Price_pred_vs_true.txt
+✓ Processed: TSLA_roberta_Factor_Price_pred_vs_true.txt
+✓ Processed: TSLA_roberta_Float_Price_pred_vs_true.txt
+✓ Processed: TSLA_svm_Binary_Price_pred_vs_true.txt
+✓ Processed: TSLA_svm_Delta_Price_pred_vs_true.txt
+✓ Processed: TSLA_svm_Factor_Price_pred_vs_true.txt
+✓ Processed: TSLA_svm_Float_Price_pred_vs_true.txt
+
+================================================================================
+ANALYSIS RESULTS
+================================================================================
+
+MODEL: DEBERTA
+------------------------------------------------------------
+
+  Output Type: Binary_Price
+  ==================================================
+    Available tickers: AAPL, AMZN, MSFT, NFLX, TSLA (5/5)
+    
+    Metric          Mean         Count    Tickers with data
+    --------------- ------------ -------- --------------------
+    AUC             0.5563       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    Accuracy        0.5805       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    Precision       0.5889       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    Recall          0.5805       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    F1-Score        0.5709       5        AAPL, AMZN, MSFT, NFLX, TSLA
+
+  Output Type: Delta_Price
+  ==================================================
+    Available tickers: AAPL, AMZN, MSFT, NFLX, TSLA (5/5)
+    
+    Metric          Mean         Count    Tickers with data
+    --------------- ------------ -------- --------------------
+    RSE             1.4451       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    CORR            0.0737       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MAE             5.9924       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MAPE            6.5972       4        AMZN, MSFT, NFLX, TSLA
+    RMSE            7.8902       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MSLE            N/A          0        None
+
+  Output Type: Factor_Price
+  ==================================================
+    Available tickers: AAPL, AMZN, MSFT, NFLX, TSLA (5/5)
+    
+    Metric          Mean         Count    Tickers with data
+    --------------- ------------ -------- --------------------
+    RSE             2.1342       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    CORR            0.1160       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MAE             0.0335       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MAPE            0.0337       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    RMSE            0.0391       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MSLE            0.0004       5        AAPL, AMZN, MSFT, NFLX, TSLA
+
+  Output Type: Float_Price
+  ==================================================
+    Available tickers: AAPL, AMZN, MSFT, NFLX, TSLA (5/5)
+    
+    Metric          Mean         Count    Tickers with data
+    --------------- ------------ -------- --------------------
+    RSE             0.7703       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    CORR            0.8660       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MAE             16.8754      5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MAPE            0.0525       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    RMSE            19.5942      5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MSLE            0.0041       5        AAPL, AMZN, MSFT, NFLX, TSLA
+
+
+MODEL: FINBERT
+------------------------------------------------------------
+
+  Output Type: Binary_Price
+  ==================================================
+    Available tickers: AAPL, AMZN, MSFT, NFLX, TSLA (5/5)
+    
+    Metric          Mean         Count    Tickers with data
+    --------------- ------------ -------- --------------------
+    AUC             0.5497       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    Accuracy        0.5844       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    Precision       0.5899       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    Recall          0.5844       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    F1-Score        0.5781       5        AAPL, AMZN, MSFT, NFLX, TSLA
+
+  Output Type: Delta_Price
+  ==================================================
+    Available tickers: AAPL, AMZN, MSFT, NFLX, TSLA (5/5)
+    
+    Metric          Mean         Count    Tickers with data
+    --------------- ------------ -------- --------------------
+    RSE             1.4352       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    CORR            0.1543       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MAE             5.9524       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MAPE            6.5379       4        AMZN, MSFT, NFLX, TSLA
+    RMSE            7.8505       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MSLE            N/A          0        None
+
+  Output Type: Factor_Price
+  ==================================================
+    Available tickers: AAPL, AMZN, MSFT, NFLX, TSLA (5/5)
+    
+    Metric          Mean         Count    Tickers with data
+    --------------- ------------ -------- --------------------
+    RSE             2.1943       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    CORR            0.1688       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MAE             0.0347       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MAPE            0.0349       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    RMSE            0.0401       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MSLE            0.0004       5        AAPL, AMZN, MSFT, NFLX, TSLA
+
+  Output Type: Float_Price
+  ==================================================
+    Available tickers: AAPL, AMZN, MSFT, NFLX, TSLA (5/5)
+    
+    Metric          Mean         Count    Tickers with data
+    --------------- ------------ -------- --------------------
+    RSE             0.8266       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    CORR            0.8835       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MAE             17.2548      5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MAPE            0.0565       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    RMSE            20.1002      5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MSLE            0.0049       5        AAPL, AMZN, MSFT, NFLX, TSLA
+
+
+MODEL: LR
+------------------------------------------------------------
+
+  Output Type: Binary_Price
+  ==================================================
+    Available tickers: AAPL, AMZN, MSFT, NFLX, TSLA (5/5)
+    
+    Metric          Mean         Count    Tickers with data
+    --------------- ------------ -------- --------------------
+    AUC             0.5478       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    Accuracy        0.5810       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    Precision       0.6086       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    Recall          0.5810       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    F1-Score        0.5498       5        AAPL, AMZN, MSFT, NFLX, TSLA
+
+  Output Type: Delta_Price
+  ==================================================
+    Available tickers: AAPL, AMZN, MSFT, NFLX, TSLA (5/5)
+    
+    Metric          Mean         Count    Tickers with data
+    --------------- ------------ -------- --------------------
+    RSE             1.4578       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    CORR            0.0770       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MAE             6.0365       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MAPE            6.7026       4        AMZN, MSFT, NFLX, TSLA
+    RMSE            7.9233       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MSLE            N/A          0        None
+
+  Output Type: Factor_Price
+  ==================================================
+    Available tickers: AAPL, AMZN, MSFT, NFLX, TSLA (5/5)
+    
+    Metric          Mean         Count    Tickers with data
+    --------------- ------------ -------- --------------------
+    RSE             2.0628       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    CORR            0.0974       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MAE             0.0323       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MAPE            0.0325       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    RMSE            0.0379       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MSLE            0.0004       5        AAPL, AMZN, MSFT, NFLX, TSLA
+
+  Output Type: Float_Price
+  ==================================================
+    Available tickers: AAPL, AMZN, MSFT, NFLX, TSLA (5/5)
+    
+    Metric          Mean         Count    Tickers with data
+    --------------- ------------ -------- --------------------
+    RSE             0.6636       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    CORR            0.8938       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MAE             13.3642      5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MAPE            0.0426       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    RMSE            16.5090      5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MSLE            0.0028       5        AAPL, AMZN, MSFT, NFLX, TSLA
+
+
+MODEL: RF
+------------------------------------------------------------
+
+  Output Type: Binary_Price
+  ==================================================
+    Available tickers: AAPL, AMZN, MSFT, NFLX, TSLA (5/5)
+    
+    Metric          Mean         Count    Tickers with data
+    --------------- ------------ -------- --------------------
+    AUC             0.5839       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    Accuracy        0.6084       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    Precision       0.6293       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    Recall          0.6084       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    F1-Score        0.5872       5        AAPL, AMZN, MSFT, NFLX, TSLA
+
+  Output Type: Delta_Price
+  ==================================================
+    Available tickers: AAPL, AMZN, MSFT, NFLX, TSLA (5/5)
+    
+    Metric          Mean         Count    Tickers with data
+    --------------- ------------ -------- --------------------
+    RSE             1.4951       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    CORR            0.0407       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MAE             6.2161       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MAPE            7.0910       4        AMZN, MSFT, NFLX, TSLA
+    RMSE            8.0692       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MSLE            N/A          0        None
+
+  Output Type: Factor_Price
+  ==================================================
+    Available tickers: AAPL, AMZN, MSFT, NFLX, TSLA (5/5)
+    
+    Metric          Mean         Count    Tickers with data
+    --------------- ------------ -------- --------------------
+    RSE             2.0892       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    CORR            0.0494       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MAE             0.0326       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MAPE            0.0328       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    RMSE            0.0383       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MSLE            0.0004       5        AAPL, AMZN, MSFT, NFLX, TSLA
+
+  Output Type: Float_Price
+  ==================================================
+    Available tickers: AAPL, AMZN, MSFT, NFLX, TSLA (5/5)
+    
+    Metric          Mean         Count    Tickers with data
+    --------------- ------------ -------- --------------------
+    RSE             0.6580       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    CORR            0.8960       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MAE             13.5234      5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MAPE            0.0429       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    RMSE            16.5153      5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MSLE            0.0028       5        AAPL, AMZN, MSFT, NFLX, TSLA
+
+
+MODEL: ROBERTA
+------------------------------------------------------------
+
+  Output Type: Binary_Price
+  ==================================================
+    Available tickers: AAPL, AMZN, MSFT, NFLX, TSLA (5/5)
+    
+    Metric          Mean         Count    Tickers with data
+    --------------- ------------ -------- --------------------
+    AUC             0.5091       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    Accuracy        0.5668       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    Precision       0.5794       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    Recall          0.5668       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    F1-Score        0.5330       5        AAPL, AMZN, MSFT, NFLX, TSLA
+
+  Output Type: Delta_Price
+  ==================================================
+    Available tickers: AAPL, AMZN, MSFT, NFLX, TSLA (5/5)
+    
+    Metric          Mean         Count    Tickers with data
+    --------------- ------------ -------- --------------------
+    RSE             1.4461       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    CORR            0.0828       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MAE             6.0111       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MAPE            6.6778       4        AMZN, MSFT, NFLX, TSLA
+    RMSE            7.9101       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MSLE            N/A          0        None
+
+  Output Type: Factor_Price
+  ==================================================
+    Available tickers: AAPL, AMZN, MSFT, NFLX, TSLA (5/5)
+    
+    Metric          Mean         Count    Tickers with data
+    --------------- ------------ -------- --------------------
+    RSE             2.1865       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    CORR            0.1159       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MAE             0.0345       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MAPE            0.0347       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    RMSE            0.0399       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MSLE            0.0004       5        AAPL, AMZN, MSFT, NFLX, TSLA
+
+  Output Type: Float_Price
+  ==================================================
+    Available tickers: AAPL, AMZN, MSFT, NFLX, TSLA (5/5)
+    
+    Metric          Mean         Count    Tickers with data
+    --------------- ------------ -------- --------------------
+    RSE             0.6304       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    CORR            0.8922       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MAE             13.7989      5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MAPE            0.0422       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    RMSE            16.6834      5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MSLE            0.0028       5        AAPL, AMZN, MSFT, NFLX, TSLA
+
+
+MODEL: SVM
+------------------------------------------------------------
+
+  Output Type: Binary_Price
+  ==================================================
+    Available tickers: AAPL, AMZN, MSFT, NFLX, TSLA (5/5)
+    
+    Metric          Mean         Count    Tickers with data
+    --------------- ------------ -------- --------------------
+    AUC             0.5943       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    Accuracy        0.6087       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    Precision       0.6107       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    Recall          0.6087       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    F1-Score        0.6031       5        AAPL, AMZN, MSFT, NFLX, TSLA
+
+  Output Type: Delta_Price
+  ==================================================
+    Available tickers: AAPL, AMZN, MSFT, NFLX, TSLA (5/5)
+    
+    Metric          Mean         Count    Tickers with data
+    --------------- ------------ -------- --------------------
+    RSE             1.4631       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    CORR            0.0303       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MAE             6.0609       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MAPE            6.7343       4        AMZN, MSFT, NFLX, TSLA
+    RMSE            7.9503       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MSLE            N/A          0        None
+
+  Output Type: Factor_Price
+  ==================================================
+    Available tickers: AAPL, AMZN, MSFT, NFLX, TSLA (5/5)
+    
+    Metric          Mean         Count    Tickers with data
+    --------------- ------------ -------- --------------------
+    RSE             2.0624       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    CORR            0.0413       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MAE             0.0323       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MAPE            0.0325       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    RMSE            0.0379       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MSLE            0.0004       5        AAPL, AMZN, MSFT, NFLX, TSLA
+
+  Output Type: Float_Price
+  ==================================================
+    Available tickers: AAPL, AMZN, MSFT, NFLX, TSLA (5/5)
+    
+    Metric          Mean         Count    Tickers with data
+    --------------- ------------ -------- --------------------
+    RSE             0.6849       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    CORR            0.8950       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MAE             14.1977      5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MAPE            0.0446       5        AAPL, AMZN, MSFT, NFLX, TSLA
+    RMSE            17.2451      5        AAPL, AMZN, MSFT, NFLX, TSLA
+    MSLE            0.0030       5        AAPL, AMZN, MSFT, NFLX, TSLA
+
+
+================================================================================
+SUMMARY STATISTICS
+================================================================================
+
+Total possible combinations: 24
+Available combinations: 24
+Coverage: 100.0%
+
+Model Coverage:
+  deberta   : 4/4 output types
+  finbert   : 4/4 output types
+  lr        : 4/4 output types
+  rf        : 4/4 output types
+  roberta   : 4/4 output types
+  svm       : 4/4 output types
+
+Output Type Coverage:
+  Binary_Price   : 6/6 models
+  Delta_Price    : 6/6 models
+  Factor_Price   : 6/6 models
+  Float_Price    : 6/6 models
+
+Analysis complete!

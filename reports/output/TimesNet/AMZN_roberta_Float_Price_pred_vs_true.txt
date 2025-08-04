@@ -1,0 +1,11 @@
+Date: 2025-08-04 01:45:58.455135 
+Ticker: AMZN 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'roberta_majority_vote', 'roberta_count_positive', 'roberta_count_negative', 'roberta_count_neutral', 'roberta_label_positive_sum', 'roberta_label_negative_sum', 'roberta_label_neutral_sum'] 
+Target Column: Float_Price 
+Sequence Length: 30 
+Model: TimesNet 
+Model Dimension: 64 
+Encoder Layers: 2 
+Feed-forward Dimension: 128 
+Dropout: 0.5 
+Metrics: {'RSE': 4.1103115, 'CORR': 0.04421740727622613, 'MAE': 0.45001405, 'MAPE': 0.5698304, 'RMSE': 0.47350222, 'MSLE': 0.09439885} 

@@ -1,0 +1,11 @@
+Date: 2025-08-04 00:53:45.421318 
+Ticker: MSFT 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'finbert_majority_vote', 'finbert_count_positive', 'finbert_count_negative', 'finbert_count_neutral', 'finbert_label_positive_sum', 'finbert_label_negative_sum', 'finbert_label_neutral_sum'] 
+Target Column: Factor_Price 
+Sequence Length: 30 
+Model: TimesNet 
+Model Dimension: 64 
+Encoder Layers: 2 
+Feed-forward Dimension: 128 
+Dropout: 0.5 
+Metrics: {'RSE': 7.485776, 'CORR': -0.10741181947298724, 'MAE': 0.5291818, 'MAPE': 1.1190647, 'RMSE': 0.5684561, 'MSLE': 0.10167088} 

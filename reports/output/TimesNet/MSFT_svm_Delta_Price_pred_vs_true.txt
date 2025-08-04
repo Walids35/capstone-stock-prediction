@@ -1,0 +1,11 @@
+Date: 2025-08-04 02:18:24.448947 
+Ticker: MSFT 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'svm_majority_vote', 'svm_count_positive', 'svm_count_negative', 'svm_count_neutral'] 
+Target Column: Delta_Price 
+Sequence Length: 30 
+Model: TimesNet 
+Model Dimension: 64 
+Encoder Layers: 2 
+Feed-forward Dimension: 128 
+Dropout: 0.5 
+Metrics: {'RSE': 5.064185, 'CORR': -0.059739106640029786, 'MAE': 0.55646753, 'MAPE': 1.2286114, 'RMSE': 0.5849574, 'MSLE': 0.1092138} 

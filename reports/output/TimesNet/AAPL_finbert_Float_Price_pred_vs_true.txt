@@ -1,0 +1,11 @@
+Date: 2025-08-04 00:47:18.765121 
+Ticker: AAPL 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'finbert_majority_vote', 'finbert_count_positive', 'finbert_count_negative', 'finbert_count_neutral', 'finbert_label_positive_sum', 'finbert_label_negative_sum', 'finbert_label_neutral_sum'] 
+Target Column: Float_Price 
+Sequence Length: 30 
+Model: TimesNet 
+Model Dimension: 64 
+Encoder Layers: 2 
+Feed-forward Dimension: 128 
+Dropout: 0.5 
+Metrics: {'RSE': 5.92863, 'CORR': 0.5674765579445353, 'MAE': 0.45132113, 'MAPE': 0.5663721, 'RMSE': 0.46035278, 'MSLE': 0.088642664} 

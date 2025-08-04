@@ -1,0 +1,11 @@
+Date: 2025-08-04 12:05:41.192772 
+Ticker: MSFT 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'roberta_majority_vote', 'roberta_count_positive', 'roberta_count_negative', 'roberta_count_neutral', 'roberta_label_positive_sum', 'roberta_label_negative_sum', 'roberta_label_neutral_sum'] 
+Target Column: Binary_Price 
+Sequence Length: 30 
+Model: TimesNet 
+Model Dimension: 64 
+Encoder Layers: 2 
+Feed-forward Dimension: 128 
+Dropout: 0.5 
+Metrics: {'optimal_threshold': 0.5204713, 'auc': 0.4515970515970516, 'accuracy': 0.6630434782608695, 'confusion_matrix': [[10, 27], [4, 51]], 'classification_report': {'0.0': {'precision': 0.7142857142857143, 'recall': 0.2702702702702703, 'f1-score': 0.39215686274509803, 'support': 37.0}, '1.0': {'precision': 0.6538461538461539, 'recall': 0.9272727272727272, 'f1-score': 0.7669172932330827, 'support': 55.0}, 'accuracy': 0.6630434782608695, 'macro avg': {'precision': 0.6840659340659341, 'recall': 0.5987714987714987, 'f1-score': 0.5795370779890904, 'support': 92.0}, 'weighted avg': {'precision': 0.6781533683707597, 'recall': 0.6630434782608695, 'f1-score': 0.6161984244498714, 'support': 92.0}}} 

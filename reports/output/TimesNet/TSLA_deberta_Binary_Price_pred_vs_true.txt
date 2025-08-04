@@ -1,0 +1,11 @@
+Date: 2025-08-04 11:40:26.398467 
+Ticker: TSLA 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'deberta_majority_vote', 'deberta_count_positive', 'deberta_count_negative', 'deberta_count_neutral', 'deberta_label_positive_sum', 'deberta_label_negative_sum', 'deberta_label_neutral_sum'] 
+Target Column: Binary_Price 
+Sequence Length: 30 
+Model: TimesNet 
+Model Dimension: 64 
+Encoder Layers: 2 
+Feed-forward Dimension: 128 
+Dropout: 0.5 
+Metrics: {'optimal_threshold': 0.52108544, 'auc': 0.46335697399527187, 'accuracy': 0.532608695652174, 'confusion_matrix': [[6, 39], [4, 43]], 'classification_report': {'0.0': {'precision': 0.6, 'recall': 0.13333333333333333, 'f1-score': 0.21818181818181817, 'support': 45.0}, '1.0': {'precision': 0.524390243902439, 'recall': 0.9148936170212766, 'f1-score': 0.6666666666666666, 'support': 47.0}, 'accuracy': 0.532608695652174, 'macro avg': {'precision': 0.5621951219512196, 'recall': 0.524113475177305, 'f1-score': 0.4424242424242424, 'support': 92.0}, 'weighted avg': {'precision': 0.561373276776246, 'recall': 0.532608695652174, 'f1-score': 0.4472990777338603, 'support': 92.0}}} 

@@ -1,0 +1,274 @@
+================================================================================
+LSTM RESULTS ANALYSIS
+================================================================================
+
+Found 120 TXT files to analyze...
+
+✗ Failed to parse: AAPL_deberta_Binary_Price_pred_vs_true.txt
+✗ Failed to parse: AAPL_deberta_Delta_Price_pred_vs_true.txt
+✗ Failed to parse: AAPL_deberta_Factor_Price_pred_vs_true.txt
+✗ Failed to parse: AAPL_deberta_Float_Price_pred_vs_true.txt
+✗ Failed to parse: AAPL_finbert_Binary_Price_pred_vs_true.txt
+✗ Failed to parse: AAPL_finbert_Delta_Price_pred_vs_true.txt
+✗ Failed to parse: AAPL_finbert_Factor_Price_pred_vs_true.txt
+✗ Failed to parse: AAPL_finbert_Float_Price_pred_vs_true.txt
+✗ Failed to parse: AAPL_lr_Binary_Price_pred_vs_true.txt
+✗ Failed to parse: AAPL_lr_Delta_Price_pred_vs_true.txt
+✗ Failed to parse: AAPL_lr_Factor_Price_pred_vs_true.txt
+✗ Failed to parse: AAPL_lr_Float_Price_pred_vs_true.txt
+✗ Failed to parse: AAPL_rf_Binary_Price_pred_vs_true.txt
+✗ Failed to parse: AAPL_rf_Delta_Price_pred_vs_true.txt
+✗ Failed to parse: AAPL_rf_Factor_Price_pred_vs_true.txt
+✗ Failed to parse: AAPL_rf_Float_Price_pred_vs_true.txt
+✗ Failed to parse: AAPL_roberta_Binary_Price_pred_vs_true.txt
+✗ Failed to parse: AAPL_roberta_Delta_Price_pred_vs_true.txt
+✗ Failed to parse: AAPL_roberta_Factor_Price_pred_vs_true.txt
+✗ Failed to parse: AAPL_roberta_Float_Price_pred_vs_true.txt
+✗ Failed to parse: AAPL_svm_Binary_Price_pred_vs_true.txt
+✗ Failed to parse: AAPL_svm_Delta_Price_pred_vs_true.txt
+✗ Failed to parse: AAPL_svm_Factor_Price_pred_vs_true.txt
+✗ Failed to parse: AAPL_svm_Float_Price_pred_vs_true.txt
+✗ Failed to parse: AMZN_deberta_Binary_Price_pred_vs_true.txt
+✗ Failed to parse: AMZN_deberta_Delta_Price_pred_vs_true.txt
+✗ Failed to parse: AMZN_deberta_Factor_Price_pred_vs_true.txt
+✗ Failed to parse: AMZN_deberta_Float_Price_pred_vs_true.txt
+✗ Failed to parse: AMZN_finbert_Binary_Price_pred_vs_true.txt
+✗ Failed to parse: AMZN_finbert_Delta_Price_pred_vs_true.txt
+✗ Failed to parse: AMZN_finbert_Factor_Price_pred_vs_true.txt
+✗ Failed to parse: AMZN_finbert_Float_Price_pred_vs_true.txt
+✗ Failed to parse: AMZN_lr_Binary_Price_pred_vs_true.txt
+✗ Failed to parse: AMZN_lr_Delta_Price_pred_vs_true.txt
+✗ Failed to parse: AMZN_lr_Factor_Price_pred_vs_true.txt
+✗ Failed to parse: AMZN_lr_Float_Price_pred_vs_true.txt
+✗ Failed to parse: AMZN_rf_Binary_Price_pred_vs_true.txt
+✗ Failed to parse: AMZN_rf_Delta_Price_pred_vs_true.txt
+✗ Failed to parse: AMZN_rf_Factor_Price_pred_vs_true.txt
+✗ Failed to parse: AMZN_rf_Float_Price_pred_vs_true.txt
+✗ Failed to parse: AMZN_roberta_Binary_Price_pred_vs_true.txt
+✗ Failed to parse: AMZN_roberta_Delta_Price_pred_vs_true.txt
+✗ Failed to parse: AMZN_roberta_Factor_Price_pred_vs_true.txt
+✗ Failed to parse: AMZN_roberta_Float_Price_pred_vs_true.txt
+✗ Failed to parse: AMZN_svm_Binary_Price_pred_vs_true.txt
+✗ Failed to parse: AMZN_svm_Delta_Price_pred_vs_true.txt
+✗ Failed to parse: AMZN_svm_Factor_Price_pred_vs_true.txt
+✗ Failed to parse: AMZN_svm_Float_Price_pred_vs_true.txt
+✗ Failed to parse: MSFT_deberta_Binary_Price_pred_vs_true.txt
+✗ Failed to parse: MSFT_deberta_Delta_Price_pred_vs_true.txt
+✗ Failed to parse: MSFT_deberta_Factor_Price_pred_vs_true.txt
+✗ Failed to parse: MSFT_deberta_Float_Price_pred_vs_true.txt
+✗ Failed to parse: MSFT_finbert_Binary_Price_pred_vs_true.txt
+✗ Failed to parse: MSFT_finbert_Delta_Price_pred_vs_true.txt
+✗ Failed to parse: MSFT_finbert_Factor_Price_pred_vs_true.txt
+✗ Failed to parse: MSFT_finbert_Float_Price_pred_vs_true.txt
+✗ Failed to parse: MSFT_lr_Binary_Price_pred_vs_true.txt
+✗ Failed to parse: MSFT_lr_Delta_Price_pred_vs_true.txt
+✗ Failed to parse: MSFT_lr_Factor_Price_pred_vs_true.txt
+✗ Failed to parse: MSFT_lr_Float_Price_pred_vs_true.txt
+✗ Failed to parse: MSFT_rf_Binary_Price_pred_vs_true.txt
+✗ Failed to parse: MSFT_rf_Delta_Price_pred_vs_true.txt
+✗ Failed to parse: MSFT_rf_Factor_Price_pred_vs_true.txt
+✗ Failed to parse: MSFT_rf_Float_Price_pred_vs_true.txt
+✗ Failed to parse: MSFT_roberta_Binary_Price_pred_vs_true.txt
+✗ Failed to parse: MSFT_roberta_Delta_Price_pred_vs_true.txt
+✗ Failed to parse: MSFT_roberta_Factor_Price_pred_vs_true.txt
+✗ Failed to parse: MSFT_roberta_Float_Price_pred_vs_true.txt
+✗ Failed to parse: MSFT_svm_Binary_Price_pred_vs_true.txt
+✗ Failed to parse: MSFT_svm_Delta_Price_pred_vs_true.txt
+✗ Failed to parse: MSFT_svm_Factor_Price_pred_vs_true.txt
+✗ Failed to parse: MSFT_svm_Float_Price_pred_vs_true.txt
+✗ Failed to parse: NFLX_deberta_Binary_Price_pred_vs_true.txt
+✗ Failed to parse: NFLX_deberta_Delta_Price_pred_vs_true.txt
+✗ Failed to parse: NFLX_deberta_Factor_Price_pred_vs_true.txt
+✗ Failed to parse: NFLX_deberta_Float_Price_pred_vs_true.txt
+✗ Failed to parse: NFLX_finbert_Binary_Price_pred_vs_true.txt
+✗ Failed to parse: NFLX_finbert_Delta_Price_pred_vs_true.txt
+✗ Failed to parse: NFLX_finbert_Factor_Price_pred_vs_true.txt
+✗ Failed to parse: NFLX_finbert_Float_Price_pred_vs_true.txt
+✗ Failed to parse: NFLX_lr_Binary_Price_pred_vs_true.txt
+✗ Failed to parse: NFLX_lr_Delta_Price_pred_vs_true.txt
+✗ Failed to parse: NFLX_lr_Factor_Price_pred_vs_true.txt
+✗ Failed to parse: NFLX_lr_Float_Price_pred_vs_true.txt
+✗ Failed to parse: NFLX_rf_Binary_Price_pred_vs_true.txt
+✗ Failed to parse: NFLX_rf_Delta_Price_pred_vs_true.txt
+✗ Failed to parse: NFLX_rf_Factor_Price_pred_vs_true.txt
+✗ Failed to parse: NFLX_rf_Float_Price_pred_vs_true.txt
+✗ Failed to parse: NFLX_roberta_Binary_Price_pred_vs_true.txt
+✗ Failed to parse: NFLX_roberta_Delta_Price_pred_vs_true.txt
+✗ Failed to parse: NFLX_roberta_Factor_Price_pred_vs_true.txt
+✗ Failed to parse: NFLX_roberta_Float_Price_pred_vs_true.txt
+✗ Failed to parse: NFLX_svm_Binary_Price_pred_vs_true.txt
+✗ Failed to parse: NFLX_svm_Delta_Price_pred_vs_true.txt
+✗ Failed to parse: NFLX_svm_Factor_Price_pred_vs_true.txt
+✗ Failed to parse: NFLX_svm_Float_Price_pred_vs_true.txt
+✗ Failed to parse: TSLA_deberta_Binary_Price_pred_vs_true.txt
+✗ Failed to parse: TSLA_deberta_Delta_Price_pred_vs_true.txt
+✗ Failed to parse: TSLA_deberta_Factor_Price_pred_vs_true.txt
+✗ Failed to parse: TSLA_deberta_Float_Price_pred_vs_true.txt
+✗ Failed to parse: TSLA_finbert_Binary_Price_pred_vs_true.txt
+✗ Failed to parse: TSLA_finbert_Delta_Price_pred_vs_true.txt
+✗ Failed to parse: TSLA_finbert_Factor_Price_pred_vs_true.txt
+✗ Failed to parse: TSLA_finbert_Float_Price_pred_vs_true.txt
+✗ Failed to parse: TSLA_lr_Binary_Price_pred_vs_true.txt
+✗ Failed to parse: TSLA_lr_Delta_Price_pred_vs_true.txt
+✗ Failed to parse: TSLA_lr_Factor_Price_pred_vs_true.txt
+✗ Failed to parse: TSLA_lr_Float_Price_pred_vs_true.txt
+✗ Failed to parse: TSLA_rf_Binary_Price_pred_vs_true.txt
+✗ Failed to parse: TSLA_rf_Delta_Price_pred_vs_true.txt
+✗ Failed to parse: TSLA_rf_Factor_Price_pred_vs_true.txt
+✗ Failed to parse: TSLA_rf_Float_Price_pred_vs_true.txt
+✗ Failed to parse: TSLA_roberta_Binary_Price_pred_vs_true.txt
+✗ Failed to parse: TSLA_roberta_Delta_Price_pred_vs_true.txt
+✗ Failed to parse: TSLA_roberta_Factor_Price_pred_vs_true.txt
+✗ Failed to parse: TSLA_roberta_Float_Price_pred_vs_true.txt
+✗ Failed to parse: TSLA_svm_Binary_Price_pred_vs_true.txt
+✗ Failed to parse: TSLA_svm_Delta_Price_pred_vs_true.txt
+✗ Failed to parse: TSLA_svm_Factor_Price_pred_vs_true.txt
+✗ Failed to parse: TSLA_svm_Float_Price_pred_vs_true.txt
+
+================================================================================
+ANALYSIS RESULTS
+================================================================================
+
+MODEL: DEBERTA
+------------------------------------------------------------
+
+  Output Type: Binary_Price
+  ==================================================
+    No data available for deberta - Binary_Price
+
+  Output Type: Delta_Price
+  ==================================================
+    No data available for deberta - Delta_Price
+
+  Output Type: Factor_Price
+  ==================================================
+    No data available for deberta - Factor_Price
+
+  Output Type: Float_Price
+  ==================================================
+    No data available for deberta - Float_Price
+
+
+MODEL: FINBERT
+------------------------------------------------------------
+
+  Output Type: Binary_Price
+  ==================================================
+    No data available for finbert - Binary_Price
+
+  Output Type: Delta_Price
+  ==================================================
+    No data available for finbert - Delta_Price
+
+  Output Type: Factor_Price
+  ==================================================
+    No data available for finbert - Factor_Price
+
+  Output Type: Float_Price
+  ==================================================
+    No data available for finbert - Float_Price
+
+
+MODEL: LR
+------------------------------------------------------------
+
+  Output Type: Binary_Price
+  ==================================================
+    No data available for lr - Binary_Price
+
+  Output Type: Delta_Price
+  ==================================================
+    No data available for lr - Delta_Price
+
+  Output Type: Factor_Price
+  ==================================================
+    No data available for lr - Factor_Price
+
+  Output Type: Float_Price
+  ==================================================
+    No data available for lr - Float_Price
+
+
+MODEL: RF
+------------------------------------------------------------
+
+  Output Type: Binary_Price
+  ==================================================
+    No data available for rf - Binary_Price
+
+  Output Type: Delta_Price
+  ==================================================
+    No data available for rf - Delta_Price
+
+  Output Type: Factor_Price
+  ==================================================
+    No data available for rf - Factor_Price
+
+  Output Type: Float_Price
+  ==================================================
+    No data available for rf - Float_Price
+
+
+MODEL: ROBERTA
+------------------------------------------------------------
+
+  Output Type: Binary_Price
+  ==================================================
+    No data available for roberta - Binary_Price
+
+  Output Type: Delta_Price
+  ==================================================
+    No data available for roberta - Delta_Price
+
+  Output Type: Factor_Price
+  ==================================================
+    No data available for roberta - Factor_Price
+
+  Output Type: Float_Price
+  ==================================================
+    No data available for roberta - Float_Price
+
+
+MODEL: SVM
+------------------------------------------------------------
+
+  Output Type: Binary_Price
+  ==================================================
+    No data available for svm - Binary_Price
+
+  Output Type: Delta_Price
+  ==================================================
+    No data available for svm - Delta_Price
+
+  Output Type: Factor_Price
+  ==================================================
+    No data available for svm - Factor_Price
+
+  Output Type: Float_Price
+  ==================================================
+    No data available for svm - Float_Price
+
+
+================================================================================
+SUMMARY STATISTICS
+================================================================================
+
+Total possible combinations: 24
+Available combinations: 0
+Coverage: 0.0%
+
+Model Coverage:
+  deberta   : 0/4 output types
+  finbert   : 0/4 output types
+  lr        : 0/4 output types
+  rf        : 0/4 output types
+  roberta   : 0/4 output types
+  svm       : 0/4 output types
+
+Output Type Coverage:
+  Binary_Price   : 0/6 models
+  Delta_Price    : 0/6 models
+  Factor_Price   : 0/6 models
+  Float_Price    : 0/6 models
+
+Analysis complete!

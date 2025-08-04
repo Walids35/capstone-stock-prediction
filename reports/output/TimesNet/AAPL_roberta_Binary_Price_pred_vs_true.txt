@@ -1,0 +1,11 @@
+Date: 2025-08-04 12:05:25.035932 
+Ticker: AAPL 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'roberta_majority_vote', 'roberta_count_positive', 'roberta_count_negative', 'roberta_count_neutral', 'roberta_label_positive_sum', 'roberta_label_negative_sum', 'roberta_label_neutral_sum'] 
+Target Column: Binary_Price 
+Sequence Length: 30 
+Model: TimesNet 
+Model Dimension: 64 
+Encoder Layers: 2 
+Feed-forward Dimension: 128 
+Dropout: 0.5 
+Metrics: {'optimal_threshold': 0.52076155, 'auc': 0.5600183823529412, 'accuracy': 0.5945945945945946, 'confusion_matrix': [[37, 31], [29, 51]], 'classification_report': {'0.0': {'precision': 0.5606060606060606, 'recall': 0.5441176470588235, 'f1-score': 0.5522388059701493, 'support': 68.0}, '1.0': {'precision': 0.6219512195121951, 'recall': 0.6375, 'f1-score': 0.6296296296296297, 'support': 80.0}, 'accuracy': 0.5945945945945946, 'macro avg': {'precision': 0.5912786400591279, 'recall': 0.5908088235294118, 'f1-score': 0.5909342177998895, 'support': 148.0}, 'weighted avg': {'precision': 0.5937656059607279, 'recall': 0.5945945945945946, 'f1-score': 0.5940716836239225, 'support': 148.0}}} 

@@ -1,0 +1,11 @@
+Date: 2025-08-04 01:31:53.668858 
+Ticker: AAPL 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'rf_majority_vote', 'rf_count_positive', 'rf_count_negative', 'rf_count_neutral'] 
+Target Column: Factor_Price 
+Sequence Length: 30 
+Model: TimesNet 
+Model Dimension: 64 
+Encoder Layers: 2 
+Feed-forward Dimension: 128 
+Dropout: 0.5 
+Metrics: {'RSE': 3.9264069, 'CORR': -0.18500823328484647, 'MAE': 0.35987872, 'MAPE': 1.127777, 'RMSE': 0.39220592, 'MSLE': 0.06324895} 

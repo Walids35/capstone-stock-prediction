@@ -1,0 +1,11 @@
+Date: 2025-08-04 00:53:52.403401 
+Ticker: TSLA 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'finbert_majority_vote', 'finbert_count_positive', 'finbert_count_negative', 'finbert_count_neutral', 'finbert_label_positive_sum', 'finbert_label_negative_sum', 'finbert_label_neutral_sum'] 
+Target Column: Factor_Price 
+Sequence Length: 30 
+Model: TimesNet 
+Model Dimension: 64 
+Encoder Layers: 2 
+Feed-forward Dimension: 128 
+Dropout: 0.5 
+Metrics: {'RSE': 3.2452912, 'CORR': -0.1911534442558171, 'MAE': 0.3546345, 'MAPE': 3.0759127, 'RMSE': 0.40537006, 'MSLE': 0.058866907} 
