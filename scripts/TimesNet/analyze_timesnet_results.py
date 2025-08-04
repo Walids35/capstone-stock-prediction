@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 """
-LSTM Results Analysis Script
-Analyzes TXT files from LSTM output and calculates mean metrics across 5 tickers
+TimesNet Results Analysis Script
+Analyzes TXT files from TimesNet output and calculates mean metrics across 5 tickers
 for each model and output type combination.
 """
 
 import os
 import re
-import ast
 import pandas as pd
 import numpy as np
 from pathlib import Path
@@ -19,25 +18,26 @@ warnings.filterwarnings('ignore')
 TICKERS = ['AAPL', 'AMZN', 'MSFT', 'NFLX', 'TSLA']
 MODELS = ['deberta', 'finbert', 'lr', 'rf', 'roberta', 'svm']
 OUTPUT_TYPES = ['Binary_Price', 'Delta_Price', 'Factor_Price', 'Float_Price']
-LSTM_DIR = 'reports/output/LSTM'
+TIMESNET_DIR = 'reports/output/TimesNet'
 
 def parse_metrics_from_file(file_path):
     """
     Parse metrics from a TXT file.
-    Returns the metrics dictionary from line 9.
+    Returns the metrics dictionary from the last line (TimesNet format).
     """
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
             lines = f.readlines()
             
-        if len(lines) >= 9:
-            metrics_line = lines[8].strip()  # Line 9 (0-indexed)
+        if len(lines) >= 1:
+            # Get the last line which contains the metrics
+            metrics_line = lines[-1].strip()
             # Extract the dictionary part after "Metrics: "
             if "Metrics: " in metrics_line:
                 metrics_str = metrics_line.split("Metrics: ", 1)[1]
                 
                 # Handle inf and nan values by replacing them with actual float values
-                # that eval can handle
+                # that ast.literal_eval can handle
                 metrics_str = re.sub(r'\binf\b', 'float("inf")', metrics_str)
                 metrics_str = re.sub(r'\bnan\b', 'float("nan")', metrics_str)
                 
@@ -132,7 +132,7 @@ def main():
     Main analysis function.
     """
     # Create output file
-    output_file = os.path.join(LSTM_DIR, "lstm_analysis_results.txt")
+    output_file = os.path.join(TIMESNET_DIR, "timesnet_analysis_results.txt")
     
     # Redirect output to both console and file
     import sys
@@ -147,13 +147,13 @@ def main():
         sys.stdout = output_buffer
         
         print("=" * 80)
-        print("LSTM RESULTS ANALYSIS")
+        print("TIMESNET RESULTS ANALYSIS")
         print("=" * 80)
         print()
         
-        # Check if LSTM directory exists
-        if not os.path.exists(LSTM_DIR):
-            print(f"Error: Directory {LSTM_DIR} does not exist!")
+        # Check if TimesNet directory exists
+        if not os.path.exists(TIMESNET_DIR):
+            print(f"Error: Directory {TIMESNET_DIR} does not exist!")
             return
         
         # Initialize data structures
@@ -161,7 +161,7 @@ def main():
         
         # Find all TXT files
         txt_files = []
-        for file in os.listdir(LSTM_DIR):
+        for file in os.listdir(TIMESNET_DIR):
             if file.endswith('_pred_vs_true.txt'):
                 txt_files.append(file)
         
@@ -170,7 +170,7 @@ def main():
         
         # Parse each file
         for filename in txt_files:
-            file_path = os.path.join(LSTM_DIR, filename)
+            file_path = os.path.join(TIMESNET_DIR, filename)
             ticker, model, output_type = extract_file_info(filename)
             
             if ticker in TICKERS and model in MODELS and output_type in OUTPUT_TYPES:

@@ -36,8 +36,8 @@ for model in "deberta" "finbert" "lr" "rf" "roberta" "svm"; do
             --data_path data/processed/AAPL_preprocessed_dataset_with_features.csv \
             --feature_columns $feature_columns \
             --target_column $target_column \
-            --scaler_path models/AAPL_tpatchgnn_${target_column}_scaler.pkl \
-            --model_path models/AAPL_tpatchgnn_${target_column}_model.pth \
+            --scaler_path models/AAPL_tpatchgnn_${target_column}_${model}_scaler.pkl \
+            --model_path models/AAPL_tpatchgnn_${target_column}_${model}_model.pth \
             --seq_length $seq_length \
             --batch_size $batch_size \
             --dropout $dropout \
@@ -50,8 +50,8 @@ for model in "deberta" "finbert" "lr" "rf" "roberta" "svm"; do
             --data_path data/processed/AMZN_preprocessed_dataset_with_features.csv \
             --feature_columns $feature_columns \
             --target_column $target_column \
-            --scaler_path models/AMZN_tpatchgnn_${target_column}_scaler.pkl \
-            --model_path models/AMZN_tpatchgnn_${target_column}_model.pth \
+            --scaler_path models/AMZN_tpatchgnn_${target_column}_${model}_scaler.pkl \
+            --model_path models/AMZN_tpatchgnn_${target_column}_${model}_model.pth \
             --seq_length $seq_length \
             --batch_size $batch_size \
             --dropout $dropout \
@@ -63,8 +63,8 @@ for model in "deberta" "finbert" "lr" "rf" "roberta" "svm"; do
             --data_path data/processed/MSFT_preprocessed_dataset_with_features.csv \
             --feature_columns $feature_columns \
             --target_column $target_column \
-            --scaler_path models/MSFT_tpatchgnn_${target_column}_scaler.pkl \
-            --model_path models/MSFT_tpatchgnn_${target_column}_model.pth \
+            --scaler_path models/MSFT_tpatchgnn_${target_column}_${model}_scaler.pkl \
+            --model_path models/MSFT_tpatchgnn_${target_column}_${model}_model.pth \
             --seq_length $seq_length \
             --batch_size $batch_size \
             --dropout $dropout \
@@ -76,8 +76,8 @@ for model in "deberta" "finbert" "lr" "rf" "roberta" "svm"; do
             --data_path data/processed/TSLA_preprocessed_dataset_with_features.csv \
             --feature_columns $feature_columns \
             --target_column $target_column \
-            --scaler_path models/TSLA_tpatchgnn_${target_column}_scaler.pkl \
-            --model_path models/TSLA_tpatchgnn_${target_column}_model.pth \
+            --scaler_path models/TSLA_tpatchgnn_${target_column}_${model}_scaler.pkl \
+            --model_path models/TSLA_tpatchgnn_${target_column}_${model}_model.pth \
             --seq_length $seq_length \
             --batch_size $batch_size \
             --dropout $dropout \
@@ -89,8 +89,8 @@ for model in "deberta" "finbert" "lr" "rf" "roberta" "svm"; do
             --data_path data/processed/NFLX_preprocessed_dataset_with_features.csv \
             --feature_columns $feature_columns \
             --target_column $target_column \
-            --scaler_path models/NFLX_tpatchgnn_${target_column}_scaler.pkl \
-            --model_path models/NFLX_tpatchgnn_${target_column}_model.pth \
+            --scaler_path models/NFLX_tpatchgnn_${target_column}_${model}_scaler.pkl \
+            --model_path models/NFLX_tpatchgnn_${target_column}_${model}_model.pth \
             --seq_length $seq_length \
             --batch_size $batch_size \
             --dropout $dropout \
@@ -100,8 +100,8 @@ for model in "deberta" "finbert" "lr" "rf" "roberta" "svm"; do
 
         # Predictions for each ticker
         python stock_prediction/modeling/predict_tpatchgnn.py \
-            --model_path models/AAPL_tpatchgnn_${target_column}_model.pth \
-            --scaler_path models/AAPL_tpatchgnn_${target_column}_scaler.pkl \
+            --model_path models/AAPL_tpatchgnn_${target_column}_${model}_model.pth \
+            --scaler_path models/AAPL_tpatchgnn_${target_column}_${model}_scaler.pkl \
             --data_path data/processed/AAPL_preprocessed_dataset_with_features.csv \
             --feature_columns $feature_columns \
             --target_column $target_column \
@@ -112,8 +112,8 @@ for model in "deberta" "finbert" "lr" "rf" "roberta" "svm"; do
             --news_model $model
 
         python stock_prediction/modeling/predict_tpatchgnn.py \
-            --model_path models/AMZN_tpatchgnn_${target_column}_model.pth \
-            --scaler_path models/AMZN_tpatchgnn_${target_column}_scaler.pkl \
+            --model_path models/AMZN_tpatchgnn_${target_column}_${model}_model.pth \
+            --scaler_path models/AMZN_tpatchgnn_${target_column}_${model}_scaler.pkl \
             --data_path data/processed/AMZN_preprocessed_dataset_with_features.csv \
             --feature_columns $feature_columns \
             --target_column $target_column \
@@ -124,8 +124,8 @@ for model in "deberta" "finbert" "lr" "rf" "roberta" "svm"; do
             --news_model $model
 
         python stock_prediction/modeling/predict_tpatchgnn.py \
-            --model_path models/MSFT_tpatchgnn_${target_column}_model.pth \
-            --scaler_path models/MSFT_tpatchgnn_${target_column}_scaler.pkl \
+            --model_path models/MSFT_tpatchgnn_${target_column}_${model}_model.pth \
+            --scaler_path models/MSFT_tpatchgnn_${target_column}_${model}_scaler.pkl \
             --data_path data/processed/MSFT_preprocessed_dataset_with_features.csv \
             --feature_columns $feature_columns \
             --target_column $target_column \
@@ -136,8 +136,8 @@ for model in "deberta" "finbert" "lr" "rf" "roberta" "svm"; do
             --news_model $model
 
         python stock_prediction/modeling/predict_tpatchgnn.py \
-            --model_path models/TSLA_tpatchgnn_${target_column}_model.pth \
-            --scaler_path models/TSLA_tpatchgnn_${target_column}_scaler.pkl \
+            --model_path models/TSLA_tpatchgnn_${target_column}_${model}_model.pth \
+            --scaler_path models/TSLA_tpatchgnn_${target_column}_${model}_scaler.pkl \
             --data_path data/processed/TSLA_preprocessed_dataset_with_features.csv \
             --feature_columns $feature_columns \
             --target_column $target_column \
@@ -148,8 +148,8 @@ for model in "deberta" "finbert" "lr" "rf" "roberta" "svm"; do
             --news_model $model
 
         python stock_prediction/modeling/predict_tpatchgnn.py \
-            --model_path models/NFLX_tpatchgnn_${target_column}_model.pth \
-            --scaler_path models/NFLX_tpatchgnn_${target_column}_scaler.pkl \
+            --model_path models/NFLX_tpatchgnn_${target_column}_${model}_model.pth \
+            --scaler_path models/NFLX_tpatchgnn_${target_column}_${model}_scaler.pkl \
             --data_path data/processed/NFLX_preprocessed_dataset_with_features.csv \
             --feature_columns $feature_columns \
             --target_column $target_column \
@@ -158,9 +158,5 @@ for model in "deberta" "finbert" "lr" "rf" "roberta" "svm"; do
             --dropout $dropout \
             --test_ratio $test_ratio \
             --news_model $model
-        
-        # Clean up models after each run
-        rm -f models/*_tpatchgnn_*.pth
-        rm -f models/*_tpatchgnn_*.pkl
     done
 done

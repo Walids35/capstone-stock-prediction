@@ -13,11 +13,11 @@ for model in "finbert" "roberta" "deberta" "lr" "rf" "svm"; do
         feature_columns="Close Volume total_news_count ${model}_majority_vote"
 
         python stock_prediction/modeling/train.py \
-            --model_name lstm_model \
+            --model_path models/AAPL_lstm_${target_column}_${model}_model.pth \
             --data_path data/processed/AAPL_preprocessed_dataset_with_features.csv \
             --feature_columns $feature_columns \
             --target_column $target_column \
-            --scaler_path models/AAPL_lstm_model_norm.npz \
+            --scaler_path models/AAPL_lstm_${target_column}_${model}_scaler.pkl \
             --seq_length $seq_length \
             --hidden_size $hidden_size \
             --num_layers $num_layers \
@@ -29,11 +29,11 @@ for model in "finbert" "roberta" "deberta" "lr" "rf" "svm"; do
 
         
         python stock_prediction/modeling/train.py \
-            --model_name lstm_model \
+            --model_path models/AMZN_lstm_${target_column}_${model}_model.pth \
             --data_path data/processed/AMZN_preprocessed_dataset_with_features.csv \
             --feature_columns $feature_columns \
             --target_column $target_column \
-            --scaler_path models/AMZN_lstm_model_norm.npz \
+            --scaler_path models/AMZN_lstm_${target_column}_${model}_scaler.pkl \
             --seq_length $seq_length \
             --hidden_size $hidden_size \
             --num_layers $num_layers \
@@ -43,11 +43,11 @@ for model in "finbert" "roberta" "deberta" "lr" "rf" "svm"; do
             --epochs $epochs 
 
         python stock_prediction/modeling/train.py \
-            --model_name lstm_model \
+            --model_path models/MSFT_lstm_${target_column}_${model}_model.pth \
             --data_path data/processed/MSFT_preprocessed_dataset_with_features.csv \
             --feature_columns $feature_columns \
             --target_column $target_column \
-            --scaler_path models/MSFT_lstm_model_norm.npz \
+            --scaler_path models/MSFT_lstm_${target_column}_${model}_scaler.pkl \
             --seq_length $seq_length \
             --hidden_size $hidden_size \
             --num_layers $num_layers \
@@ -57,11 +57,11 @@ for model in "finbert" "roberta" "deberta" "lr" "rf" "svm"; do
             --epochs $epochs 
 
         python stock_prediction/modeling/train.py \
-            --model_name lstm_model \
+            --model_path models/TSLA_lstm_${target_column}_${model}_model.pth \
             --data_path data/processed/TSLA_preprocessed_dataset_with_features.csv \
             --feature_columns $feature_columns \
             --target_column $target_column \
-            --scaler_path models/TSLA_lstm_model_norm.npz \
+            --scaler_path models/TSLA_lstm_${target_column}_${model}_scaler.pkl \
             --seq_length $seq_length \
             --hidden_size $hidden_size \
             --num_layers $num_layers \
@@ -71,11 +71,11 @@ for model in "finbert" "roberta" "deberta" "lr" "rf" "svm"; do
             --epochs $epochs 
 
         python stock_prediction/modeling/train.py \
-            --model_name lstm_model \
+            --model_path models/NFLX_lstm_${target_column}_${model}_model.pth \
             --data_path data/processed/NFLX_preprocessed_dataset_with_features.csv \
             --feature_columns $feature_columns \
             --target_column $target_column \
-            --scaler_path models/NFLX_lstm_model_norm.npz \
+            --scaler_path models/NFLX_lstm_${target_column}_${model}_scaler.pkl \
             --seq_length $seq_length \
             --hidden_size $hidden_size \
             --num_layers $num_layers \
@@ -86,9 +86,8 @@ for model in "finbert" "roberta" "deberta" "lr" "rf" "svm"; do
         
 
         python stock_prediction/modeling/predict.py \
-            --model_name lstm_model \
-            --model_path models/lstm_model.pth \
-            --scaler_path models/AAPL_lstm_model_norm.npz \
+            --model_path models/AAPL_lstm_${target_column}_${model}_model.pth \
+            --scaler_path models/AAPL_lstm_${target_column}_${model}_scaler.pkl \
             --data_path data/processed/AAPL_preprocessed_dataset_with_features.csv \
             --feature_columns $feature_columns \
             --target_column $target_column \
@@ -102,9 +101,8 @@ for model in "finbert" "roberta" "deberta" "lr" "rf" "svm"; do
 
         
         python stock_prediction/modeling/predict.py \
-            --model_name lstm_model \
-            --model_path models/lstm_model.pth \
-            --scaler_path models/AMZN_lstm_model_norm.npz \
+        --model_path models/AMZN_lstm_${target_column}_${model}_model.pth \
+            --scaler_path models/AMZN_lstm_${target_column}_${model}_scaler.pkl \
             --data_path data/processed/AMZN_preprocessed_dataset_with_features.csv \
             --feature_columns $feature_columns \
             --target_column $target_column \
@@ -117,9 +115,8 @@ for model in "finbert" "roberta" "deberta" "lr" "rf" "svm"; do
             --news_model $model
 
         python stock_prediction/modeling/predict.py \
-            --model_name lstm_model \
-            --model_path models/lstm_model.pth \
-            --scaler_path models/MSFT_lstm_model_norm.npz \
+            --model_path models/MSFT_lstm_${target_column}_${model}_model.pth \
+            --scaler_path models/MSFT_lstm_${target_column}_${model}_scaler.pkl \
             --data_path data/processed/MSFT_preprocessed_dataset_with_features.csv \
             --feature_columns $feature_columns \
             --target_column $target_column \
@@ -132,9 +129,8 @@ for model in "finbert" "roberta" "deberta" "lr" "rf" "svm"; do
             --news_model $model
 
         python stock_prediction/modeling/predict.py \
-            --model_name lstm_model \
-            --model_path models/lstm_model.pth \
-            --scaler_path models/TSLA_lstm_model_norm.npz \
+            --model_path models/TSLA_lstm_${target_column}_${model}_model.pth \
+            --scaler_path models/TSLA_lstm_${target_column}_${model}_scaler.pkl \
             --data_path data/processed/TSLA_preprocessed_dataset_with_features.csv \
             --feature_columns $feature_columns \
             --target_column $target_column \
@@ -147,9 +143,8 @@ for model in "finbert" "roberta" "deberta" "lr" "rf" "svm"; do
             --news_model $model
 
         python stock_prediction/modeling/predict.py \
-            --model_name lstm_model \
-            --model_path models/lstm_model.pth \
-            --scaler_path models/NFLX_lstm_model_norm.npz \
+            --model_path models/NFLX_lstm_${target_column}_${model}_model.pth \
+            --scaler_path models/NFLX_lstm_${target_column}_${model}_scaler.pkl \
             --data_path data/processed/NFLX_preprocessed_dataset_with_features.csv \
             --feature_columns $feature_columns \
             --target_column $target_column \
@@ -160,8 +155,5 @@ for model in "finbert" "roberta" "deberta" "lr" "rf" "svm"; do
             --dropout $dropout \
             --test_ratio $test_ratio \
             --news_model $model
-        
-        rm -f models/*.pth
-        rm -f models/*.npz
     done
 done

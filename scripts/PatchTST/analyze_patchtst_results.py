@@ -131,147 +131,181 @@ def main():
     """
     Main analysis function.
     """
-    print("=" * 80)
-    print("PATCHTST RESULTS ANALYSIS")
-    print("=" * 80)
-    print()
+    # Create output file
+    output_file = os.path.join(PATCHTST_DIR, "patchtst_analysis_results.txt")
     
-    # Check if PatchTST directory exists
-    if not os.path.exists(PATCHTST_DIR):
-        print(f"Error: Directory {PATCHTST_DIR} does not exist!")
-        return
+    # Redirect output to both console and file
+    import sys
+    from io import StringIO
     
-    # Initialize data structures
-    results = defaultdict(lambda: defaultdict(lambda: defaultdict(dict)))
+    # Capture output
+    output_buffer = StringIO()
+    original_stdout = sys.stdout
     
-    # Find all TXT files
-    txt_files = []
-    for file in os.listdir(PATCHTST_DIR):
-        if file.endswith('_pred_vs_true.txt'):
-            txt_files.append(file)
-    
-    print(f"Found {len(txt_files)} TXT files to analyze...")
-    print()
-    
-    # Parse each file
-    for filename in txt_files:
-        file_path = os.path.join(PATCHTST_DIR, filename)
-        ticker, model, output_type = extract_file_info(filename)
+    try:
+        # Redirect stdout to capture output
+        sys.stdout = output_buffer
         
-        if ticker in TICKERS and model in MODELS and output_type in OUTPUT_TYPES:
-            metrics = parse_metrics_from_file(file_path)
-            if metrics:
-                if output_type == 'Binary_Price':
-                    processed_metrics = analyze_classification_metrics(metrics)
+        print("=" * 80)
+        print("PATCHTST RESULTS ANALYSIS")
+        print("=" * 80)
+        print()
+        
+        # Check if PatchTST directory exists
+        if not os.path.exists(PATCHTST_DIR):
+            print(f"Error: Directory {PATCHTST_DIR} does not exist!")
+            return
+        
+        # Initialize data structures
+        results = defaultdict(lambda: defaultdict(lambda: defaultdict(dict)))
+        
+        # Find all TXT files
+        txt_files = []
+        for file in os.listdir(PATCHTST_DIR):
+            if file.endswith('_pred_vs_true.txt'):
+                txt_files.append(file)
+        
+        print(f"Found {len(txt_files)} TXT files to analyze...")
+        print()
+        
+        # Parse each file
+        for filename in txt_files:
+            file_path = os.path.join(PATCHTST_DIR, filename)
+            ticker, model, output_type = extract_file_info(filename)
+            
+            if ticker in TICKERS and model in MODELS and output_type in OUTPUT_TYPES:
+                metrics = parse_metrics_from_file(file_path)
+                if metrics:
+                    if output_type == 'Binary_Price':
+                        processed_metrics = analyze_classification_metrics(metrics)
+                    else:
+                        processed_metrics = analyze_regression_metrics(metrics)
+                    
+                    results[model][output_type][ticker] = processed_metrics
+                    print(f"✓ Processed: {filename}")
                 else:
-                    processed_metrics = analyze_regression_metrics(metrics)
-                
-                results[model][output_type][ticker] = processed_metrics
-                print(f"✓ Processed: {filename}")
+                    print(f"✗ Failed to parse: {filename}")
             else:
-                print(f"✗ Failed to parse: {filename}")
-        else:
-            print(f"⚠ Skipped (invalid format): {filename}")
-    
-    print()
-    print("=" * 80)
-    print("ANALYSIS RESULTS")
-    print("=" * 80)
-    print()
-    
-    # Calculate and display means for each model and output type
-    for model in MODELS:
-        print(f"MODEL: {model.upper()}")
-        print("-" * 60)
+                print(f"⚠ Skipped (invalid format): {filename}")
         
-        for output_type in OUTPUT_TYPES:
-            print(f"\n  Output Type: {output_type}")
-            print("  " + "=" * 50)
-            
-            # Check how many tickers we have data for
-            available_tickers = []
-            for ticker in TICKERS:
-                if ticker in results[model][output_type] and results[model][output_type][ticker]:
-                    available_tickers.append(ticker)
-            
-            if not available_tickers:
-                print(f"    No data available for {model} - {output_type}")
-                continue
-            
-            print(f"    Available tickers: {', '.join(available_tickers)} ({len(available_tickers)}/5)")
-            
-            # Get all metric names from the first available ticker
-            first_ticker = available_tickers[0]
-            metric_names = list(results[model][output_type][first_ticker].keys())
-            
-            if not metric_names:
-                print(f"    No metrics found for {model} - {output_type}")
-                continue
-            
-            # Calculate means for each metric
-            print(f"    \n    {'Metric':<15} {'Mean':<12} {'Count':<8} {'Tickers with data'}")
-            print(f"    {'-'*15} {'-'*12} {'-'*8} {'-'*20}")
-            
-            for metric in metric_names:
-                values = []
-                valid_tickers = []
-                
-                for ticker in available_tickers:
-                    value = results[model][output_type][ticker].get(metric)
-                    if value is not None and not (isinstance(value, float) and np.isnan(value)):
-                        values.append(value)
-                        valid_tickers.append(ticker)
-                
-                if values:
-                    mean_value = np.mean(values)
-                    print(f"    {metric:<15} {mean_value:<12.4f} {len(values):<8} {', '.join(valid_tickers)}")
-                else:
-                    print(f"    {metric:<15} {'N/A':<12} {0:<8} None")
+        print()
+        print("=" * 80)
+        print("ANALYSIS RESULTS")
+        print("=" * 80)
+        print()
         
-        print("\n")
-    
-    # Summary statistics
-    print("=" * 80)
-    print("SUMMARY STATISTICS")
-    print("=" * 80)
-    print()
-    
-    # Count available combinations
-    total_combinations = len(MODELS) * len(OUTPUT_TYPES)
-    available_combinations = 0
-    
-    for model in MODELS:
-        for output_type in OUTPUT_TYPES:
-            if any(results[model][output_type][ticker] for ticker in TICKERS):
-                available_combinations += 1
-    
-    print(f"Total possible combinations: {total_combinations}")
-    print(f"Available combinations: {available_combinations}")
-    print(f"Coverage: {available_combinations/total_combinations*100:.1f}%")
-    print()
-    
-    # Model coverage
-    print("Model Coverage:")
-    for model in MODELS:
-        model_coverage = 0
-        for output_type in OUTPUT_TYPES:
-            if any(results[model][output_type][ticker] for ticker in TICKERS):
-                model_coverage += 1
-        print(f"  {model:<10}: {model_coverage}/{len(OUTPUT_TYPES)} output types")
-    
-    print()
-    
-    # Output type coverage
-    print("Output Type Coverage:")
-    for output_type in OUTPUT_TYPES:
-        output_coverage = 0
+        # Calculate and display means for each model and output type
         for model in MODELS:
-            if any(results[model][output_type][ticker] for ticker in TICKERS):
-                output_coverage += 1
-        print(f"  {output_type:<15}: {output_coverage}/{len(MODELS)} models")
-    
-    print()
-    print("Analysis complete!")
+            print(f"MODEL: {model.upper()}")
+            print("-" * 60)
+            
+            for output_type in OUTPUT_TYPES:
+                print(f"\n  Output Type: {output_type}")
+                print("  " + "=" * 50)
+                
+                # Check how many tickers we have data for
+                available_tickers = []
+                for ticker in TICKERS:
+                    if ticker in results[model][output_type] and results[model][output_type][ticker]:
+                        available_tickers.append(ticker)
+                
+                if not available_tickers:
+                    print(f"    No data available for {model} - {output_type}")
+                    continue
+                
+                print(f"    Available tickers: {', '.join(available_tickers)} ({len(available_tickers)}/5)")
+                
+                # Get all metric names from the first available ticker
+                first_ticker = available_tickers[0]
+                metric_names = list(results[model][output_type][first_ticker].keys())
+                
+                if not metric_names:
+                    print(f"    No metrics found for {model} - {output_type}")
+                    continue
+                
+                # Calculate means for each metric
+                print(f"    \n    {'Metric':<15} {'Mean':<12} {'Count':<8} {'Tickers with data'}")
+                print(f"    {'-'*15} {'-'*12} {'-'*8} {'-'*20}")
+                
+                for metric in metric_names:
+                    values = []
+                    valid_tickers = []
+                    
+                    for ticker in available_tickers:
+                        value = results[model][output_type][ticker].get(metric)
+                        if value is not None and not (isinstance(value, float) and np.isnan(value)):
+                            values.append(value)
+                            valid_tickers.append(ticker)
+                    
+                    if values:
+                        mean_value = np.mean(values)
+                        print(f"    {metric:<15} {mean_value:<12.4f} {len(values):<8} {', '.join(valid_tickers)}")
+                    else:
+                        print(f"    {metric:<15} {'N/A':<12} {0:<8} None")
+            
+            print("\n")
+        
+        # Summary statistics
+        print("=" * 80)
+        print("SUMMARY STATISTICS")
+        print("=" * 80)
+        print()
+        
+        # Count available combinations
+        total_combinations = len(MODELS) * len(OUTPUT_TYPES)
+        available_combinations = 0
+        
+        for model in MODELS:
+            for output_type in OUTPUT_TYPES:
+                if any(results[model][output_type][ticker] for ticker in TICKERS):
+                    available_combinations += 1
+        
+        print(f"Total possible combinations: {total_combinations}")
+        print(f"Available combinations: {available_combinations}")
+        print(f"Coverage: {available_combinations/total_combinations*100:.1f}%")
+        print()
+        
+        # Model coverage
+        print("Model Coverage:")
+        for model in MODELS:
+            model_coverage = 0
+            for output_type in OUTPUT_TYPES:
+                if any(results[model][output_type][ticker] for ticker in TICKERS):
+                    model_coverage += 1
+            print(f"  {model:<10}: {model_coverage}/{len(OUTPUT_TYPES)} output types")
+        
+        print()
+        
+        # Output type coverage
+        print("Output Type Coverage:")
+        for output_type in OUTPUT_TYPES:
+            output_coverage = 0
+            for model in MODELS:
+                if any(results[model][output_type][ticker] for ticker in TICKERS):
+                    output_coverage += 1
+            print(f"  {output_type:<15}: {output_coverage}/{len(MODELS)} models")
+        
+        print()
+        print("Analysis complete!")
+        
+    finally:
+        # Restore original stdout
+        sys.stdout = original_stdout
+        
+        # Get the captured output
+        output_content = output_buffer.getvalue()
+        output_buffer.close()
+        
+        # Print to console
+        print(output_content)
+        
+        # Save to file
+        try:
+            with open(output_file, 'w', encoding='utf-8') as f:
+                f.write(output_content)
+            print(f"\nAnalysis results saved to: {output_file}")
+        except Exception as e:
+            print(f"Error saving results to file: {e}")
 
 if __name__ == "__main__":
     main()
