@@ -30,9 +30,9 @@ for model in "deberta" "finbert" "lr" "rf" "roberta" "svm"; do
                 feature_columns="Close Volume total_news_count svm_majority_vote svm_count_positive svm_count_negative svm_count_neutral"
                 ;;
         esac
-
+    
         python stock_prediction/modeling/train_patchtst.py \
-            --model_path models/AAPL_patchtst_${target_column}_${model}_model.pth \
+            --model_path models/patchtst_${target_column}_${model}_model.pth \
             --data_path data/processed/AAPL_preprocessed_dataset_with_features.csv \
             --feature_columns $feature_columns \
             --target_column $target_column \
@@ -47,7 +47,7 @@ for model in "deberta" "finbert" "lr" "rf" "roberta" "svm"; do
 
         
         python stock_prediction/modeling/train_patchtst.py \
-            --model_path models/AMZN_patchtst_${target_column}_${model}_model.pth \
+            --model_path models/patchtst_${target_column}_${model}_model.pth \
             --data_path data/processed/AMZN_preprocessed_dataset_with_features.csv \
             --feature_columns $feature_columns \
             --target_column $target_column \
@@ -60,7 +60,7 @@ for model in "deberta" "finbert" "lr" "rf" "roberta" "svm"; do
             --epochs $epochs 
 
         python stock_prediction/modeling/train_patchtst.py \
-            --model_path models/MSFT_patchtst_${target_column}_${model}_model.pth \
+            --model_path models/patchtst_${target_column}_${model}_model.pth \
             --data_path data/processed/MSFT_preprocessed_dataset_with_features.csv \
             --feature_columns $feature_columns \
             --target_column $target_column \
@@ -73,7 +73,7 @@ for model in "deberta" "finbert" "lr" "rf" "roberta" "svm"; do
             --epochs $epochs 
 
         python stock_prediction/modeling/train_patchtst.py \
-            --model_path models/TSLA_patchtst_${target_column}_${model}_model.pth \
+            --model_path models/patchtst_${target_column}_${model}_model.pth \
             --data_path data/processed/TSLA_preprocessed_dataset_with_features.csv \
             --feature_columns $feature_columns \
             --target_column $target_column \
@@ -86,7 +86,7 @@ for model in "deberta" "finbert" "lr" "rf" "roberta" "svm"; do
             --epochs $epochs 
 
         python stock_prediction/modeling/train_patchtst.py \
-            --model_path models/NFLX_patchtst_${target_column}_${model}_model.pth \
+            --model_path models/patchtst_${target_column}_${model}_model.pth \
             --data_path data/processed/NFLX_preprocessed_dataset_with_features.csv \
             --feature_columns $feature_columns \
             --target_column $target_column \
@@ -100,7 +100,7 @@ for model in "deberta" "finbert" "lr" "rf" "roberta" "svm"; do
         
 
         python stock_prediction/modeling/predict_patchtst.py \
-        --model_path models/AAPL_patchtst_${target_column}_${model}_model.pth \
+        --model_path models/patchtst_${target_column}_${model}_model.pth \
             --scaler_path models/AAPL_patchtst_${target_column}_${model}_scaler.pkl \
             --data_path data/processed/AAPL_preprocessed_dataset_with_features.csv \
             --feature_columns $feature_columns \
@@ -114,7 +114,7 @@ for model in "deberta" "finbert" "lr" "rf" "roberta" "svm"; do
 
         
         python stock_prediction/modeling/predict_patchtst.py \
-            --model_path models/AMZN_patchtst_${target_column}_${model}_model.pth \
+            --model_path models/patchtst_${target_column}_${model}_model.pth \
             --scaler_path models/AMZN_patchtst_${target_column}_${model}_scaler.pkl \
             --data_path data/processed/AMZN_preprocessed_dataset_with_features.csv \
             --feature_columns $feature_columns \
@@ -127,7 +127,7 @@ for model in "deberta" "finbert" "lr" "rf" "roberta" "svm"; do
             --news_model $model
 
         python stock_prediction/modeling/predict_patchtst.py \
-            --model_path models/MSFT_patchtst_${target_column}_${model}_model.pth \
+            --model_path models/patchtst_${target_column}_${model}_model.pth \
             --scaler_path models/MSFT_patchtst_${target_column}_${model}_scaler.pkl \
             --data_path data/processed/MSFT_preprocessed_dataset_with_features.csv \
             --feature_columns $feature_columns \
@@ -140,7 +140,7 @@ for model in "deberta" "finbert" "lr" "rf" "roberta" "svm"; do
             --news_model $model
 
         python stock_prediction/modeling/predict_PatchTST.py \
-            --model_path models/TSLA_patchtst_${target_column}_${model}_model.pth \
+            --model_path models/patchtst_${target_column}_${model}_model.pth \
             --scaler_path models/TSLA_patchtst_${target_column}_${model}_scaler.pkl \
             --data_path data/processed/TSLA_preprocessed_dataset_with_features.csv \
             --feature_columns $feature_columns \
@@ -153,7 +153,7 @@ for model in "deberta" "finbert" "lr" "rf" "roberta" "svm"; do
             --news_model $model
 
         python stock_prediction/modeling/predict_patchtst.py \
-            --model_path models/NFLX_patchtst_${target_column}_${model}_model.pth \
+            --model_path models/patchtst_${target_column}_${model}_model.pth \
             --scaler_path models/NFLX_patchtst_${target_column}_${model}_scaler.pkl \
             --data_path data/processed/NFLX_preprocessed_dataset_with_features.csv \
             --feature_columns $feature_columns \
