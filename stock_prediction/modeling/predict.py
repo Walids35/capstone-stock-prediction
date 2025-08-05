@@ -128,7 +128,6 @@ def main(
             all_logits.append(batch_logits)
     
     logits = np.concatenate(all_logits, axis=0).flatten()
-    
     logger.info(f"Raw logits stats - Min: {logits.min():.4f}, Max: {logits.max():.4f}, Mean: {logits.mean():.4f}, Std: {logits.std():.4f}")
     
     # Check for constant predictions

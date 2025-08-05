@@ -143,7 +143,7 @@ def model_evaluation(y_pred, y_test, ticker, news_model, target_column):
 
 def main(
     data_path: Path = configs.data_path,
-    model_path: Path = None,
+    model_path: Path = configs.model_path,
     scaler_path: Path = configs.scaler_path,
     seq_length: int = configs.seq_length,
     dropout: float = configs.dropout,

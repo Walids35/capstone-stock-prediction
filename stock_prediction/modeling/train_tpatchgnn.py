@@ -73,10 +73,10 @@ def create_tpatchgnn_configs(
 
 def main(
     data_path: Path = configs.data_path,
-    model_path: Path = None,
+    model_path: Path = configs.model_path,
     scaler_path: Path = configs.scaler_path,
     seq_length: int = configs.seq_length,
-    batch_size: int = 32,
+    batch_size: int = configs.batch_size,
     epochs: int = configs.epochs,
     lr: float = configs.lr,
     dropout: float = configs.dropout,

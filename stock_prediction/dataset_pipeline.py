@@ -74,6 +74,16 @@ class TimeSeriesDatasetPipeline:
         inverse_data = self.scaler.inverse_transform(dummy_data)
         return inverse_data[:, -1]
 
+    def inverse_transform_features(self, features_norm, feature_idx=0):
+        # Create dummy array with zeros for features and actual feature values
+        n_features = self.features.shape[1]
+        dummy_data = np.zeros((len(features_norm), n_features + 1))
+        dummy_data[:, feature_idx] = features_norm.flatten()
+        
+        # Inverse transform and extract feature column
+        inverse_data = self.scaler.inverse_transform(dummy_data)
+        return inverse_data[:, feature_idx]
+
     def make_sequences(self, features, targets):
         X, y = [], []
         for i in range(len(features) - self.seq_length):
