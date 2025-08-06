@@ -1,0 +1,13 @@
+{
+    "initial_investment": 1000.0,
+    "final_balance": 1000.0,
+    "total_profit": 0.0,
+    "profit_percentage": 0.0,
+    "buy_count": 0,
+    "sell_count": 0,
+    "max_drawdown": 0.0,
+    "annual_return": 0.0,
+    "annual_volatility": 0.0,
+    "sharpe_ratio": 0,
+    "calmar_ratio": 0
+}
