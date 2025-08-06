@@ -64,8 +64,9 @@ def main(
     target_column: str = configs.target_column,
     ticker: str = configs.ticker,
     news_model: str = configs.news_model,
+    seed: int = configs.seed
 ):
-    seed = Seeding(812)
+    seed = Seeding(seed)
     seed.set()
     
     pipeline = TimeSeriesDatasetPipeline(

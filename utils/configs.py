@@ -29,5 +29,6 @@ parser.add_argument("--lr", type=float, default=0.001, help="Learning rate")
 parser.add_argument("--batch_size", type=int, default=32, help="Batch size")
 parser.add_argument("--epochs", type=int, default=20, help="Number of epochs")
 parser.add_argument("--force_retrain",default=False, action="store_true", help="Force retraining from scratch")
+parser.add_argument("--seed", type=int, default=812, help="Seed")
 
 configs = ExpConfigs(**vars(parser.parse_args()))

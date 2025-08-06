@@ -30,8 +30,9 @@ def main(
     feature_columns: list = configs.feature_columns,
     target_column: str = configs.target_column,
     force_retrain: bool = configs.force_retrain,
+    seed: int = configs.seed
 ):
-    seed = Seeding(812)
+    seed = Seeding(seed)
     seed.set()
 
     is_classification = target_column.lower() == "binary_price"

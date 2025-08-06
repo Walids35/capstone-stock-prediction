@@ -21,3 +21,4 @@ class ExpConfigs:
     ticker: str
     news_model: str
     force_retrain: bool
+    seed: int

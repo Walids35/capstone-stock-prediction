@@ -85,11 +85,12 @@ def main(
     feature_columns: list = configs.feature_columns,
     target_column: str = configs.target_column,
     force_retrain: bool = configs.force_retrain,
+    seed: int = configs.seed
 ):
     """Main training function for PatchTST model"""
     
     # Set random seeds for reproducibility
-    seed = Seeding(812)
+    seed = Seeding(seed)
     seed.set()
     
     logger.info("=" * 80)
@@ -100,11 +101,6 @@ def main(
     is_classification = target_column.lower() == "binary_price"
     task_type = "classification" if is_classification else "short_term_forecast"
     logger.info(f"Task: {task_type} ({target_column})")
-    
-    # Set model path if not provided
-    if model_path is None:
-        model_name = f"patchtst_{target_column.lower()}_model.pth"
-        model_path = MODELS_DIR / model_name
     
     # Load and preprocess data
     logger.info("Loading and preprocessing data...")

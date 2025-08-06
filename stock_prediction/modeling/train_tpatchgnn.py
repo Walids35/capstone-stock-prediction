@@ -84,11 +84,12 @@ def main(
     feature_columns: list = configs.feature_columns,
     target_column: str = configs.target_column,
     force_retrain: bool = configs.force_retrain,
+    seed: int = configs.seed
 ):
     """Main training function for tPatchGNN model"""
     
     # Set random seeds for reproducibility
-    seed = Seeding(812)
+    seed = Seeding(seed)
     seed.set()
     
     logger.info("=" * 80)

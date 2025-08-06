@@ -157,11 +157,12 @@ def main(
     target_column: str = configs.target_column,
     ticker: str = configs.ticker,
     news_model: str = configs.news_model,
+    seed: int = configs.seed
 ):
     """Main prediction function for PatchTST model"""
     
     # Set random seeds for reproducibility
-    seed = Seeding(812)
+    seed = Seeding(seed)
     seed.set()
     
     logger.info("=" * 80)
@@ -173,11 +174,6 @@ def main(
     task_type = "Classification" if is_classification else "Regression"
     logger.info(f"Task: {task_type} ({target_column})")
     logger.info(f"Ticker: {ticker}, News Model: {news_model}")
-    
-    # Set model path if not provided
-    if model_path is None:
-        model_name = f"patchtst_{target_column.lower()}_model.pth"
-        model_path = MODELS_DIR / model_name
     
     # Check if model exists
     if not os.path.exists(model_path):
