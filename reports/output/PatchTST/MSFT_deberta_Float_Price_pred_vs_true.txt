@@ -1,4 +1,4 @@
-Date: 2025-08-01 15:05:46.325958 
+Date: 2025-08-05 14:48:41.971522 
 Ticker: MSFT 
 Feature Columns: ['Close', 'Volume', 'total_news_count', 'deberta_majority_vote', 'deberta_count_positive', 'deberta_count_negative', 'deberta_count_neutral', 'deberta_label_positive_sum', 'deberta_label_negative_sum', 'deberta_label_neutral_sum'] 
 Target Column: Float_Price 
@@ -9,4 +9,4 @@ Model Dimension: 256
 Attention Heads: 8 
 Encoder Layers: 6 
 Dropout: 0.5 
-Metrics: {'RSE': 1.1455255, 'CORR': 0.43602464528864343, 'MAE': 0.11575929, 'MAPE': 0.14835414, 'RMSE': 0.14270133, 'MSLE': 0.006841776} 
+Metrics: {'RSE': 3.3852742, 'CORR': 0.3303511387445998, 'MAE': 0.4039845, 'MAPE': 0.5135392, 'RMSE': 0.42171308, 'MSLE': 0.07142139} 

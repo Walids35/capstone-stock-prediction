@@ -1,4 +1,4 @@
-Date: 2025-08-01 15:07:41.655116 
+Date: 2025-08-05 14:50:39.821910 
 Ticker: AMZN 
 Feature Columns: ['Close', 'Volume', 'total_news_count', 'deberta_majority_vote', 'deberta_count_positive', 'deberta_count_negative', 'deberta_count_neutral', 'deberta_label_positive_sum', 'deberta_label_negative_sum', 'deberta_label_neutral_sum'] 
 Target Column: Factor_Price 
@@ -9,4 +9,4 @@ Model Dimension: 256
 Attention Heads: 8 
 Encoder Layers: 6 
 Dropout: 0.5 
-Metrics: {'RSE': 4.3517222, 'CORR': 0.0909015631271404, 'MAE': 0.28901306, 'MAPE': 0.560935, 'RMSE': 0.30211106, 'MSLE': 0.032626696} 
+Metrics: {'RSE': 1.527783, 'CORR': 0.05839211203859129, 'MAE': 0.08917378, 'MAPE': 0.1575048, 'RMSE': 0.10606379, 'MSLE': 0.0048324917} 

@@ -1,4 +1,4 @@
-Date: 2025-08-01 15:33:59.746593 
+Date: 2025-08-05 15:17:34.718022 
 Ticker: AAPL 
 Feature Columns: ['Close', 'Volume', 'total_news_count', 'rf_majority_vote', 'rf_count_positive', 'rf_count_negative', 'rf_count_neutral'] 
 Target Column: Delta_Price 
@@ -9,4 +9,4 @@ Model Dimension: 256
 Attention Heads: 8 
 Encoder Layers: 6 
 Dropout: 0.5 
-Metrics: {'RSE': 4.0958095, 'CORR': -0.027972519800958672, 'MAE': 0.5230543, 'MAPE': inf, 'RMSE': 0.54678917, 'MSLE': 0.10788756} 
+Metrics: {'RSE': 1.1259785, 'CORR': -0.11705546757949899, 'MAE': 0.11446478, 'MAPE': inf, 'RMSE': 0.15031774, 'MSLE': 0.011689841} 

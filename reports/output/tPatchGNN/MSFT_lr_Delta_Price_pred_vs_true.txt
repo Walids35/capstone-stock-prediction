@@ -1,4 +1,4 @@
-Date: 2025-08-01 14:31:37.388879 
+Date: 2025-08-06 01:48:44.516038 
 Ticker: MSFT 
 Feature Columns: ['Close', 'Volume', 'total_news_count', 'lr_majority_vote', 'lr_count_positive', 'lr_count_negative', 'lr_count_neutral'] 
 Target Column: Delta_Price 
@@ -8,5 +8,5 @@ Patch Length: 10
 Time Embedding Dim: 16 
 Node Dimension: 32 
 Attention Heads: 4 
-Dropout: 0.3 
+Dropout: 0.5 
 Metrics: {'RSE': 1.8842787, 'CORR': 0.06935085170889559, 'MAE': 0.18710311, 'MAPE': 0.458791, 'RMSE': 0.21765056, 'MSLE': 0.020009179} 

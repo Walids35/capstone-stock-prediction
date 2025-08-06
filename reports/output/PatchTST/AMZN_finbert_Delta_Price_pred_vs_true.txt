@@ -1,4 +1,4 @@
-Date: 2025-08-01 15:18:00.879934 
+Date: 2025-08-05 15:01:34.433310 
 Ticker: AMZN 
 Feature Columns: ['Close', 'Volume', 'total_news_count', 'finbert_majority_vote', 'finbert_count_positive', 'finbert_count_negative', 'finbert_count_neutral', 'finbert_label_positive_sum', 'finbert_label_negative_sum', 'finbert_label_neutral_sum'] 
 Target Column: Delta_Price 
@@ -9,4 +9,4 @@ Model Dimension: 256
 Attention Heads: 8 
 Encoder Layers: 6 
 Dropout: 0.5 
-Metrics: {'RSE': 1.0382907, 'CORR': 0.19137005396131973, 'MAE': 0.093024656, 'MAPE': 0.15790717, 'RMSE': 0.11761889, 'MSLE': 0.0053915624} 
+Metrics: {'RSE': 2.496697, 'CORR': 0.0771226901151107, 'MAE': 0.260938, 'MAPE': 0.40044063, 'RMSE': 0.282829, 'MSLE': 0.03461761} 

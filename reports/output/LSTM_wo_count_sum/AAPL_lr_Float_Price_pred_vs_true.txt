@@ -1,9 +1,9 @@
-Date: 2025-07-31 13:59:31.020375 
+Date: 2025-08-05 11:04:53.085266 
 Ticker: AAPL 
-Feature Columns: ['Close', 'Volume', 'total_news_count', 'lr_majority_vote'] 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'lr_majority_vote', 'lr_count_positive', 'lr_count_negative', 'lr_count_neutral'] 
 Target Column: Float_Price 
 Sequence Length: 30 
 Hidden Size: 64 
 Number of Layers: 2 
 Dropout: 0.5 
-Metrics: {'RSE': 0.8992556948719056, 'CORR': 0.7903485766266669, 'MAE': 7.857696295588647, 'MAPE': 0.03330274802097814, 'RMSE': 9.437205535915806, 'MSLE': 0.0016257550421952868} 
+Metrics: {'RSE': 1.0106806360500236, 'CORR': 0.7845935670741491, 'MAE': 9.218448866124273, 'MAPE': 0.03925685116784334, 'RMSE': 10.606550448293609, 'MSLE': 0.002096389837076015} 

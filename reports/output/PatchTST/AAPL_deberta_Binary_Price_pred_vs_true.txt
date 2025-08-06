@@ -1,4 +1,4 @@
-Date: 2025-08-01 15:03:05.095135 
+Date: 2025-08-05 14:46:22.858813 
 Ticker: AAPL 
 Feature Columns: ['Close', 'Volume', 'total_news_count', 'deberta_majority_vote', 'deberta_count_positive', 'deberta_count_negative', 'deberta_count_neutral', 'deberta_label_positive_sum', 'deberta_label_negative_sum', 'deberta_label_neutral_sum'] 
 Target Column: Binary_Price 
@@ -9,4 +9,4 @@ Model Dimension: 256
 Attention Heads: 8 
 Encoder Layers: 6 
 Dropout: 0.5 
-Metrics: {'optimal_threshold': 0.31934738, 'auc': 0.4931985294117648, 'accuracy': 0.6081081081081081, 'confusion_matrix': [[18, 50], [8, 72]], 'classification_report': {'0.0': {'precision': 0.6923076923076923, 'recall': 0.2647058823529412, 'f1-score': 0.3829787234042553, 'support': 68.0}, '1.0': {'precision': 0.5901639344262295, 'recall': 0.9, 'f1-score': 0.7128712871287128, 'support': 80.0}, 'accuracy': 0.6081081081081081, 'macro avg': {'precision': 0.6412358133669609, 'recall': 0.5823529411764706, 'f1-score': 0.5479250052664841, 'support': 148.0}, 'weighted avg': {'precision': 0.6370948502096043, 'recall': 0.6081081081081081, 'f1-score': 0.5612990281201783, 'support': 148.0}}} 
+Metrics: {'optimal_threshold': 0.47656512, 'auc': 0.5255514705882353, 'accuracy': 0.5540540540540541, 'confusion_matrix': [[41, 27], [39, 41]], 'classification_report': {'0.0': {'precision': 0.5125, 'recall': 0.6029411764705882, 'f1-score': 0.5540540540540541, 'support': 68.0}, '1.0': {'precision': 0.6029411764705882, 'recall': 0.5125, 'f1-score': 0.5540540540540541, 'support': 80.0}, 'accuracy': 0.5540540540540541, 'macro avg': {'precision': 0.557720588235294, 'recall': 0.557720588235294, 'f1-score': 0.5540540540540541, 'support': 148.0}, 'weighted avg': {'precision': 0.5613871224165341, 'recall': 0.5540540540540541, 'f1-score': 0.5540540540540541, 'support': 148.0}}} 

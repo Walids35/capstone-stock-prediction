@@ -1,4 +1,4 @@
-Date: 2025-08-01 14:41:29.159646 
+Date: 2025-08-06 01:57:51.793160 
 Ticker: AAPL 
 Feature Columns: ['Close', 'Volume', 'total_news_count', 'roberta_majority_vote', 'roberta_count_positive', 'roberta_count_negative', 'roberta_count_neutral', 'roberta_label_positive_sum', 'roberta_label_negative_sum', 'roberta_label_neutral_sum'] 
 Target Column: Float_Price 
@@ -8,5 +8,5 @@ Patch Length: 10
 Time Embedding Dim: 16 
 Node Dimension: 32 
 Attention Heads: 4 
-Dropout: 0.3 
+Dropout: 0.5 
 Metrics: {'RSE': 1.7778318, 'CORR': -0.056667171127013534, 'MAE': 0.11289635, 'MAPE': 0.1332767, 'RMSE': 0.13804704, 'MSLE': 0.006003564} 

@@ -1,4 +1,4 @@
-Date: 2025-08-01 14:14:31.415660 
+Date: 2025-08-06 01:32:57.040762 
 Ticker: AMZN 
 Feature Columns: ['Close', 'Volume', 'total_news_count', 'deberta_majority_vote', 'deberta_count_positive', 'deberta_count_negative', 'deberta_count_neutral', 'deberta_label_positive_sum', 'deberta_label_negative_sum', 'deberta_label_neutral_sum'] 
 Target Column: Float_Price 
@@ -8,5 +8,5 @@ Patch Length: 10
 Time Embedding Dim: 16 
 Node Dimension: 32 
 Attention Heads: 4 
-Dropout: 0.3 
+Dropout: 0.5 
 Metrics: {'RSE': 4.280143, 'CORR': 0.6214212776612201, 'MAE': 0.47944006, 'MAPE': 0.6080244, 'RMSE': 0.49306655, 'MSLE': 0.101666026} 

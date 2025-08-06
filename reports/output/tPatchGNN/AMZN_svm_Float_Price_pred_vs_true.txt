@@ -1,4 +1,4 @@
-Date: 2025-08-01 14:48:23.481834 
+Date: 2025-08-06 02:04:19.077013 
 Ticker: AMZN 
 Feature Columns: ['Close', 'Volume', 'total_news_count', 'svm_majority_vote', 'svm_count_positive', 'svm_count_negative', 'svm_count_neutral'] 
 Target Column: Float_Price 
@@ -8,5 +8,5 @@ Patch Length: 10
 Time Embedding Dim: 16 
 Node Dimension: 32 
 Attention Heads: 4 
-Dropout: 0.3 
+Dropout: 0.5 
 Metrics: {'RSE': 0.7303282, 'CORR': 0.6919501624069923, 'MAE': 0.06487547, 'MAPE': 0.081672356, 'RMSE': 0.084132805, 'MSLE': 0.0021837181} 

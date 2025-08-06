@@ -1,9 +1,9 @@
-Date: 2025-07-31 14:08:12.725434 
+Date: 2025-08-05 11:08:33.078089 
 Ticker: AMZN 
-Feature Columns: ['Close', 'Volume', 'total_news_count', 'rf_majority_vote'] 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'rf_majority_vote', 'rf_count_positive', 'rf_count_negative', 'rf_count_neutral'] 
 Target Column: Binary_Price 
 Sequence Length: 30 
 Hidden Size: 64 
 Number of Layers: 2 
 Dropout: 0.5 
-Metrics: {'optimal_threshold': 0.500878632068634, 'auc': 0.5468864468864468, 'accuracy': 0.581081081081081, 'confusion_matrix': [[26, 44], [18, 60]], 'classification_report': {'0': {'precision': 0.5909090909090909, 'recall': 0.37142857142857144, 'f1-score': 0.45614035087719296, 'support': 70.0}, '1': {'precision': 0.5769230769230769, 'recall': 0.7692307692307693, 'f1-score': 0.6593406593406593, 'support': 78.0}, 'accuracy': 0.581081081081081, 'macro avg': {'precision': 0.583916083916084, 'recall': 0.5703296703296703, 'f1-score': 0.5577405051089261, 'support': 148.0}, 'weighted avg': {'precision': 0.5835380835380836, 'recall': 0.581081081081081, 'f1-score': 0.5632324053376685, 'support': 148.0}}} 
+Metrics: {'optimal_threshold': 0.49859628081321716, 'auc': 0.5602564102564103, 'accuracy': 0.581081081081081, 'confusion_matrix': [[31, 39], [23, 55]], 'classification_report': {'0': {'precision': 0.5740740740740741, 'recall': 0.44285714285714284, 'f1-score': 0.5, 'support': 70.0}, '1': {'precision': 0.5851063829787234, 'recall': 0.7051282051282052, 'f1-score': 0.6395348837209303, 'support': 78.0}, 'accuracy': 0.581081081081081, 'macro avg': {'precision': 0.5795902285263987, 'recall': 0.573992673992674, 'f1-score': 0.5697674418604651, 'support': 148.0}, 'weighted avg': {'precision': 0.5798883990373351, 'recall': 0.581081081081081, 'f1-score': 0.5735386549340038, 'support': 148.0}}} 

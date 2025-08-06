@@ -1,4 +1,4 @@
-Date: 2025-08-01 14:53:16.486538 
+Date: 2025-08-06 02:08:49.951261 
 Ticker: AAPL 
 Feature Columns: ['Close', 'Volume', 'total_news_count', 'svm_majority_vote', 'svm_count_positive', 'svm_count_negative', 'svm_count_neutral'] 
 Target Column: Binary_Price 
@@ -8,5 +8,5 @@ Patch Length: 10
 Time Embedding Dim: 16 
 Node Dimension: 32 
 Attention Heads: 4 
-Dropout: 0.3 
+Dropout: 0.5 
 Metrics: {'optimal_threshold': 0.5035742, 'auc': 0.4525735294117647, 'accuracy': 0.5472972972972973, 'confusion_matrix': [[3, 65], [2, 78]], 'classification_report': {'0.0': {'precision': 0.6, 'recall': 0.04411764705882353, 'f1-score': 0.0821917808219178, 'support': 68.0}, '1.0': {'precision': 0.5454545454545454, 'recall': 0.975, 'f1-score': 0.6995515695067265, 'support': 80.0}, 'accuracy': 0.5472972972972973, 'macro avg': {'precision': 0.5727272727272728, 'recall': 0.5095588235294117, 'f1-score': 0.39087167516432214, 'support': 148.0}, 'weighted avg': {'precision': 0.5705159705159705, 'recall': 0.5472972972972973, 'f1-score': 0.4158997747055982, 'support': 148.0}}} 

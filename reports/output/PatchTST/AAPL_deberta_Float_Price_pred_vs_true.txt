@@ -1,4 +1,4 @@
-Date: 2025-08-01 15:05:29.445116 
+Date: 2025-08-05 14:48:26.504664 
 Ticker: AAPL 
 Feature Columns: ['Close', 'Volume', 'total_news_count', 'deberta_majority_vote', 'deberta_count_positive', 'deberta_count_negative', 'deberta_count_neutral', 'deberta_label_positive_sum', 'deberta_label_negative_sum', 'deberta_label_neutral_sum'] 
 Target Column: Float_Price 
@@ -9,4 +9,4 @@ Model Dimension: 256
 Attention Heads: 8 
 Encoder Layers: 6 
 Dropout: 0.5 
-Metrics: {'RSE': 4.6913695, 'CORR': 0.19377219748651678, 'MAE': 0.3468243, 'MAPE': 0.42985687, 'RMSE': 0.3642806, 'MSLE': 0.051310435} 
+Metrics: {'RSE': 7.0964665, 'CORR': 0.21259290384549046, 'MAE': 0.54489344, 'MAPE': 0.67809516, 'RMSE': 0.5510342, 'MSLE': 0.13209942} 

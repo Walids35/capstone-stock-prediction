@@ -1,4 +1,4 @@
-Date: 2025-08-04 02:13:02.794032 
+Date: 2025-08-06 01:19:22.980982 
 Ticker: NFLX 
 Feature Columns: ['Close', 'Volume', 'total_news_count', 'svm_majority_vote', 'svm_count_positive', 'svm_count_negative', 'svm_count_neutral'] 
 Target Column: Factor_Price 

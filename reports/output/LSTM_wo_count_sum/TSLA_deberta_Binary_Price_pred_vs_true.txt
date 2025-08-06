@@ -1,9 +1,9 @@
-Date: 2025-07-31 13:58:33.527654 
+Date: 2025-08-05 10:59:10.456196 
 Ticker: TSLA 
-Feature Columns: ['Close', 'Volume', 'total_news_count', 'deberta_majority_vote'] 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'deberta_majority_vote', 'deberta_count_positive', 'deberta_count_negative', 'deberta_count_neutral', 'deberta_label_positive_sum', 'deberta_label_negative_sum', 'deberta_label_neutral_sum'] 
 Target Column: Binary_Price 
 Sequence Length: 30 
 Hidden Size: 64 
 Number of Layers: 2 
 Dropout: 0.5 
-Metrics: {'optimal_threshold': 0.5121341943740845, 'auc': 0.6231678486997636, 'accuracy': 0.6195652173913043, 'confusion_matrix': [[17, 28], [7, 40]], 'classification_report': {'0': {'precision': 0.7083333333333334, 'recall': 0.37777777777777777, 'f1-score': 0.4927536231884058, 'support': 45.0}, '1': {'precision': 0.5882352941176471, 'recall': 0.851063829787234, 'f1-score': 0.6956521739130435, 'support': 47.0}, 'accuracy': 0.6195652173913043, 'macro avg': {'precision': 0.6482843137254902, 'recall': 0.6144208037825059, 'f1-score': 0.5942028985507246, 'support': 92.0}, 'weighted avg': {'precision': 0.6469789002557544, 'recall': 0.6195652173913043, 'f1-score': 0.5964083175803402, 'support': 92.0}}} 
+Metrics: {'optimal_threshold': 0.5129938721656799, 'auc': 0.4529550827423168, 'accuracy': 0.5108695652173914, 'confusion_matrix': [[3, 42], [3, 44]], 'classification_report': {'0': {'precision': 0.5, 'recall': 0.06666666666666667, 'f1-score': 0.11764705882352941, 'support': 45.0}, '1': {'precision': 0.5116279069767442, 'recall': 0.9361702127659575, 'f1-score': 0.6616541353383458, 'support': 47.0}, 'accuracy': 0.5108695652173914, 'macro avg': {'precision': 0.5058139534883721, 'recall': 0.5014184397163121, 'f1-score': 0.38965059708093763, 'support': 92.0}, 'weighted avg': {'precision': 0.5059403437815976, 'recall': 0.5108695652173914, 'f1-score': 0.3955637174778378, 'support': 92.0}}} 

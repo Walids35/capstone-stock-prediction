@@ -1,9 +1,9 @@
-Date: 2025-07-31 13:51:01.150119 
+Date: 2025-08-05 10:56:37.846828 
 Ticker: AMZN 
-Feature Columns: ['Close', 'Volume', 'total_news_count', 'roberta_majority_vote'] 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'roberta_majority_vote', 'roberta_count_positive', 'roberta_count_negative', 'roberta_count_neutral', 'roberta_label_positive_sum', 'roberta_label_negative_sum', 'roberta_label_neutral_sum'] 
 Target Column: Factor_Price 
 Sequence Length: 30 
 Hidden Size: 64 
 Number of Layers: 2 
 Dropout: 0.5 
-Metrics: {'RSE': 2.280018271211601, 'CORR': 0.1577925553559483, 'MAE': 0.03765603293043325, 'MAPE': 0.037939846593780586, 'RMSE': 0.041514250658649214, 'MSLE': 0.00042566085559695316} 
+Metrics: {'RSE': 2.1276440849655067, 'CORR': 0.14076087559081385, 'MAE': 0.03463167259652058, 'MAPE': 0.034913783109855975, 'RMSE': 0.03873984299639545, 'MSLE': 0.0003713897892488185} 

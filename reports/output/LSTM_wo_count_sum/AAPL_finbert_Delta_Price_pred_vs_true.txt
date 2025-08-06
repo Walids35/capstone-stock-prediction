@@ -1,9 +1,9 @@
-Date: 2025-07-31 13:47:11.645591 
+Date: 2025-08-05 10:52:58.398703 
 Ticker: AAPL 
-Feature Columns: ['Close', 'Volume', 'total_news_count', 'finbert_majority_vote'] 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'finbert_majority_vote', 'finbert_count_positive', 'finbert_count_negative', 'finbert_count_neutral', 'finbert_label_positive_sum', 'finbert_label_negative_sum', 'finbert_label_neutral_sum'] 
 Target Column: Delta_Price 
 Sequence Length: 30 
 Hidden Size: 64 
 Number of Layers: 2 
 Dropout: 0.5 
-Metrics: {'RSE': 1.96582721290167, 'CORR': 0.09137274995829262, 'MAE': 5.865431520447006, 'MAPE': inf, 'RMSE': 6.711315752560255, 'MSLE': nan} 
+Metrics: {'RSE': 1.9521203246768433, 'CORR': 0.17355460822256868, 'MAE': 5.8172087156092696, 'MAPE': inf, 'RMSE': 6.664520564123485, 'MSLE': nan} 

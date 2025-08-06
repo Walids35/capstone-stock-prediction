@@ -1,4 +1,4 @@
-Date: 2025-08-01 14:48:46.808255 
+Date: 2025-08-06 02:04:40.446980 
 Ticker: NFLX 
 Feature Columns: ['Close', 'Volume', 'total_news_count', 'svm_majority_vote', 'svm_count_positive', 'svm_count_negative', 'svm_count_neutral'] 
 Target Column: Float_Price 
@@ -8,5 +8,5 @@ Patch Length: 10
 Time Embedding Dim: 16 
 Node Dimension: 32 
 Attention Heads: 4 
-Dropout: 0.3 
+Dropout: 0.5 
 Metrics: {'RSE': 0.92292416, 'CORR': 0.8363073340356965, 'MAE': 0.10096108, 'MAPE': 0.12519106, 'RMSE': 0.12986325, 'MSLE': 0.005275251} 

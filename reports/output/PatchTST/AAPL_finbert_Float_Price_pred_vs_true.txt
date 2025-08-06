@@ -1,4 +1,4 @@
-Date: 2025-08-01 15:13:53.088551 
+Date: 2025-08-05 14:57:33.981709 
 Ticker: AAPL 
 Feature Columns: ['Close', 'Volume', 'total_news_count', 'finbert_majority_vote', 'finbert_count_positive', 'finbert_count_negative', 'finbert_count_neutral', 'finbert_label_positive_sum', 'finbert_label_negative_sum', 'finbert_label_neutral_sum'] 
 Target Column: Float_Price 
@@ -9,4 +9,4 @@ Model Dimension: 256
 Attention Heads: 8 
 Encoder Layers: 6 
 Dropout: 0.5 
-Metrics: {'RSE': 6.1268873, 'CORR': 0.18960271732191147, 'MAE': 0.464867, 'MAPE': 0.5780869, 'RMSE': 0.4757473, 'MSLE': 0.09403946} 
+Metrics: {'RSE': 7.1739855, 'CORR': 0.15177607463397455, 'MAE': 0.55065364, 'MAPE': 0.6849656, 'RMSE': 0.5570535, 'MSLE': 0.13554965} 

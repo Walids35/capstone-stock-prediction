@@ -1,9 +1,9 @@
-Date: 2025-07-31 13:58:27.655528 
+Date: 2025-08-05 10:59:04.748748 
 Ticker: MSFT 
-Feature Columns: ['Close', 'Volume', 'total_news_count', 'deberta_majority_vote'] 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'deberta_majority_vote', 'deberta_count_positive', 'deberta_count_negative', 'deberta_count_neutral', 'deberta_label_positive_sum', 'deberta_label_negative_sum', 'deberta_label_neutral_sum'] 
 Target Column: Binary_Price 
 Sequence Length: 30 
 Hidden Size: 64 
 Number of Layers: 2 
 Dropout: 0.5 
-Metrics: {'optimal_threshold': 0.5258941650390625, 'auc': 0.6088452088452088, 'accuracy': 0.6304347826086957, 'confusion_matrix': [[21, 16], [18, 37]], 'classification_report': {'0': {'precision': 0.5384615384615384, 'recall': 0.5675675675675675, 'f1-score': 0.5526315789473685, 'support': 37.0}, '1': {'precision': 0.6981132075471698, 'recall': 0.6727272727272727, 'f1-score': 0.6851851851851852, 'support': 55.0}, 'accuracy': 0.6304347826086957, 'macro avg': {'precision': 0.6182873730043541, 'recall': 0.6201474201474202, 'f1-score': 0.6189083820662769, 'support': 92.0}, 'weighted avg': {'precision': 0.633905471067079, 'recall': 0.6304347826086957, 'f1-score': 0.631875582676498, 'support': 92.0}}} 
+Metrics: {'optimal_threshold': 0.5135776996612549, 'auc': 0.4611793611793611, 'accuracy': 0.4673913043478261, 'confusion_matrix': [[33, 4], [45, 10]], 'classification_report': {'0': {'precision': 0.4230769230769231, 'recall': 0.8918918918918919, 'f1-score': 0.5739130434782609, 'support': 37.0}, '1': {'precision': 0.7142857142857143, 'recall': 0.18181818181818182, 'f1-score': 0.2898550724637681, 'support': 55.0}, 'accuracy': 0.4673913043478261, 'macro avg': {'precision': 0.5686813186813187, 'recall': 0.5368550368550369, 'f1-score': 0.4318840579710145, 'support': 92.0}, 'weighted avg': {'precision': 0.5971691352126135, 'recall': 0.4673913043478261, 'f1-score': 0.40409577819785764, 'support': 92.0}}} 

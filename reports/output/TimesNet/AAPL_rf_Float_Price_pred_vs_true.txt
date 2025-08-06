@@ -1,4 +1,4 @@
-Date: 2025-08-04 01:25:33.087125 
+Date: 2025-08-06 00:21:21.200744 
 Ticker: AAPL 
 Feature Columns: ['Close', 'Volume', 'total_news_count', 'rf_majority_vote', 'rf_count_positive', 'rf_count_negative', 'rf_count_neutral'] 
 Target Column: Float_Price 

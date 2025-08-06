@@ -1,4 +1,4 @@
-Date: 2025-08-04 01:38:10.763545 
+Date: 2025-08-06 00:34:06.386467 
 Ticker: NFLX 
 Feature Columns: ['Close', 'Volume', 'total_news_count', 'rf_majority_vote', 'rf_count_positive', 'rf_count_negative', 'rf_count_neutral'] 
 Target Column: Delta_Price 

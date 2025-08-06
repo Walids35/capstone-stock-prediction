@@ -1,9 +1,9 @@
-Date: 2025-07-31 14:11:55.434287 
+Date: 2025-08-05 11:16:32.869664 
 Ticker: AMZN 
-Feature Columns: ['Close', 'Volume', 'total_news_count', 'svm_majority_vote'] 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'svm_majority_vote', 'svm_count_positive', 'svm_count_negative', 'svm_count_neutral'] 
 Target Column: Delta_Price 
 Sequence Length: 30 
 Hidden Size: 64 
 Number of Layers: 2 
 Dropout: 0.5 
-Metrics: {'RSE': 1.1264683840861258, 'CORR': 0.07103485746112301, 'MAE': 3.2748423251130356, 'MAPE': 3.529315005483873, 'RMSE': 4.209141079565397, 'MSLE': nan} 
+Metrics: {'RSE': 1.1272936990754603, 'CORR': 0.09561181717507944, 'MAE': 3.277092851390368, 'MAPE': 3.5352756699533168, 'RMSE': 4.2122249363999655, 'MSLE': nan} 

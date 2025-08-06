@@ -1,4 +1,4 @@
-Date: 2025-08-01 15:20:24.990303 
+Date: 2025-08-05 11:35:47.677007 
 Ticker: MSFT 
 Feature Columns: ['Close', 'Volume', 'total_news_count', 'lr_majority_vote', 'lr_count_positive', 'lr_count_negative', 'lr_count_neutral'] 
 Target Column: Binary_Price 
@@ -9,4 +9,4 @@ Model Dimension: 256
 Attention Heads: 8 
 Encoder Layers: 6 
 Dropout: 0.5 
-Metrics: {'optimal_threshold': 0.27641684, 'auc': 0.5159705159705159, 'accuracy': 0.6086956521739131, 'confusion_matrix': [[9, 28], [8, 47]], 'classification_report': {'0.0': {'precision': 0.5294117647058824, 'recall': 0.24324324324324326, 'f1-score': 0.3333333333333333, 'support': 37.0}, '1.0': {'precision': 0.6266666666666667, 'recall': 0.8545454545454545, 'f1-score': 0.7230769230769231, 'support': 55.0}, 'accuracy': 0.6086956521739131, 'macro avg': {'precision': 0.5780392156862746, 'recall': 0.5488943488943488, 'f1-score': 0.5282051282051282, 'support': 92.0}, 'weighted avg': {'precision': 0.5875532821824383, 'recall': 0.6086956521739131, 'f1-score': 0.5663322185061316, 'support': 92.0}}} 
+Metrics: {'optimal_threshold': 0.32653928, 'auc': 0.5466830466830466, 'accuracy': 0.5760869565217391, 'confusion_matrix': [[29, 8], [31, 24]], 'classification_report': {'0.0': {'precision': 0.48333333333333334, 'recall': 0.7837837837837838, 'f1-score': 0.5979381443298969, 'support': 37.0}, '1.0': {'precision': 0.75, 'recall': 0.43636363636363634, 'f1-score': 0.5517241379310345, 'support': 55.0}, 'accuracy': 0.5760869565217391, 'macro avg': {'precision': 0.6166666666666667, 'recall': 0.61007371007371, 'f1-score': 0.5748311411304656, 'support': 92.0}, 'weighted avg': {'precision': 0.6427536231884058, 'recall': 0.5760869565217391, 'f1-score': 0.5703102057218813, 'support': 92.0}}} 

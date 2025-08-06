@@ -1,4 +1,4 @@
-Date: 2025-08-01 14:53:33.515918 
+Date: 2025-08-06 02:09:05.890694 
 Ticker: MSFT 
 Feature Columns: ['Close', 'Volume', 'total_news_count', 'svm_majority_vote', 'svm_count_positive', 'svm_count_negative', 'svm_count_neutral'] 
 Target Column: Binary_Price 
@@ -8,5 +8,5 @@ Patch Length: 10
 Time Embedding Dim: 16 
 Node Dimension: 32 
 Attention Heads: 4 
-Dropout: 0.3 
+Dropout: 0.5 
 Metrics: {'optimal_threshold': 0.50357467, 'auc': 0.5845208845208846, 'accuracy': 0.4782608695652174, 'confusion_matrix': [[37, 0], [48, 7]], 'classification_report': {'0.0': {'precision': 0.43529411764705883, 'recall': 1.0, 'f1-score': 0.6065573770491803, 'support': 37.0}, '1.0': {'precision': 1.0, 'recall': 0.12727272727272726, 'f1-score': 0.22580645161290322, 'support': 55.0}, 'accuracy': 0.4782608695652174, 'macro avg': {'precision': 0.7176470588235294, 'recall': 0.5636363636363636, 'f1-score': 0.4161819143310418, 'support': 92.0}, 'weighted avg': {'precision': 0.7728900255754476, 'recall': 0.4782608695652174, 'f1-score': 0.3789345411905364, 'support': 92.0}}} 

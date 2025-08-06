@@ -1,4 +1,4 @@
-Date: 2025-08-01 15:28:37.943576 
+Date: 2025-08-05 11:44:22.427627 
 Ticker: TSLA 
 Feature Columns: ['Close', 'Volume', 'total_news_count', 'rf_majority_vote', 'rf_count_positive', 'rf_count_negative', 'rf_count_neutral'] 
 Target Column: Binary_Price 
@@ -9,4 +9,4 @@ Model Dimension: 256
 Attention Heads: 8 
 Encoder Layers: 6 
 Dropout: 0.5 
-Metrics: {'optimal_threshold': 0.71374345, 'auc': 0.49834515366430265, 'accuracy': 0.532608695652174, 'confusion_matrix': [[43, 2], [41, 6]], 'classification_report': {'0.0': {'precision': 0.5119047619047619, 'recall': 0.9555555555555556, 'f1-score': 0.6666666666666666, 'support': 45.0}, '1.0': {'precision': 0.75, 'recall': 0.1276595744680851, 'f1-score': 0.21818181818181817, 'support': 47.0}, 'accuracy': 0.532608695652174, 'macro avg': {'precision': 0.6309523809523809, 'recall': 0.5416075650118204, 'f1-score': 0.4424242424242424, 'support': 92.0}, 'weighted avg': {'precision': 0.6335403726708074, 'recall': 0.532608695652174, 'f1-score': 0.4375494071146245, 'support': 92.0}}} 
+Metrics: {'optimal_threshold': 0.5124852, 'auc': 0.5919621749408984, 'accuracy': 0.6086956521739131, 'confusion_matrix': [[18, 27], [9, 38]], 'classification_report': {'0.0': {'precision': 0.6666666666666666, 'recall': 0.4, 'f1-score': 0.5, 'support': 45.0}, '1.0': {'precision': 0.5846153846153846, 'recall': 0.8085106382978723, 'f1-score': 0.6785714285714286, 'support': 47.0}, 'accuracy': 0.6086956521739131, 'macro avg': {'precision': 0.6256410256410256, 'recall': 0.6042553191489362, 'f1-score': 0.5892857142857143, 'support': 92.0}, 'weighted avg': {'precision': 0.6247491638795987, 'recall': 0.6086956521739131, 'f1-score': 0.5912267080745341, 'support': 92.0}}} 

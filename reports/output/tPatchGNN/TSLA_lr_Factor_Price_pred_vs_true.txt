@@ -1,4 +1,4 @@
-Date: 2025-08-01 14:30:02.482191 
+Date: 2025-08-06 01:47:18.469708 
 Ticker: TSLA 
 Feature Columns: ['Close', 'Volume', 'total_news_count', 'lr_majority_vote', 'lr_count_positive', 'lr_count_negative', 'lr_count_neutral'] 
 Target Column: Factor_Price 
@@ -8,5 +8,5 @@ Patch Length: 10
 Time Embedding Dim: 16 
 Node Dimension: 32 
 Attention Heads: 4 
-Dropout: 0.3 
+Dropout: 0.5 
 Metrics: {'RSE': 1.7850454, 'CORR': 0.37644479690702265, 'MAE': 0.19243765, 'MAPE': 1.9429718, 'RMSE': 0.22297043, 'MSLE': 0.021591062} 

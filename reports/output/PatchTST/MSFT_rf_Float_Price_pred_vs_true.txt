@@ -1,4 +1,4 @@
-Date: 2025-08-01 15:30:28.993148 
+Date: 2025-08-05 15:13:56.717846 
 Ticker: MSFT 
 Feature Columns: ['Close', 'Volume', 'total_news_count', 'rf_majority_vote', 'rf_count_positive', 'rf_count_negative', 'rf_count_neutral'] 
 Target Column: Float_Price 
@@ -9,4 +9,4 @@ Model Dimension: 256
 Attention Heads: 8 
 Encoder Layers: 6 
 Dropout: 0.5 
-Metrics: {'RSE': 1.3596286, 'CORR': 0.5249602608796816, 'MAE': 0.13810576, 'MAPE': 0.16724643, 'RMSE': 0.16937272, 'MSLE': 0.009521415} 
+Metrics: {'RSE': 2.6854851, 'CORR': 0.386507472239856, 'MAE': 0.31179678, 'MAPE': 0.3937258, 'RMSE': 0.3345384, 'MSLE': 0.042362977} 

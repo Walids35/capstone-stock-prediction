@@ -1,4 +1,4 @@
-Date: 2025-08-04 01:00:00.017048 
+Date: 2025-08-05 23:44:29.503835 
 Ticker: TSLA 
 Feature Columns: ['Close', 'Volume', 'total_news_count', 'finbert_majority_vote', 'finbert_count_positive', 'finbert_count_negative', 'finbert_count_neutral', 'finbert_label_positive_sum', 'finbert_label_negative_sum', 'finbert_label_neutral_sum'] 
 Target Column: Delta_Price 

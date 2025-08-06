@@ -1,4 +1,4 @@
-Date: 2025-08-01 15:18:17.725126 
+Date: 2025-08-05 15:01:49.253083 
 Ticker: TSLA 
 Feature Columns: ['Close', 'Volume', 'total_news_count', 'finbert_majority_vote', 'finbert_count_positive', 'finbert_count_negative', 'finbert_count_neutral', 'finbert_label_positive_sum', 'finbert_label_negative_sum', 'finbert_label_neutral_sum'] 
 Target Column: Delta_Price 
@@ -9,4 +9,4 @@ Model Dimension: 256
 Attention Heads: 8 
 Encoder Layers: 6 
 Dropout: 0.5 
-Metrics: {'RSE': 2.5191097, 'CORR': -0.06251417990181297, 'MAE': 0.21164693, 'MAPE': 0.4052187, 'RMSE': 0.2400251, 'MSLE': 0.020735355} 
+Metrics: {'RSE': 1.6020331, 'CORR': -0.1480926482676672, 'MAE': 0.12879567, 'MAPE': 0.21704112, 'RMSE': 0.15264446, 'MSLE': 0.009676256} 

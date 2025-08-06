@@ -1,4 +1,4 @@
-Date: 2025-08-01 14:28:16.186980 
+Date: 2025-08-06 01:45:38.085962 
 Ticker: MSFT 
 Feature Columns: ['Close', 'Volume', 'total_news_count', 'lr_majority_vote', 'lr_count_positive', 'lr_count_negative', 'lr_count_neutral'] 
 Target Column: Float_Price 
@@ -8,5 +8,5 @@ Patch Length: 10
 Time Embedding Dim: 16 
 Node Dimension: 32 
 Attention Heads: 4 
-Dropout: 0.3 
+Dropout: 0.5 
 Metrics: {'RSE': 0.885244, 'CORR': 0.697778385009268, 'MAE': 0.08603622, 'MAPE': 0.106049836, 'RMSE': 0.110277325, 'MSLE': 0.0038096367} 

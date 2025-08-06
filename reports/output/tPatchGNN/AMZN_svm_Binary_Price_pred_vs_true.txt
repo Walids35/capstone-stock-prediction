@@ -1,4 +1,4 @@
-Date: 2025-08-01 14:53:24.728898 
+Date: 2025-08-06 02:08:57.641150 
 Ticker: AMZN 
 Feature Columns: ['Close', 'Volume', 'total_news_count', 'svm_majority_vote', 'svm_count_positive', 'svm_count_negative', 'svm_count_neutral'] 
 Target Column: Binary_Price 
@@ -8,5 +8,5 @@ Patch Length: 10
 Time Embedding Dim: 16 
 Node Dimension: 32 
 Attention Heads: 4 
-Dropout: 0.3 
+Dropout: 0.5 
 Metrics: {'optimal_threshold': 0.5035742, 'auc': 0.4337912087912088, 'accuracy': 0.5405405405405406, 'confusion_matrix': [[2, 68], [0, 78]], 'classification_report': {'0.0': {'precision': 1.0, 'recall': 0.02857142857142857, 'f1-score': 0.05555555555555555, 'support': 70.0}, '1.0': {'precision': 0.5342465753424658, 'recall': 1.0, 'f1-score': 0.6964285714285714, 'support': 78.0}, 'accuracy': 0.5405405405405406, 'macro avg': {'precision': 0.7671232876712328, 'recall': 0.5142857142857142, 'f1-score': 0.3759920634920635, 'support': 148.0}, 'weighted avg': {'precision': 0.7545353572750834, 'recall': 0.5405405405405406, 'f1-score': 0.3933129558129558, 'support': 148.0}}} 

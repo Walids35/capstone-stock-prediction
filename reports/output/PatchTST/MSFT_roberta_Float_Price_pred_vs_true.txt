@@ -1,4 +1,4 @@
-Date: 2025-08-01 15:38:41.218047 
+Date: 2025-08-05 15:22:32.947323 
 Ticker: MSFT 
 Feature Columns: ['Close', 'Volume', 'total_news_count', 'roberta_majority_vote', 'roberta_count_positive', 'roberta_count_negative', 'roberta_count_neutral', 'roberta_label_positive_sum', 'roberta_label_negative_sum', 'roberta_label_neutral_sum'] 
 Target Column: Float_Price 
@@ -9,4 +9,4 @@ Model Dimension: 256
 Attention Heads: 8 
 Encoder Layers: 6 
 Dropout: 0.5 
-Metrics: {'RSE': 2.3997564, 'CORR': 0.4415726112577497, 'MAE': 0.27441218, 'MAPE': 0.34679326, 'RMSE': 0.29894438, 'MSLE': 0.033249516} 
+Metrics: {'RSE': 3.1754608, 'CORR': 0.35280086437387553, 'MAE': 0.37612894, 'MAPE': 0.478425, 'RMSE': 0.39557603, 'MSLE': 0.06183484} 

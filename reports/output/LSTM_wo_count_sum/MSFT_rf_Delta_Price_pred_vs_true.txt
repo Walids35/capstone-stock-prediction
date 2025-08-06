@@ -1,9 +1,9 @@
-Date: 2025-07-31 14:07:03.928810 
+Date: 2025-08-05 11:12:07.993830 
 Ticker: MSFT 
-Feature Columns: ['Close', 'Volume', 'total_news_count', 'rf_majority_vote'] 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'rf_majority_vote', 'rf_count_positive', 'rf_count_negative', 'rf_count_neutral'] 
 Target Column: Delta_Price 
 Sequence Length: 30 
 Hidden Size: 64 
 Number of Layers: 2 
 Dropout: 0.5 
-Metrics: {'RSE': 1.8140240407600783, 'CORR': -0.04363692889207005, 'MAE': 6.87785082190078, 'MAPE': 17.044949191849664, 'RMSE': 8.08260533977048, 'MSLE': nan} 
+Metrics: {'RSE': 1.7071871616746879, 'CORR': -0.024846717586647228, 'MAE': 6.392376539351194, 'MAPE': 15.716914290544917, 'RMSE': 7.606580595898741, 'MSLE': nan} 

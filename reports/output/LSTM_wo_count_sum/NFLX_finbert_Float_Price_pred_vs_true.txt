@@ -1,9 +1,9 @@
-Date: 2025-07-31 13:45:04.343280 
+Date: 2025-08-05 10:50:52.469118 
 Ticker: NFLX 
-Feature Columns: ['Close', 'Volume', 'total_news_count', 'finbert_majority_vote'] 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'finbert_majority_vote', 'finbert_count_positive', 'finbert_count_negative', 'finbert_count_neutral', 'finbert_label_positive_sum', 'finbert_label_negative_sum', 'finbert_label_neutral_sum'] 
 Target Column: Float_Price 
 Sequence Length: 30 
 Hidden Size: 64 
 Number of Layers: 2 
 Dropout: 0.5 
-Metrics: {'RSE': 0.5512131371707564, 'CORR': 0.9340493939502158, 'MAE': 26.700258937060944, 'MAPE': 0.053833436201703756, 'RMSE': 33.12525614826249, 'MSLE': 0.004455384265676052} 
+Metrics: {'RSE': 0.5282802314638684, 'CORR': 0.9269871239646914, 'MAE': 25.683270848329908, 'MAPE': 0.05214662427640837, 'RMSE': 31.747098908281313, 'MSLE': 0.00415336512129501} 

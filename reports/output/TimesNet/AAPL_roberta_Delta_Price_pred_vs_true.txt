@@ -1,4 +1,4 @@
-Date: 2025-08-04 01:59:59.797898 
+Date: 2025-08-06 01:00:51.616342 
 Ticker: AAPL 
 Feature Columns: ['Close', 'Volume', 'total_news_count', 'roberta_majority_vote', 'roberta_count_positive', 'roberta_count_negative', 'roberta_count_neutral', 'roberta_label_positive_sum', 'roberta_label_negative_sum', 'roberta_label_neutral_sum'] 
 Target Column: Delta_Price 

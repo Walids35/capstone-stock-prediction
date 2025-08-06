@@ -1,4 +1,4 @@
-Date: 2025-08-04 02:12:55.995517 
+Date: 2025-08-06 01:19:16.131798 
 Ticker: TSLA 
 Feature Columns: ['Close', 'Volume', 'total_news_count', 'svm_majority_vote', 'svm_count_positive', 'svm_count_negative', 'svm_count_neutral'] 
 Target Column: Factor_Price 

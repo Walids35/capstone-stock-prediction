@@ -1,9 +1,9 @@
-Date: 2025-07-31 14:02:14.054169 
+Date: 2025-08-05 11:07:31.158753 
 Ticker: TSLA 
-Feature Columns: ['Close', 'Volume', 'total_news_count', 'lr_majority_vote'] 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'lr_majority_vote', 'lr_count_positive', 'lr_count_negative', 'lr_count_neutral'] 
 Target Column: Delta_Price 
 Sequence Length: 30 
 Hidden Size: 64 
 Number of Layers: 2 
 Dropout: 0.5 
-Metrics: {'RSE': 1.4050556475779177, 'CORR': 0.029805860073223125, 'MAE': 7.231466215304943, 'MAPE': 5.599044652058223, 'RMSE': 9.050020997816313, 'MSLE': nan} 
+Metrics: {'RSE': 1.5432115395126416, 'CORR': 0.030160631357542145, 'MAE': 8.229271644165385, 'MAPE': 6.745462628173098, 'RMSE': 9.939888758667369, 'MSLE': nan} 

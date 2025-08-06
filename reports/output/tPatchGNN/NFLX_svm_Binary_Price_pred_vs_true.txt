@@ -1,4 +1,4 @@
-Date: 2025-08-01 14:53:50.954147 
+Date: 2025-08-06 02:09:21.128452 
 Ticker: NFLX 
 Feature Columns: ['Close', 'Volume', 'total_news_count', 'svm_majority_vote', 'svm_count_positive', 'svm_count_negative', 'svm_count_neutral'] 
 Target Column: Binary_Price 
@@ -8,5 +8,5 @@ Patch Length: 10
 Time Embedding Dim: 16 
 Node Dimension: 32 
 Attention Heads: 4 
-Dropout: 0.3 
+Dropout: 0.5 
 Metrics: {'optimal_threshold': 0.5035744, 'auc': 0.501987281399046, 'accuracy': 0.5352112676056338, 'confusion_matrix': [[32, 2], [31, 6]], 'classification_report': {'0.0': {'precision': 0.5079365079365079, 'recall': 0.9411764705882353, 'f1-score': 0.6597938144329897, 'support': 34.0}, '1.0': {'precision': 0.75, 'recall': 0.16216216216216217, 'f1-score': 0.26666666666666666, 'support': 37.0}, 'accuracy': 0.5352112676056338, 'macro avg': {'precision': 0.628968253968254, 'recall': 0.5516693163751987, 'f1-score': 0.4632302405498282, 'support': 71.0}, 'weighted avg': {'precision': 0.634082271406215, 'recall': 0.5352112676056338, 'f1-score': 0.45492473742800443, 'support': 71.0}}} 

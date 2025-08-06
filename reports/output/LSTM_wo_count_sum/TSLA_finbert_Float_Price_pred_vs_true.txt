@@ -1,9 +1,9 @@
-Date: 2025-07-31 13:44:58.382875 
+Date: 2025-08-05 10:50:46.449606 
 Ticker: TSLA 
-Feature Columns: ['Close', 'Volume', 'total_news_count', 'finbert_majority_vote'] 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'finbert_majority_vote', 'finbert_count_positive', 'finbert_count_negative', 'finbert_count_neutral', 'finbert_label_positive_sum', 'finbert_label_negative_sum', 'finbert_label_neutral_sum'] 
 Target Column: Float_Price 
 Sequence Length: 30 
 Hidden Size: 64 
 Number of Layers: 2 
 Dropout: 0.5 
-Metrics: {'RSE': 0.8674177352095029, 'CORR': 0.8384405029217938, 'MAE': 17.508428814544846, 'MAPE': 0.07665676252642434, 'RMSE': 20.23004084477812, 'MSLE': 0.00847594745060254} 
+Metrics: {'RSE': 1.1269402024874038, 'CORR': 0.7979978440398277, 'MAE': 23.347377408184833, 'MAPE': 0.10251578081639001, 'RMSE': 26.2826610530812, 'MSLE': 0.014829945663925828} 

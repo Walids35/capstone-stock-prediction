@@ -1,4 +1,4 @@
-Date: 2025-08-01 14:29:38.835753 
+Date: 2025-08-06 01:46:56.974019 
 Ticker: AAPL 
 Feature Columns: ['Close', 'Volume', 'total_news_count', 'lr_majority_vote', 'lr_count_positive', 'lr_count_negative', 'lr_count_neutral'] 
 Target Column: Factor_Price 
@@ -8,5 +8,5 @@ Patch Length: 10
 Time Embedding Dim: 16 
 Node Dimension: 32 
 Attention Heads: 4 
-Dropout: 0.3 
+Dropout: 0.5 
 Metrics: {'RSE': 3.1837952, 'CORR': 0.031240812124655903, 'MAE': 0.30193287, 'MAPE': 0.9494627, 'RMSE': 0.318027, 'MSLE': 0.04467839} 

@@ -1,9 +1,9 @@
-Date: 2025-07-31 13:58:39.389567 
+Date: 2025-08-05 10:59:16.338723 
 Ticker: NFLX 
-Feature Columns: ['Close', 'Volume', 'total_news_count', 'deberta_majority_vote'] 
+Feature Columns: ['Close', 'Volume', 'total_news_count', 'deberta_majority_vote', 'deberta_count_positive', 'deberta_count_negative', 'deberta_count_neutral', 'deberta_label_positive_sum', 'deberta_label_negative_sum', 'deberta_label_neutral_sum'] 
 Target Column: Binary_Price 
 Sequence Length: 30 
 Hidden Size: 64 
 Number of Layers: 2 
 Dropout: 0.5 
-Metrics: {'optimal_threshold': 0.5400515794754028, 'auc': 0.514308426073132, 'accuracy': 0.5774647887323944, 'confusion_matrix': [[21, 13], [17, 20]], 'classification_report': {'0': {'precision': 0.5526315789473685, 'recall': 0.6176470588235294, 'f1-score': 0.5833333333333334, 'support': 34.0}, '1': {'precision': 0.6060606060606061, 'recall': 0.5405405405405406, 'f1-score': 0.5714285714285714, 'support': 37.0}, 'accuracy': 0.5774647887323944, 'macro avg': {'precision': 0.5793460925039873, 'recall': 0.579093799682035, 'f1-score': 0.5773809523809523, 'support': 71.0}, 'weighted avg': {'precision': 0.580474874766943, 'recall': 0.5774647887323944, 'f1-score': 0.5771294433266265, 'support': 71.0}}} 
+Metrics: {'optimal_threshold': 0.512874186038971, 'auc': 0.5055643879173292, 'accuracy': 0.5492957746478874, 'confusion_matrix': [[27, 7], [25, 12]], 'classification_report': {'0': {'precision': 0.5192307692307693, 'recall': 0.7941176470588235, 'f1-score': 0.627906976744186, 'support': 34.0}, '1': {'precision': 0.631578947368421, 'recall': 0.32432432432432434, 'f1-score': 0.42857142857142855, 'support': 37.0}, 'accuracy': 0.5492957746478874, 'macro avg': {'precision': 0.5754048582995952, 'recall': 0.559220985691574, 'f1-score': 0.5282392026578073, 'support': 71.0}, 'weighted avg': {'precision': 0.5777784113588413, 'recall': 0.5492957746478874, 'f1-score': 0.5240278882597913, 'support': 71.0}}} 

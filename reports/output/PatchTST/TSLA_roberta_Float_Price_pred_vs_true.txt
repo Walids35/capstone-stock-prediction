@@ -1,4 +1,4 @@
-Date: 2025-08-01 15:38:49.116500 
+Date: 2025-08-05 15:22:40.347398 
 Ticker: TSLA 
 Feature Columns: ['Close', 'Volume', 'total_news_count', 'roberta_majority_vote', 'roberta_count_positive', 'roberta_count_negative', 'roberta_count_neutral', 'roberta_label_positive_sum', 'roberta_label_negative_sum', 'roberta_label_neutral_sum'] 
 Target Column: Float_Price 
@@ -9,4 +9,4 @@ Model Dimension: 256
 Attention Heads: 8 
 Encoder Layers: 6 
 Dropout: 0.5 
-Metrics: {'RSE': 2.2731862, 'CORR': -0.1467034387278138, 'MAE': 0.17009103, 'MAPE': 0.38681838, 'RMSE': 0.19368778, 'MSLE': 0.020734636} 
+Metrics: {'RSE': 2.4886725, 'CORR': -0.1425309798587371, 'MAE': 0.19228756, 'MAPE': 0.43473053, 'RMSE': 0.21204835, 'MSLE': 0.024908833} 

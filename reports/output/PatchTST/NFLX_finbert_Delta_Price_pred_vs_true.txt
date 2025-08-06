@@ -1,4 +1,4 @@
-Date: 2025-08-01 15:18:25.732160 
+Date: 2025-08-05 15:01:56.722929 
 Ticker: NFLX 
 Feature Columns: ['Close', 'Volume', 'total_news_count', 'finbert_majority_vote', 'finbert_count_positive', 'finbert_count_negative', 'finbert_count_neutral', 'finbert_label_positive_sum', 'finbert_label_negative_sum', 'finbert_label_neutral_sum'] 
 Target Column: Delta_Price 
@@ -9,4 +9,4 @@ Model Dimension: 256
 Attention Heads: 8 
 Encoder Layers: 6 
 Dropout: 0.5 
-Metrics: {'RSE': 2.3153894, 'CORR': 0.13183211659875474, 'MAE': 0.11812699, 'MAPE': 0.16972081, 'RMSE': 0.14809762, 'MSLE': 0.008244363} 
+Metrics: {'RSE': 5.223069, 'CORR': -0.03307795656683675, 'MAE': 0.31718692, 'MAPE': 0.44925004, 'RMSE': 0.33407947, 'MSLE': 0.04807793} 

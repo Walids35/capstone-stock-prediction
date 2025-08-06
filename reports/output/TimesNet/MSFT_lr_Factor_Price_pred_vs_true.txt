@@ -1,4 +1,4 @@
-Date: 2025-08-04 01:12:48.238075 
+Date: 2025-08-06 00:02:34.425808 
 Ticker: MSFT 
 Feature Columns: ['Close', 'Volume', 'total_news_count', 'lr_majority_vote', 'lr_count_positive', 'lr_count_negative', 'lr_count_neutral'] 
 Target Column: Factor_Price 

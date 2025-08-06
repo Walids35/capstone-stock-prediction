@@ -1,4 +1,4 @@
-Date: 2025-08-01 15:34:16.144743 
+Date: 2025-08-05 15:17:51.313885 
 Ticker: MSFT 
 Feature Columns: ['Close', 'Volume', 'total_news_count', 'rf_majority_vote', 'rf_count_positive', 'rf_count_negative', 'rf_count_neutral'] 
 Target Column: Delta_Price 
@@ -9,4 +9,4 @@ Model Dimension: 256
 Attention Heads: 8 
 Encoder Layers: 6 
 Dropout: 0.5 
-Metrics: {'RSE': 6.907236, 'CORR': -0.11686380724566195, 'MAE': 0.7854867, 'MAPE': 1.7093189, 'RMSE': 0.7978458, 'MSLE': 0.18417466} 
+Metrics: {'RSE': 1.525195, 'CORR': -0.03196765300550029, 'MAE': 0.14202996, 'MAPE': 0.35442576, 'RMSE': 0.17617328, 'MSLE': 0.013573073} 
