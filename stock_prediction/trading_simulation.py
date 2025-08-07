@@ -11,7 +11,7 @@ from utils.configs import configs
 from sklearn.metrics import roc_curve, roc_auc_score
 
 class ProfitAnalyzer:
-    def __init__(self, model, X_test, actual_prices, y_test, ticker, news_model, investment=1000.0, commission=0.001, risk_free_rate=0.02):
+    def __init__(self, model, X_test, actual_prices, y_test, ticker, news_model, model_type="lstm", investment=1000.0, commission=0.001, risk_free_rate=0.02):
         self.model = model
         self.X_test = X_test
         self.actual_prices = actual_prices
@@ -21,10 +21,18 @@ class ProfitAnalyzer:
         self.y_test = y_test
         self.ticker = ticker
         self.news_model = news_model
+        self.model_type = model_type
         # Metrics for export
         self.report = {}
 
     def model_evaluation(self, y_pred, y_test):
+        # Ensure lengths match
+        min_len = min(len(y_pred), len(y_test))
+        y_pred = y_pred[:min_len]
+        y_test = y_test[:min_len]
+        
+        logger.info(f"Model evaluation - y_pred length: {len(y_pred)}, y_test length: {len(y_test)}")
+        
         # Compute ROC curve and AUC
         fpr, tpr, thresholds = roc_curve(y_test, y_pred)
         auc = roc_auc_score(y_test, y_pred)
@@ -53,7 +61,29 @@ class ProfitAnalyzer:
             for i in range(0, len(self.X_test), batch_size):
                 batch_X = self.X_test[i:i+batch_size]
                 batch_tensor = torch.tensor(batch_X, dtype=torch.float32).to(device)
-                batch_logits = self.model(batch_tensor).cpu().numpy()
+                
+                # Handle different model types
+                if hasattr(self.model, '__class__') and 'LSTM' in self.model.__class__.__name__:
+                    # LSTM models don't need y parameter
+                    model_output = self.model(batch_tensor)
+                else:
+                    # tPatchGNN, PatchTST, TimesNet need y parameter
+                    batch_size_curr = batch_tensor.shape[0]
+                    n_features = batch_tensor.shape[2]
+                    y_dummy = torch.zeros((batch_size_curr, 1, n_features), device=device)
+                    model_output = self.model(x=batch_tensor, y=y_dummy)
+                if isinstance(model_output, dict):
+                    # tPatchGNN, PatchTST, TimesNet return dictionaries
+                    if "pred" in model_output:
+                        batch_logits = model_output["pred"].cpu().numpy()
+                    elif "pred_class" in model_output:
+                        batch_logits = model_output["pred_class"].cpu().numpy()
+                    else:
+                        raise ValueError(f"Unknown model output format: {model_output.keys()}")
+                else:
+                    # LSTM and other models return tensor directly
+                    batch_logits = model_output.cpu().numpy()
+                
                 all_logits.append(batch_logits)
     
         logits = np.concatenate(all_logits, axis=0).flatten()
@@ -62,7 +92,7 @@ class ProfitAnalyzer:
         pred_mean, pred_std = np.mean(predictions), np.std(predictions)
         pred_min, pred_max = np.min(predictions), np.max(predictions)
         logger.info(f"Prediction stats - Min: {pred_min:.4f}, Max: {pred_max:.4f}, Mean: {pred_mean:.4f}, Std: {pred_std:.4f}")
-        
+        logger.info(f"Lengths - predictions: {len(predictions)}, y_test: {len(self.y_test)}, X_test: {len(self.X_test)}")
         _, optimal_threshold = self.model_evaluation(predictions, self.y_test)
         logger.info(f"Optimal threshold: {optimal_threshold}")
         buy_threshold = optimal_threshold
@@ -186,7 +216,7 @@ class ProfitAnalyzer:
         plt.legend()
         plt.grid(True)
         plt.tight_layout()
-        plt.savefig(f"reports/simulation/{self.ticker}_lstm_Binary_Price_{self.news_model}_trading_decisions.png")
+        plt.savefig(f"reports/simulation/{self.ticker}_{self.model_type}_Binary_Price_{self.news_model}_trading_decisions.png")
 
     def plot_threshold_heatmap(self, threshold_results):
         try:
@@ -203,7 +233,7 @@ class ProfitAnalyzer:
             plt.xlabel('Sell Threshold')
             plt.ylabel('Buy Threshold')
             plt.title('Profit by Buy/Sell Threshold')
-            plt.savefig(f"reports/simulation/{self.ticker}_lstm_Binary_Price_{self.news_model}_trading_threshold_heatmap.png")
+            plt.savefig(f"reports/simulation/{self.ticker}_{self.model_type}_Binary_Price_{self.news_model}_trading_threshold_heatmap.png")
         except Exception as e:
             logger.error(f"Heatmap failed: {e}")
             best = max(threshold_results.items(), key=lambda x: x[1])
@@ -249,6 +279,8 @@ def main(
     model_path: Path = configs.model_path,
     ticker: str = configs.ticker,
     news_model: str = configs.news_model,
+    batch_size: int = configs.batch_size,
+    dropout: float = configs.dropout,
 ):
 
     pipeline = TimeSeriesDatasetPipeline(
@@ -259,6 +291,7 @@ def main(
     pipeline.load_scaler(scaler_path)
     pipeline.transform()
     X_train, y_train, X_test, y_test = pipeline.train_test_split()
+    input_size = X_test.shape[2]
 
     # Get actual prices from the test set by using the pipeline's inverse transform method
     # We need to get the first feature from each sequence and inverse transform it properly
@@ -269,23 +302,71 @@ def main(
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model_state_dict = torch.load(model_path, map_location=device)
     
-    # Create model instance with same architecture as training
-    from stock_prediction.modeling.LSTM import LSTMModel
-    model = LSTMModel(
-        input_size=X_test.shape[2],
-        hidden_size=64,
-        num_layers=2,  
-        output_size=1,
-        dropout=0.5
-    ).to(device)
+    # Determine model type from model path
+    model_filename = str(model_path)
+    if "tpatchgnn" in model_filename:
+        from stock_prediction.modeling.tPatchGNN import Model
+        from stock_prediction.modeling.train_tpatchgnn import create_tpatchgnn_configs
+        model_configs = create_tpatchgnn_configs(
+            seq_length=seq_length,
+            pred_length=1,
+            input_size=input_size,
+            target_column=target_column,
+            dropout=dropout,
+            batch_size=batch_size
+        )
+        model = Model(model_configs).to(device)
+    elif "patchtst" in model_filename:
+        from stock_prediction.modeling.PatchTST import Model
+        from stock_prediction.modeling.train_patchtst import create_patchtst_configs
+        model_configs = create_patchtst_configs(
+            seq_length=seq_length,
+            pred_length=1,
+            input_size=input_size,
+            target_column=target_column,
+            dropout=dropout
+        )
+        model = Model(model_configs).to(device)
+    elif "timesnet" in model_filename:
+        from stock_prediction.modeling.TimesNet import Model
+        from stock_prediction.modeling.train_timesnet import create_timesnet_configs
+        model_configs = create_timesnet_configs(
+            seq_length=seq_length,
+            pred_length=1,
+            input_size=input_size,
+            target_column=target_column,
+            dropout=dropout
+        )
+        model = Model(model_configs).to(device)
+    elif "lstm" in model_filename:
+        from stock_prediction.modeling.LSTM import LSTMModel
+        output_size = 1 if target_column.lower() != "binary_price" else 1
+        model = LSTMModel(
+            input_size=input_size,
+            hidden_size=64,
+            num_layers=2, 
+            output_size=output_size,
+            dropout=dropout
+        ).to(device)
+    else:
+        raise ValueError(f"Unknown model type in filename: {model_filename}")
     
     # Load the state dict
     model.load_state_dict(model_state_dict)
     model.eval()
 
-    analyzer = ProfitAnalyzer(model, X_test, actual_prices, y_test, ticker, news_model)
+    # Determine model type for file naming
+    model_type = "lstm"  # default
+    if "tpatchgnn" in model_filename:
+        model_type = "tpatchgnn"
+    elif "patchtst" in model_filename:
+        model_type = "patchtst"
+    elif "timesnet" in model_filename:
+        model_type = "timesnet"
+    
+    analyzer = ProfitAnalyzer(model, X_test, actual_prices, y_test, ticker, news_model, model_type)
     profit, history, decisions = analyzer.run()    
-    analyzer.export_report(f"reports/simulation/{ticker}_lstm_Binary_Price_{news_model}_trading_analysis.json")
+    analyzer.export_report(f"reports/simulation/{ticker}_{model_type}_Binary_Price_{news_model}_trading_analysis.json")
 
 
 if __name__ == "__main__":
