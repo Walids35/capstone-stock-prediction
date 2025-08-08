@@ -15,7 +15,7 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 import matplotlib.pyplot as plt
 
 from stock_prediction.modeling.PatchTST import Model as PatchTSTModel
-from stock_prediction.config import MODELS_DIR, PROCESSED_DATA_DIR, REPORTS_DIR
+from stock_prediction.config import REPORTS_DIR
 from stock_prediction.dataset_pipeline import TimeSeriesDatasetPipeline
 from utils.configs import configs
 from utils.tools import Seeding
@@ -162,8 +162,8 @@ def main(
     """Main prediction function for PatchTST model"""
     
     # Set random seeds for reproducibility
-    seed = Seeding(seed)
-    seed.set()
+    seeding = Seeding(seed)
+    seeding.set()
     
     logger.info("=" * 80)
     logger.info("STARTING PatchTST PREDICTION")
@@ -294,7 +294,7 @@ def main(
     )
     
     # Save results
-    output_dir = REPORTS_DIR / "output" / "PatchTST"
+    output_dir = REPORTS_DIR / "output" / "PatchTST" / f"{seed}"
     output_dir.mkdir(parents=True, exist_ok=True)
     
     # Save metrics to text file

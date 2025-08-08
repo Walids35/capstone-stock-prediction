@@ -2,6 +2,7 @@ from pathlib import Path
 
 from loguru import logger
 from tqdm import tqdm
+from stock_prediction.config import REPORTS_DIR
 import typer
 
 import pandas as pd
@@ -47,7 +48,6 @@ def model_evaluation(y_pred, y_test, ticker, news_model, target_column):
   plt.legend(loc='lower right')
   plt.grid(True)
   plt.tight_layout()
-  plt.savefig(f"reports/output/LSTM_wo_count_sum/{ticker}_{news_model}_{target_column}_roc_curve.png")
 
   return y_pred_binary, optimal_threshold
 
@@ -66,8 +66,8 @@ def main(
     news_model: str = configs.news_model,
     seed: int = configs.seed
 ):
-    seed = Seeding(seed)
-    seed.set()
+    seeding = Seeding(seed)
+    seeding.set()
     
     pipeline = TimeSeriesDatasetPipeline(
         data_path, seq_length=seq_length, test_ratio=test_ratio,
@@ -172,6 +172,8 @@ def main(
 
     logger.info(f"Metrics: {results}")
 
+    output_dir = REPORTS_DIR / "output" / "LSTM" / f"{seed}"
+    output_dir.mkdir(parents=True, exist_ok=True)
 
     # --- Plotting ---
     plt.figure(figsize=(12, 6))
@@ -182,10 +184,10 @@ def main(
     plt.ylabel("Value" if not is_classification else "Class")
     plt.legend()
     plt.tight_layout()
-    plt.savefig(f"reports/output/LSTM_wo_count_sum/{ticker}_{news_model}_{target_column}_pred_vs_true.png")
+    plt.savefig(f"{output_dir}/{ticker}_{news_model}_{target_column}_pred_vs_true.png")
 
     # --- Save run info ---
-    with open(f"reports/output/LSTM_wo_count_sum/{ticker}_{news_model}_{target_column}_pred_vs_true.txt", "w") as f:
+    with open(f"{output_dir}/{ticker}_{news_model}_{target_column}_pred_vs_true.txt", "w") as f:
         f.write(f"Date: {datetime.now()} \n")
         f.write(f"Ticker: {ticker} \n")
         f.write(f"Feature Columns: {feature_columns} \n")

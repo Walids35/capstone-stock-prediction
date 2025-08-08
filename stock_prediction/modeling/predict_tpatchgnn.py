@@ -15,7 +15,7 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 import matplotlib.pyplot as plt
 
 from stock_prediction.modeling.tPatchGNN import Model as tPatchGNNModel
-from stock_prediction.config import MODELS_DIR, PROCESSED_DATA_DIR, REPORTS_DIR
+from stock_prediction.config import REPORTS_DIR
 from stock_prediction.dataset_pipeline import TimeSeriesDatasetPipeline
 from utils.configs import configs
 from utils.tools import Seeding
@@ -72,7 +72,7 @@ def create_tpatchgnn_configs(
     return tPatchGNNConfigs()
 
 
-def model_evaluation(y_pred, y_test, ticker, news_model, target_column):
+def model_evaluation(y_pred, y_test, ticker, news_model, target_column, seed):
     """Evaluate model predictions and save results"""
     
     is_classification = target_column.lower() == "binary_price"
@@ -119,7 +119,7 @@ def model_evaluation(y_pred, y_test, ticker, news_model, target_column):
         plt.title(f'ROC Curve - {ticker} {news_model} {target_column}')
         plt.legend(loc="lower right")
         
-        roc_path = REPORTS_DIR / "output" / "tPatchGNN" / f"{ticker}_{news_model}_{target_column}_roc_curve.png"
+        roc_path = REPORTS_DIR / "output" / "tPatchGNN" / f"{seed}" / f"{ticker}_{news_model}_{target_column}_roc_curve.png"
         roc_path.parent.mkdir(parents=True, exist_ok=True)
         plt.savefig(roc_path, dpi=300, bbox_inches='tight')
         plt.close()
@@ -161,8 +161,8 @@ def main(
     """Main prediction function for tPatchGNN model"""
     
     # Set random seeds for reproducibility
-    seed = Seeding(seed)
-    seed.set()
+    seeding = Seeding(seed)
+    seeding.set()
     
     logger.info("=" * 80)
     logger.info("STARTING tPatchGNN PREDICTION")
@@ -173,11 +173,6 @@ def main(
     task_type = "Classification" if is_classification else "Regression"
     logger.info(f"Task: {task_type} ({target_column})")
     logger.info(f"Ticker: {ticker}, News Model: {news_model}")
-    
-    # Set model path if not provided
-    if model_path is None:
-        model_name = f"tpatchgnn_{target_column.lower()}_model.pth"
-        model_path = MODELS_DIR / model_name
     
     # Check if model exists
     if not os.path.exists(model_path):
@@ -280,11 +275,11 @@ def main(
     # Evaluate model
     logger.info("Evaluating model...")
     y_pred_processed, optimal_threshold, metrics = model_evaluation(
-        y_pred, y_test, ticker, news_model, target_column
+        y_pred, y_test, ticker, news_model, target_column, seed
     )
     
     # Save results
-    output_dir = REPORTS_DIR / "output" / "tPatchGNN"
+    output_dir = REPORTS_DIR / "output" / "tPatchGNN" / f"{seed}"
     output_dir.mkdir(parents=True, exist_ok=True)
     
     # Save metrics to text file
