@@ -1,0 +1,552 @@
+====================================================================================================
+COMPREHENSIVE MODEL ANALYSIS REPORT
+====================================================================================================
+
+This report compares all model types across sentiment models and output types
+based on mean performance across seeds.
+
+OVERALL SUMMARY
+--------------------------------------------------
+LSTM        : 6/6 sentiment models, 24/24 combinations (100.0% coverage)
+PatchTST    : 6/6 sentiment models, 24/24 combinations (100.0% coverage)
+TimesNet    : 6/6 sentiment models, 24/24 combinations (100.0% coverage)
+tPatchGNN   : 6/6 sentiment models, 24/24 combinations (100.0% coverage)
+
+OUTPUT TYPE: Binary_Price
+================================================================================
+
+Model        Sentiment  Ticker AUC        Accuracy   F1-Score   Precision  Recall    
+-------------------------------------------------------------------------------------
+LSTM         deberta    AAPL   0.5318     0.5399     0.4864     0.5901     0.5399    
+LSTM         deberta    AMZN   0.5114     0.5338     0.4711     0.6267     0.5338    
+LSTM         deberta    MSFT   0.5462     0.6011     0.5660     0.6365     0.6011    
+LSTM         deberta    NFLX   0.5862     0.6028     0.5904     0.6259     0.6028    
+LSTM         deberta    TSLA   0.5598     0.5793     0.5583     0.6034     0.5793    
+LSTM         finbert    AAPL   0.5169     0.5453     0.5287     0.5499     0.5453    
+LSTM         finbert    AMZN   0.5163     0.5480     0.5270     0.5832     0.5480    
+LSTM         finbert    MSFT   0.5600     0.5902     0.5731     0.6190     0.5902    
+LSTM         finbert    NFLX   0.5920     0.6042     0.5926     0.6276     0.6042    
+LSTM         finbert    TSLA   0.6242     0.6120     0.5997     0.6274     0.6120    
+LSTM         lr         AAPL   0.5381     0.5507     0.5129     0.5444     0.5507    
+LSTM         lr         AMZN   0.5413     0.5608     0.5394     0.5791     0.5608    
+LSTM         lr         MSFT   0.5657     0.5978     0.5762     0.6300     0.5978    
+LSTM         lr         NFLX   0.5638     0.5789     0.5620     0.6094     0.5789    
+LSTM         lr         TSLA   0.5848     0.5924     0.5685     0.6286     0.5924    
+LSTM         rf         AAPL   0.5548     0.5581     0.5366     0.5785     0.5581    
+LSTM         rf         AMZN   0.5270     0.5486     0.5074     0.5920     0.5486    
+LSTM         rf         MSFT   0.5427     0.5793     0.5636     0.6032     0.5793    
+LSTM         rf         NFLX   0.5444     0.5676     0.5180     0.6519     0.5676    
+LSTM         rf         TSLA   0.5776     0.5793     0.5704     0.5905     0.5793    
+LSTM         roberta    AAPL   0.5315     0.5628     0.5402     0.5737     0.5628    
+LSTM         roberta    AMZN   0.5488     0.5655     0.5571     0.5788     0.5655    
+LSTM         roberta    MSFT   0.5854     0.6054     0.5799     0.6435     0.6054    
+LSTM         roberta    NFLX   0.5710     0.5817     0.5614     0.6075     0.5817    
+LSTM         roberta    TSLA   0.5844     0.5957     0.5646     0.6481     0.5957    
+LSTM         svm        AAPL   0.5484     0.5588     0.5436     0.5824     0.5588    
+LSTM         svm        AMZN   0.5607     0.5804     0.5572     0.5897     0.5804    
+LSTM         svm        MSFT   0.5480     0.5674     0.5486     0.6193     0.5674    
+LSTM         svm        NFLX   0.5648     0.5817     0.5597     0.6085     0.5817    
+LSTM         svm        TSLA   0.5432     0.5717     0.5613     0.5778     0.5717    
+PatchTST     deberta    AAPL   0.4957     0.5473     0.4782     0.6380     0.5473    
+PatchTST     deberta    AMZN   0.4826     0.5297     0.4585     0.5789     0.5297    
+PatchTST     deberta    MSFT   0.4828     0.5239     0.4937     0.6120     0.5239    
+PatchTST     deberta    NFLX   0.4814     0.5535     0.4863     0.6006     0.5535    
+PatchTST     deberta    TSLA   0.5125     0.5652     0.5077     0.6399     0.5652    
+PatchTST     finbert    AAPL   0.5026     0.5480     0.5053     0.6041     0.5480    
+PatchTST     finbert    AMZN   0.5075     0.5459     0.5184     0.5658     0.5459    
+PatchTST     finbert    MSFT   0.4857     0.5598     0.5260     0.6260     0.5598    
+PatchTST     finbert    NFLX   0.4597     0.5465     0.4770     0.5885     0.5465    
+PatchTST     finbert    TSLA   0.4788     0.5489     0.5068     0.5829     0.5489    
+PatchTST     lr         AAPL   0.5159     0.5541     0.5120     0.5862     0.5541    
+PatchTST     lr         AMZN   0.5092     0.5419     0.4850     0.6010     0.5419    
+PatchTST     lr         MSFT   0.5267     0.5717     0.5516     0.6091     0.5717    
+PatchTST     lr         NFLX   0.4953     0.5592     0.5036     0.5841     0.5592    
+PatchTST     lr         TSLA   0.4871     0.5587     0.5020     0.6265     0.5587    
+PatchTST     rf         AAPL   0.5223     0.5682     0.5098     0.6106     0.5682    
+PatchTST     rf         AMZN   0.4897     0.5311     0.4946     0.5570     0.5311    
+PatchTST     rf         MSFT   0.4963     0.5500     0.5169     0.5963     0.5500    
+PatchTST     rf         NFLX   0.4880     0.5521     0.4863     0.5774     0.5521    
+PatchTST     rf         TSLA   0.5268     0.5707     0.5336     0.6146     0.5707    
+PatchTST     roberta    AAPL   0.4971     0.5432     0.5010     0.5883     0.5432    
+PatchTST     roberta    AMZN   0.4877     0.5365     0.4804     0.5987     0.5365    
+PatchTST     roberta    MSFT   0.4932     0.5478     0.5026     0.6253     0.5478    
+PatchTST     roberta    NFLX   0.4814     0.5577     0.5074     0.6306     0.5577    
+PatchTST     roberta    TSLA   0.5169     0.5674     0.5204     0.5651     0.5674    
+PatchTST     svm        AAPL   0.5334     0.5568     0.5134     0.6272     0.5568    
+PatchTST     svm        AMZN   0.5236     0.5507     0.5092     0.6076     0.5507    
+PatchTST     svm        MSFT   0.4827     0.5522     0.5134     0.5926     0.5522    
+PatchTST     svm        NFLX   0.5298     0.5817     0.5511     0.5927     0.5817    
+PatchTST     svm        TSLA   0.4994     0.5554     0.5094     0.5993     0.5554    
+TimesNet     deberta    AAPL   0.5388     0.5682     0.5402     0.5971     0.5682    
+TimesNet     deberta    AMZN   0.5520     0.5689     0.5461     0.5962     0.5689    
+TimesNet     deberta    MSFT   0.4832     0.5370     0.4804     0.6072     0.5370    
+TimesNet     deberta    NFLX   0.5427     0.5845     0.5665     0.6028     0.5845    
+TimesNet     deberta    TSLA   0.5479     0.5891     0.5668     0.6022     0.5891    
+TimesNet     finbert    AAPL   0.5294     0.5635     0.5524     0.5735     0.5635    
+TimesNet     finbert    AMZN   0.5096     0.5574     0.5099     0.6060     0.5574    
+TimesNet     finbert    MSFT   0.5110     0.5457     0.5148     0.6161     0.5457    
+TimesNet     finbert    NFLX   0.5436     0.5873     0.5626     0.6214     0.5873    
+TimesNet     finbert    TSLA   0.5524     0.5957     0.5825     0.6080     0.5957    
+TimesNet     lr         AAPL   0.5406     0.5554     0.5326     0.5967     0.5554    
+TimesNet     lr         AMZN   0.4728     0.5351     0.4723     0.5926     0.5351    
+TimesNet     lr         MSFT   0.5170     0.5761     0.5565     0.6085     0.5761    
+TimesNet     lr         NFLX   0.5020     0.5549     0.5361     0.5748     0.5549    
+TimesNet     lr         TSLA   0.5775     0.6043     0.5813     0.6383     0.6043    
+TimesNet     rf         AAPL   0.5329     0.5561     0.5250     0.5952     0.5561    
+TimesNet     rf         AMZN   0.4925     0.5378     0.4791     0.6081     0.5378    
+TimesNet     rf         MSFT   0.4616     0.4957     0.4393     0.6366     0.4957    
+TimesNet     rf         NFLX   0.4879     0.5718     0.5330     0.6115     0.5718    
+TimesNet     rf         TSLA   0.5569     0.5946     0.5689     0.6168     0.5946    
+TimesNet     roberta    AAPL   0.5164     0.5554     0.5280     0.5775     0.5554    
+TimesNet     roberta    AMZN   0.4920     0.5547     0.4932     0.5962     0.5547    
+TimesNet     roberta    MSFT   0.5070     0.5870     0.5606     0.5932     0.5870    
+TimesNet     roberta    NFLX   0.5471     0.5958     0.5767     0.6122     0.5958    
+TimesNet     roberta    TSLA   0.5071     0.5685     0.5339     0.5575     0.5685    
+TimesNet     svm        AAPL   0.5160     0.5703     0.5357     0.5802     0.5703    
+TimesNet     svm        AMZN   0.5136     0.5554     0.5101     0.5954     0.5554    
+TimesNet     svm        MSFT   0.4919     0.5522     0.5093     0.6220     0.5522    
+TimesNet     svm        NFLX   0.4910     0.5606     0.5177     0.5845     0.5606    
+TimesNet     svm        TSLA   0.5374     0.5902     0.5672     0.6123     0.5902    
+tPatchGNN    deberta    AAPL   0.4965     0.5209     0.4704     0.5218     0.5209    
+tPatchGNN    deberta    AMZN   0.4929     0.5108     0.4312     0.5060     0.5108    
+tPatchGNN    deberta    MSFT   0.4921     0.5130     0.4166     0.4825     0.5130    
+tPatchGNN    deberta    NFLX   0.5320     0.5549     0.4843     0.6145     0.5549    
+tPatchGNN    deberta    TSLA   0.4789     0.5228     0.4161     0.4746     0.5228    
+tPatchGNN    finbert    AAPL   0.5040     0.5088     0.4483     0.4424     0.5088    
+tPatchGNN    finbert    AMZN   0.5177     0.5270     0.4406     0.5350     0.5270    
+tPatchGNN    finbert    MSFT   0.4735     0.5207     0.4301     0.4612     0.5207    
+tPatchGNN    finbert    NFLX   0.4918     0.5310     0.4413     0.5180     0.5310    
+tPatchGNN    finbert    TSLA   0.4664     0.5098     0.3942     0.4684     0.5098    
+tPatchGNN    lr         AAPL   0.5077     0.5331     0.4830     0.5323     0.5331    
+tPatchGNN    lr         AMZN   0.5198     0.5426     0.4849     0.5370     0.5426    
+tPatchGNN    lr         MSFT   0.5131     0.5511     0.4871     0.5261     0.5511    
+tPatchGNN    lr         NFLX   0.4936     0.5380     0.4409     0.6145     0.5380    
+tPatchGNN    lr         TSLA   0.4640     0.5250     0.4095     0.4372     0.5250    
+tPatchGNN    rf         AAPL   0.4916     0.5142     0.4484     0.4483     0.5142    
+tPatchGNN    rf         AMZN   0.5162     0.5331     0.4692     0.4633     0.5331    
+tPatchGNN    rf         MSFT   0.4980     0.5239     0.4430     0.4595     0.5239    
+tPatchGNN    rf         NFLX   0.5169     0.5507     0.4865     0.5743     0.5507    
+tPatchGNN    rf         TSLA   0.4547     0.5163     0.4000     0.5365     0.5163    
+tPatchGNN    roberta    AAPL   0.5027     0.5453     0.5128     0.5424     0.5453    
+tPatchGNN    roberta    AMZN   0.4832     0.5149     0.4209     0.4712     0.5149    
+tPatchGNN    roberta    MSFT   0.4587     0.4913     0.3948     0.4106     0.4913    
+tPatchGNN    roberta    NFLX   0.5124     0.5563     0.4887     0.5542     0.5563    
+tPatchGNN    roberta    TSLA   0.4311     0.5130     0.3987     0.5030     0.5130    
+tPatchGNN    svm        AAPL   0.4958     0.5088     0.3973     0.5121     0.5088    
+tPatchGNN    svm        AMZN   0.4880     0.5135     0.4025     0.4384     0.5135    
+tPatchGNN    svm        MSFT   0.4796     0.4728     0.3777     0.4667     0.4728    
+tPatchGNN    svm        NFLX   0.5197     0.5549     0.5037     0.5130     0.5549    
+tPatchGNN    svm        TSLA   0.4500     0.5087     0.3735     0.4309     0.5087    
+
+BEST PERFORMING MODELS (by metric):
+--------------------------------------------------
+AUC            : LSTM-finbert-TSLA              (0.6242)
+Accuracy       : LSTM-finbert-TSLA              (0.6120)
+F1-Score       : LSTM-finbert-TSLA              (0.5997)
+Precision      : LSTM-rf-NFLX                   (0.6519)
+Recall         : LSTM-finbert-TSLA              (0.6120)
+
+OUTPUT TYPE: Delta_Price
+================================================================================
+
+Model        Sentiment  Ticker CORR       MAE        MAPE       MSLE       RMSE       RSE       
+------------------------------------------------------------------------------------------------
+LSTM         deberta    AAPL   0.1294     6.0180     inf        N/A        6.8470     2.0056    
+LSTM         deberta    AMZN   0.1006     3.3350     3.7783     N/A        4.2869     1.1473    
+LSTM         deberta    MSFT   0.0596     6.8217     16.9479    N/A        8.0190     1.7997    
+LSTM         deberta    NFLX   0.1249     7.0874     1.3206     N/A        11.6102    1.0198    
+LSTM         deberta    TSLA   0.0602     7.7838     6.2597     N/A        9.5390     1.4810    
+LSTM         finbert    AAPL   0.1558     5.9382     inf        N/A        6.7737     1.9841    
+LSTM         finbert    AMZN   0.1193     3.2994     3.5846     N/A        4.2317     1.1325    
+LSTM         finbert    MSFT   0.1715     6.6573     16.5591    N/A        7.8592     1.7639    
+LSTM         finbert    NFLX   0.2691     7.2154     1.5754     N/A        11.7437    1.0315    
+LSTM         finbert    TSLA   0.0986     7.5822     6.0885     N/A        9.3632     1.4537    
+LSTM         lr         AAPL   0.1671     5.8195     inf        N/A        6.6673     1.9529    
+LSTM         lr         AMZN   0.1372     3.2383     3.3622     N/A        4.1586     1.1130    
+LSTM         lr         MSFT   -0.0239    6.5285     16.1516    N/A        7.7462     1.7385    
+LSTM         lr         NFLX   0.1187     7.4018     1.7230     N/A        12.0031    1.0543    
+LSTM         lr         TSLA   0.0417     7.2117     5.5685     N/A        9.0319     1.4022    
+LSTM         rf         AAPL   0.1985     5.8673     inf        N/A        6.7102     1.9655    
+LSTM         rf         AMZN   0.0921     3.2725     3.5032     N/A        4.1953     1.1228    
+LSTM         rf         MSFT   -0.0143    6.6085     16.3304    N/A        7.8220     1.7555    
+LSTM         rf         NFLX   0.0268     7.3761     1.5876     N/A        11.9887    1.0530    
+LSTM         rf         TSLA   -0.0121    7.3197     5.6840     N/A        9.1351     1.4183    
+LSTM         roberta    AAPL   0.1708     5.9970     inf        N/A        6.8262     1.9995    
+LSTM         roberta    AMZN   0.0860     3.3194     3.7023     N/A        4.2674     1.1421    
+LSTM         roberta    MSFT   0.0686     6.8096     16.8418    N/A        8.0068     1.7970    
+LSTM         roberta    NFLX   0.0055     7.1778     1.3054     N/A        11.8041    1.0368    
+LSTM         roberta    TSLA   0.0372     7.8204     6.3138     N/A        9.5726     1.4862    
+LSTM         svm        AAPL   0.1364     5.8717     inf        N/A        6.7151     1.9669    
+LSTM         svm        AMZN   0.0886     3.2721     3.4780     N/A        4.2003     1.1241    
+LSTM         svm        MSFT   -0.0449    6.6155     16.3936    N/A        7.8306     1.7575    
+LSTM         svm        NFLX   0.0217     7.3818     1.5627     N/A        11.9812    1.0523    
+LSTM         svm        TSLA   0.0448     7.3448     5.7498     N/A        9.1488     1.4204    
+PatchTST     deberta    AAPL   -0.0868    0.2951     inf        0.0493     0.3358     2.5152    
+PatchTST     deberta    AMZN   0.0875     0.1637     0.2989     0.0148     0.1905     1.6819    
+PatchTST     deberta    MSFT   0.0567     0.4819     1.0711     0.0887     0.5018     4.3441    
+PatchTST     deberta    NFLX   -0.0328    0.2251     0.3242     0.0220     0.2614     4.0865    
+PatchTST     deberta    TSLA   -0.1094    0.2510     0.4792     0.0322     0.2951     3.0975    
+PatchTST     finbert    AAPL   -0.0207    0.1489     inf        0.0175     0.1857     1.3911    
+PatchTST     finbert    AMZN   0.1238     0.1693     0.2652     0.0182     0.1934     1.7074    
+PatchTST     finbert    MSFT   -0.0023    0.2394     0.5527     0.0311     0.2668     2.3100    
+PatchTST     finbert    NFLX   -0.0183    0.2240     0.3183     0.0301     0.2532     3.9592    
+PatchTST     finbert    TSLA   -0.1295    0.1479     0.2794     0.0139     0.1784     1.8721    
+PatchTST     lr         AAPL   -0.0978    0.3464     inf        0.0619     0.3781     2.8322    
+PatchTST     lr         AMZN   0.0750     0.1697     0.3106     0.0163     0.1952     1.7231    
+PatchTST     lr         MSFT   -0.0602    0.4813     1.0727     0.0899     0.4994     4.3234    
+PatchTST     lr         NFLX   -0.0463    0.2059     0.2969     0.0209     0.2384     3.7277    
+PatchTST     lr         TSLA   -0.1417    0.2434     0.4645     0.0306     0.2737     2.8726    
+PatchTST     rf         AAPL   -0.1019    0.2745     inf        0.0453     0.3047     2.2821    
+PatchTST     rf         AMZN   -0.0425    0.1914     0.3285     0.0207     0.2180     1.9245    
+PatchTST     rf         MSFT   -0.0303    0.3758     0.8331     0.0672     0.3972     3.4383    
+PatchTST     rf         NFLX   -0.0589    0.2528     0.3614     0.0341     0.2742     4.2868    
+PatchTST     rf         TSLA   -0.1565    0.2420     0.4437     0.0297     0.2652     2.7829    
+PatchTST     roberta    AAPL   0.0172     0.2496     inf        0.0382     0.2845     2.1315    
+PatchTST     roberta    AMZN   -0.0254    0.1399     0.2380     0.0125     0.1672     1.4759    
+PatchTST     roberta    MSFT   -0.0197    0.4638     1.0294     0.0890     0.4944     4.2806    
+PatchTST     roberta    NFLX   -0.0753    0.2258     0.3227     0.0251     0.2641     4.1293    
+PatchTST     roberta    TSLA   -0.1203    0.1764     0.3335     0.0197     0.2205     2.3144    
+PatchTST     svm        AAPL   -0.1302    0.3585     inf        0.0658     0.3881     2.9070    
+PatchTST     svm        AMZN   0.0425     0.1851     0.3352     0.0189     0.2130     1.8804    
+PatchTST     svm        MSFT   -0.0294    0.4915     1.0897     0.0950     0.5090     4.4067    
+PatchTST     svm        NFLX   -0.0455    0.2394     0.3450     0.0263     0.2694     4.2123    
+PatchTST     svm        TSLA   -0.1510    0.2538     0.4802     0.0324     0.2863     3.0049    
+TimesNet     deberta    AAPL   -0.1006    0.2447     inf        0.0382     0.2993     2.2418    
+TimesNet     deberta    AMZN   -0.0998    0.1571     0.2854     0.0136     0.1925     1.6995    
+TimesNet     deberta    MSFT   -0.1100    0.5155     1.1512     0.1002     0.5580     4.8311    
+TimesNet     deberta    NFLX   0.0237     0.1159     0.1623     0.0088     0.1513     2.3649    
+TimesNet     deberta    TSLA   -0.1212    0.2342     0.4494     0.0265     0.2767     2.9040    
+TimesNet     finbert    AAPL   -0.0525    0.2184     inf        0.0320     0.2707     2.0275    
+TimesNet     finbert    AMZN   -0.0012    0.1298     0.2265     0.0099     0.1612     1.4233    
+TimesNet     finbert    MSFT   -0.0717    0.4979     1.1111     0.0958     0.5465     4.7314    
+TimesNet     finbert    NFLX   0.0829     0.1267     0.1783     0.0108     0.1652     2.5829    
+TimesNet     finbert    TSLA   -0.1687    0.2802     0.5316     0.0356     0.3268     3.4303    
+TimesNet     lr         AAPL   -0.1733    0.2988     inf        0.0503     0.3490     2.6140    
+TimesNet     lr         AMZN   -0.1130    0.1560     0.2907     0.0137     0.1927     1.7008    
+TimesNet     lr         MSFT   -0.0977    0.5369     1.1915     0.1047     0.5710     4.9430    
+TimesNet     lr         NFLX   0.0826     0.0926     0.1320     0.0048     0.1159     1.8113    
+TimesNet     lr         TSLA   0.0185     0.2411     0.4575     0.0263     0.2742     2.8778    
+TimesNet     rf         AAPL   -0.1640    0.3194     inf        0.0546     0.3662     2.7429    
+TimesNet     rf         AMZN   -0.0949    0.1835     0.3408     0.0177     0.2222     1.9619    
+TimesNet     rf         MSFT   -0.1240    0.6017     1.3293     0.1243     0.6315     5.4673    
+TimesNet     rf         NFLX   0.1015     0.0828     0.1181     0.0040     0.1066     1.6659    
+TimesNet     rf         TSLA   -0.0159    0.2928     0.5510     0.0358     0.3254     3.4154    
+TimesNet     roberta    AAPL   -0.1108    0.2296     inf        0.0353     0.2869     2.1494    
+TimesNet     roberta    AMZN   -0.0955    0.1272     0.2190     0.0096     0.1577     1.3918    
+TimesNet     roberta    MSFT   -0.0812    0.5279     1.1776     0.1075     0.5902     5.1093    
+TimesNet     roberta    NFLX   0.0026     0.1286     0.1802     0.0098     0.1610     2.5165    
+TimesNet     roberta    TSLA   -0.1466    0.1547     0.2978     0.0139     0.1915     2.0094    
+TimesNet     svm        AAPL   -0.1661    0.3092     inf        0.0522     0.3568     2.6727    
+TimesNet     svm        AMZN   -0.0809    0.1592     0.2958     0.0140     0.1954     1.7246    
+TimesNet     svm        MSFT   -0.1028    0.5534     1.2257     0.1100     0.5889     5.0980    
+TimesNet     svm        NFLX   0.0280     0.0886     0.1260     0.0045     0.1133     1.7707    
+TimesNet     svm        TSLA   -0.0278    0.2212     0.4245     0.0235     0.2570     2.6972    
+tPatchGNN    deberta    AAPL   0.0562     0.2477     inf        0.0349     0.2791     2.0908    
+tPatchGNN    deberta    AMZN   0.0403     0.1068     0.2062     0.0074     0.1369     1.2085    
+tPatchGNN    deberta    MSFT   0.0411     0.1860     0.4563     0.0198     0.2166     1.8752    
+tPatchGNN    deberta    NFLX   -0.0050    0.0400     0.0549     0.0013     0.0643     1.0049    
+tPatchGNN    deberta    TSLA   0.1987     0.1190     0.2415     0.0085     0.1447     1.5187    
+tPatchGNN    finbert    AAPL   0.0591     0.2498     inf        0.0353     0.2810     2.1050    
+tPatchGNN    finbert    AMZN   0.0453     0.1079     0.2085     0.0076     0.1381     1.2194    
+tPatchGNN    finbert    MSFT   0.0418     0.1879     0.4606     0.0201     0.2184     1.8911    
+tPatchGNN    finbert    NFLX   0.0042     0.0404     0.0555     0.0013     0.0643     1.0047    
+tPatchGNN    finbert    TSLA   0.1549     0.1208     0.2447     0.0087     0.1463     1.5355    
+tPatchGNN    lr         AAPL   0.0774     0.2533     inf        0.0360     0.2842     2.1292    
+tPatchGNN    lr         AMZN   0.0766     0.1099     0.2124     0.0078     0.1403     1.2385    
+tPatchGNN    lr         MSFT   0.0506     0.1913     0.4678     0.0207     0.2216     1.9182    
+tPatchGNN    lr         NFLX   0.0590     0.0414     0.0573     0.0013     0.0646     1.0096    
+tPatchGNN    lr         TSLA   0.1370     0.1239     0.2505     0.0090     0.1492     1.5659    
+tPatchGNN    rf         AAPL   0.0885     0.2528     inf        0.0359     0.2838     2.1261    
+tPatchGNN    rf         AMZN   0.1449     0.1096     0.2118     0.0078     0.1400     1.2359    
+tPatchGNN    rf         MSFT   0.0455     0.1909     0.4669     0.0206     0.2212     1.9148    
+tPatchGNN    rf         NFLX   0.0624     0.0412     0.0569     0.0013     0.0645     1.0079    
+tPatchGNN    rf         TSLA   0.1174     0.1235     0.2498     0.0089     0.1488     1.5619    
+tPatchGNN    roberta    AAPL   0.1025     0.2510     inf        0.0355     0.2822     2.1135    
+tPatchGNN    roberta    AMZN   0.0609     0.1086     0.2099     0.0076     0.1389     1.2261    
+tPatchGNN    roberta    MSFT   0.0376     0.1891     0.4630     0.0203     0.2195     1.9004    
+tPatchGNN    roberta    NFLX   0.0110     0.0408     0.0562     0.0013     0.0644     1.0070    
+tPatchGNN    roberta    TSLA   0.2018     0.1219     0.2467     0.0088     0.1473     1.5463    
+tPatchGNN    svm        AAPL   0.0654     0.2514     inf        0.0356     0.2825     2.1165    
+tPatchGNN    svm        AMZN   0.0894     0.1089     0.2104     0.0077     0.1392     1.2287    
+tPatchGNN    svm        MSFT   0.0432     0.1895     0.4640     0.0204     0.2199     1.9041    
+tPatchGNN    svm        NFLX   0.0655     0.0411     0.0566     0.0013     0.0645     1.0092    
+tPatchGNN    svm        TSLA   0.0903     0.1223     0.2476     0.0088     0.1477     1.5505    
+
+BEST PERFORMING MODELS (by metric):
+--------------------------------------------------
+CORR           : LSTM-finbert-NFLX              (0.2691)
+MAE            : LSTM-roberta-TSLA              (7.8204)
+MAPE           : LSTM-deberta-AAPL              (inf)
+MSLE           : TimesNet-rf-MSFT               (0.1243)
+RMSE           : LSTM-lr-NFLX                   (12.0031)
+RSE            : TimesNet-rf-MSFT               (5.4673)
+
+OUTPUT TYPE: Factor_Price
+================================================================================
+
+Model        Sentiment  Ticker CORR       MAE        MAPE       MSLE       RMSE       RSE       
+------------------------------------------------------------------------------------------------
+LSTM         deberta    AAPL   0.1463     0.0410     0.0412     0.0005     0.0436     2.9536    
+LSTM         deberta    AMZN   0.1190     0.0361     0.0364     0.0004     0.0401     2.2003    
+LSTM         deberta    MSFT   0.0641     0.0287     0.0288     0.0002     0.0311     2.5705    
+LSTM         deberta    NFLX   0.1447     0.0168     0.0163     0.0002     0.0286     1.0662    
+LSTM         deberta    TSLA   0.0900     0.0422     0.0431     0.0006     0.0494     1.7014    
+LSTM         finbert    AAPL   0.1684     0.0416     0.0418     0.0005     0.0441     2.9900    
+LSTM         finbert    AMZN   0.1410     0.0370     0.0372     0.0004     0.0409     2.2443    
+LSTM         finbert    MSFT   0.1728     0.0291     0.0292     0.0002     0.0315     2.5988    
+LSTM         finbert    NFLX   0.2548     0.0158     0.0153     0.0002     0.0277     1.0307    
+LSTM         finbert    TSLA   0.1116     0.0427     0.0436     0.0006     0.0499     1.7171    
+LSTM         lr         AAPL   0.1755     0.0414     0.0416     0.0005     0.0439     2.9765    
+LSTM         lr         AMZN   0.1568     0.0366     0.0369     0.0004     0.0405     2.2264    
+LSTM         lr         MSFT   -0.0095    0.0290     0.0290     0.0002     0.0314     2.5941    
+LSTM         lr         NFLX   0.1333     0.0169     0.0164     0.0002     0.0286     1.0650    
+LSTM         lr         TSLA   0.0666     0.0421     0.0430     0.0006     0.0492     1.6963    
+LSTM         rf         AAPL   0.2083     0.0419     0.0421     0.0005     0.0444     3.0101    
+LSTM         rf         AMZN   0.1102     0.0375     0.0378     0.0004     0.0414     2.2726    
+LSTM         rf         MSFT   -0.0131    0.0295     0.0296     0.0003     0.0319     2.6342    
+LSTM         rf         NFLX   0.0420     0.0161     0.0156     0.0002     0.0280     1.0429    
+LSTM         rf         TSLA   0.0031     0.0427     0.0436     0.0006     0.0499     1.7178    
+LSTM         roberta    AAPL   0.1962     0.0426     0.0428     0.0005     0.0451     3.0565    
+LSTM         roberta    AMZN   0.1103     0.0388     0.0391     0.0004     0.0425     2.3367    
+LSTM         roberta    MSFT   0.0821     0.0305     0.0306     0.0003     0.0328     2.7096    
+LSTM         roberta    NFLX   -0.0007    0.0155     0.0150     0.0002     0.0275     1.0268    
+LSTM         roberta    TSLA   0.0914     0.0443     0.0452     0.0007     0.0514     1.7698    
+LSTM         svm        AAPL   0.1344     0.0412     0.0414     0.0005     0.0437     2.9662    
+LSTM         svm        AMZN   0.1031     0.0364     0.0366     0.0004     0.0403     2.2145    
+LSTM         svm        MSFT   -0.0389    0.0288     0.0289     0.0002     0.0312     2.5802    
+LSTM         svm        NFLX   0.0259     0.0167     0.0162     0.0002     0.0287     1.0680    
+LSTM         svm        TSLA   0.0553     0.0418     0.0427     0.0006     0.0490     1.6876    
+PatchTST     deberta    AAPL   -0.0863    0.2103     0.6868     0.0313     0.2402     2.4050    
+PatchTST     deberta    AMZN   0.0764     0.1254     0.2412     0.0112     0.1418     2.0431    
+PatchTST     deberta    MSFT   0.0340     0.3005     0.6401     0.0449     0.3163     4.1654    
+PatchTST     deberta    NFLX   -0.0160    0.2063     0.2951     0.0238     0.2383     4.5462    
+PatchTST     deberta    TSLA   -0.0948    0.1974     1.7131     0.0278     0.2425     1.9411    
+PatchTST     finbert    AAPL   -0.0351    0.2185     0.6811     0.0316     0.2465     2.4680    
+PatchTST     finbert    AMZN   0.1268     0.1517     0.2864     0.0158     0.1667     2.4018    
+PatchTST     finbert    MSFT   -0.0043    0.3639     0.7649     0.0617     0.3772     4.9674    
+PatchTST     finbert    NFLX   0.0006     0.2413     0.3467     0.0357     0.2678     5.1075    
+PatchTST     finbert    TSLA   -0.1315    0.2798     2.1230     0.0441     0.3146     2.5184    
+PatchTST     lr         AAPL   -0.1003    0.2587     0.8132     0.0386     0.2815     2.8182    
+PatchTST     lr         AMZN   0.0283     0.1326     0.2590     0.0134     0.1493     2.1506    
+PatchTST     lr         MSFT   -0.0643    0.3170     0.6727     0.0449     0.3305     4.3520    
+PatchTST     lr         NFLX   -0.0540    0.1811     0.2584     0.0289     0.2080     3.9676    
+PatchTST     lr         TSLA   -0.1370    0.2012     1.7342     0.0279     0.2374     1.9005    
+PatchTST     rf         AAPL   -0.0955    0.2201     0.6813     0.0299     0.2426     2.4285    
+PatchTST     rf         AMZN   -0.0701    0.1467     0.2801     0.0163     0.1643     2.3671    
+PatchTST     rf         MSFT   -0.0434    0.2779     0.5851     0.0373     0.2925     3.8512    
+PatchTST     rf         NFLX   -0.0580    0.2334     0.3331     0.0493     0.2538     4.8414    
+PatchTST     rf         TSLA   -0.1535    0.2065     1.5737     0.0284     0.2379     1.9043    
+PatchTST     roberta    AAPL   0.0145     0.2632     0.8394     0.0394     0.2870     2.8728    
+PatchTST     roberta    AMZN   -0.0128    0.0962     0.1892     0.0059     0.1137     1.6378    
+PatchTST     roberta    MSFT   -0.0331    0.4493     0.9490     0.0783     0.4712     6.2050    
+PatchTST     roberta    NFLX   -0.0665    0.1897     0.2718     0.0172     0.2250     4.2926    
+PatchTST     roberta    TSLA   -0.1035    0.1853     1.6780     0.0246     0.2390     1.9135    
+PatchTST     svm        AAPL   -0.1367    0.2515     0.8057     0.0378     0.2744     2.7471    
+PatchTST     svm        AMZN   0.0034     0.1228     0.2394     0.0092     0.1398     2.0143    
+PatchTST     svm        MSFT   -0.0446    0.3030     0.6459     0.0429     0.3172     4.1769    
+PatchTST     svm        NFLX   -0.0510    0.1667     0.2378     0.0161     0.1937     3.6937    
+PatchTST     svm        TSLA   -0.1440    0.1822     1.7439     0.0226     0.2213     1.7719    
+TimesNet     deberta    AAPL   -0.0875    0.2997     0.9558     0.0491     0.3417     3.4210    
+TimesNet     deberta    AMZN   -0.1158    0.1987     0.3910     0.0199     0.2324     3.3477    
+TimesNet     deberta    MSFT   -0.1013    0.5373     1.1345     0.1035     0.5724     7.5383    
+TimesNet     deberta    NFLX   0.0668     0.1080     0.1535     0.0077     0.1403     2.6754    
+TimesNet     deberta    TSLA   -0.0824    0.3124     2.4760     0.0473     0.3562     2.8515    
+TimesNet     finbert    AAPL   -0.0258    0.2576     0.8273     0.0391     0.3002     3.0058    
+TimesNet     finbert    AMZN   -0.0246    0.1386     0.2702     0.0107     0.1666     2.4001    
+TimesNet     finbert    MSFT   -0.0629    0.5124     1.0810     0.0963     0.5501     7.2440    
+TimesNet     finbert    NFLX   0.0313     0.1278     0.1818     0.0104     0.1628     3.1053    
+TimesNet     finbert    TSLA   -0.1694    0.3325     2.8369     0.0540     0.3858     3.0887    
+TimesNet     lr         AAPL   -0.1620    0.3551     1.1151     0.0624     0.3885     3.8896    
+TimesNet     lr         AMZN   -0.0902    0.2054     0.4055     0.0204     0.2337     3.3665    
+TimesNet     lr         MSFT   -0.1078    0.5424     1.1438     0.1030     0.5680     7.4791    
+TimesNet     lr         NFLX   0.0912     0.0875     0.1255     0.0044     0.1115     2.1264    
+TimesNet     lr         TSLA   0.0004     0.3012     2.4542     0.0437     0.3385     2.7102    
+TimesNet     rf         AAPL   -0.1008    0.3826     1.1852     0.0689     0.4118     4.1229    
+TimesNet     rf         AMZN   -0.0998    0.2451     0.4812     0.0268     0.2719     3.9164    
+TimesNet     rf         MSFT   -0.1178    0.6159     1.2954     0.1258     0.6382     8.4047    
+TimesNet     rf         NFLX   0.1233     0.0811     0.1168     0.0039     0.1062     2.0251    
+TimesNet     rf         TSLA   -0.0739    0.3591     2.7166     0.0578     0.3984     3.1897    
+TimesNet     roberta    AAPL   -0.0657    0.2671     0.8649     0.0416     0.3108     3.1110    
+TimesNet     roberta    AMZN   -0.0906    0.1263     0.2471     0.0092     0.1529     2.2026    
+TimesNet     roberta    MSFT   -0.0866    0.5466     1.1537     0.1094     0.5988     7.8848    
+TimesNet     roberta    NFLX   0.0511     0.1220     0.1733     0.0088     0.1511     2.8828    
+TimesNet     roberta    TSLA   -0.1496    0.2081     2.0380     0.0261     0.2520     2.0171    
+TimesNet     svm        AAPL   -0.1533    0.3705     1.1541     0.0661     0.4025     4.0293    
+TimesNet     svm        AMZN   -0.0931    0.2139     0.4215     0.0214     0.2405     3.4647    
+TimesNet     svm        MSFT   -0.0989    0.5724     1.2046     0.1122     0.5982     7.8770    
+TimesNet     svm        NFLX   0.0559     0.0881     0.1262     0.0042     0.1098     2.0942    
+TimesNet     svm        TSLA   -0.0332    0.2870     2.4234     0.0411     0.3268     2.6164    
+tPatchGNN    deberta    AAPL   0.0544     0.2995     0.9428     0.0441     0.3157     3.1610    
+tPatchGNN    deberta    AMZN   0.0817     0.1584     0.3158     0.0117     0.1720     2.4779    
+tPatchGNN    deberta    MSFT   0.0601     0.1971     0.4319     0.0182     0.2112     2.7816    
+tPatchGNN    deberta    NFLX   0.0413     0.0309     0.0425     0.0009     0.0526     1.0035    
+tPatchGNN    deberta    TSLA   0.1377     0.1903     1.9330     0.0212     0.2209     1.7686    
+tPatchGNN    finbert    AAPL   0.0604     0.3005     0.9455     0.0444     0.3167     3.1703    
+tPatchGNN    finbert    AMZN   0.0324     0.1594     0.3177     0.0118     0.1729     2.4909    
+tPatchGNN    finbert    MSFT   0.0563     0.1981     0.4339     0.0183     0.2121     2.7936    
+tPatchGNN    finbert    NFLX   0.0326     0.0311     0.0428     0.0009     0.0526     1.0042    
+tPatchGNN    finbert    TSLA   0.0847     0.1911     1.9368     0.0214     0.2217     1.7748    
+tPatchGNN    lr         AAPL   0.0861     0.3032     0.9530     0.0450     0.3192     3.1958    
+tPatchGNN    lr         AMZN   0.1037     0.1620     0.3227     0.0122     0.1754     2.5264    
+tPatchGNN    lr         MSFT   0.0486     0.2008     0.4395     0.0188     0.2147     2.8270    
+tPatchGNN    lr         NFLX   0.0810     0.0320     0.0443     0.0009     0.0529     1.0090    
+tPatchGNN    lr         TSLA   0.1109     0.1935     1.9478     0.0218     0.2240     1.7932    
+tPatchGNN    rf         AAPL   0.0889     0.3042     0.9559     0.0452     0.3202     3.2057    
+tPatchGNN    rf         AMZN   0.1512     0.1630     0.3246     0.0123     0.1763     2.5401    
+tPatchGNN    rf         MSFT   0.0489     0.2018     0.4416     0.0189     0.2157     2.8400    
+tPatchGNN    rf         NFLX   0.0779     0.0323     0.0447     0.0009     0.0530     1.0102    
+tPatchGNN    rf         TSLA   0.1362     0.1944     1.9520     0.0219     0.2249     1.8001    
+tPatchGNN    roberta    AAPL   0.0425     0.3002     0.9446     0.0443     0.3164     3.1674    
+tPatchGNN    roberta    AMZN   0.0944     0.1590     0.3170     0.0118     0.1726     2.4865    
+tPatchGNN    roberta    MSFT   0.0328     0.1977     0.4332     0.0183     0.2118     2.7894    
+tPatchGNN    roberta    NFLX   0.0799     0.0310     0.0427     0.0009     0.0526     1.0039    
+tPatchGNN    roberta    TSLA   0.1116     0.1909     1.9357     0.0213     0.2215     1.7730    
+tPatchGNN    svm        AAPL   0.1013     0.3031     0.9526     0.0450     0.3191     3.1947    
+tPatchGNN    svm        AMZN   0.1345     0.1619     0.3224     0.0122     0.1753     2.5250    
+tPatchGNN    svm        MSFT   0.0728     0.2007     0.4393     0.0187     0.2146     2.8259    
+tPatchGNN    svm        NFLX   0.0825     0.0324     0.0448     0.0009     0.0532     1.0156    
+tPatchGNN    svm        TSLA   0.1340     0.1934     1.9475     0.0218     0.2239     1.7928    
+
+BEST PERFORMING MODELS (by metric):
+--------------------------------------------------
+CORR           : LSTM-finbert-NFLX              (0.2548)
+MAE            : TimesNet-rf-MSFT               (0.6159)
+MAPE           : TimesNet-finbert-TSLA          (2.8369)
+MSLE           : TimesNet-rf-MSFT               (0.1258)
+RMSE           : TimesNet-rf-MSFT               (0.6382)
+RSE            : TimesNet-rf-MSFT               (8.4047)
+
+OUTPUT TYPE: Float_Price
+================================================================================
+
+Model        Sentiment  Ticker CORR       MAE        MAPE       MSLE       RMSE       RSE       
+------------------------------------------------------------------------------------------------
+LSTM         deberta    AAPL   0.7101     8.5559     0.0365     0.0019     10.0063    0.9535    
+LSTM         deberta    AMZN   0.9257     8.0274     0.0377     0.0023     9.9785     0.5406    
+LSTM         deberta    MSFT   0.9453     24.3905    0.0648     0.0051     26.1050    1.0421    
+LSTM         deberta    NFLX   0.8811     29.2859    0.0615     0.0052     33.4001    0.5558    
+LSTM         deberta    TSLA   0.8025     13.6079    0.0606     0.0053     16.0599    0.6886    
+LSTM         finbert    AAPL   0.7868     10.5971    0.0451     0.0028     11.9815    1.1417    
+LSTM         finbert    AMZN   0.9161     13.4942    0.0635     0.0058     15.6229    0.8463    
+LSTM         finbert    MSFT   0.9599     27.6444    0.0732     0.0066     29.4345    1.1750    
+LSTM         finbert    NFLX   0.9235     26.0898    0.0533     0.0043     31.8820    0.5305    
+LSTM         finbert    TSLA   0.7949     26.6441    0.1170     0.0197     29.5294    1.2662    
+LSTM         lr         AAPL   0.8031     8.4918     0.0362     0.0018     9.8474     0.9383    
+LSTM         lr         AMZN   0.9274     9.6466     0.0453     0.0032     11.8191    0.6403    
+LSTM         lr         MSFT   0.9465     19.2393    0.0507     0.0034     21.4394    0.8559    
+LSTM         lr         NFLX   0.9265     23.8674    0.0494     0.0037     28.8014    0.4793    
+LSTM         lr         TSLA   0.8318     11.2292    0.0504     0.0038     13.7430    0.5893    
+LSTM         rf         AAPL   0.7834     7.6472     0.0325     0.0016     9.0759     0.8648    
+LSTM         rf         AMZN   0.9359     8.4644     0.0397     0.0026     10.4872    0.5681    
+LSTM         rf         MSFT   0.9501     17.4722    0.0460     0.0028     19.5606    0.7809    
+LSTM         rf         NFLX   0.9148     23.9231    0.0493     0.0039     29.7507    0.4951    
+LSTM         rf         TSLA   0.8394     10.6421    0.0481     0.0036     13.3270    0.5714    
+LSTM         roberta    AAPL   0.7519     5.9294     0.0255     0.0010     7.4962     0.7143    
+LSTM         roberta    AMZN   0.9291     9.3201     0.0439     0.0030     11.2851    0.6113    
+LSTM         roberta    MSFT   0.9530     22.3098    0.0589     0.0044     24.3881    0.9736    
+LSTM         roberta    NFLX   0.9215     25.6479    0.0525     0.0046     32.2095    0.5360    
+LSTM         roberta    TSLA   0.8384     11.0927    0.0510     0.0040     13.9571    0.5984    
+LSTM         svm        AAPL   0.7860     8.3895     0.0357     0.0018     9.7109     0.9253    
+LSTM         svm        AMZN   0.9296     8.7848     0.0410     0.0028     10.9441    0.5929    
+LSTM         svm        MSFT   0.9461     17.6417    0.0464     0.0029     19.9734    0.7973    
+LSTM         svm        NFLX   0.9092     26.0199    0.0536     0.0045     31.7528    0.5284    
+LSTM         svm        TSLA   0.8465     10.6248    0.0479     0.0035     13.1722    0.5648    
+PatchTST     deberta    AAPL   -0.1157    0.5245     0.6512     0.1216     0.5312     6.8410    
+PatchTST     deberta    AMZN   0.5848     0.4943     0.6300     0.1094     0.5056     4.3886    
+PatchTST     deberta    MSFT   0.7993     0.3999     0.5101     0.0686     0.4121     3.3081    
+PatchTST     deberta    NFLX   0.3749     0.5089     0.6815     0.1270     0.5269     3.7447    
+PatchTST     deberta    TSLA   0.0890     0.1258     0.2775     0.0118     0.1469     1.7238    
+PatchTST     finbert    AAPL   -0.2082    0.5218     0.6472     0.1204     0.5287     6.8090    
+PatchTST     finbert    AMZN   0.5177     0.4996     0.6364     0.1123     0.5110     4.4356    
+PatchTST     finbert    MSFT   0.8919     0.3850     0.4902     0.0641     0.3969     3.1858    
+PatchTST     finbert    NFLX   0.2817     0.4947     0.6615     0.1211     0.5136     3.6499    
+PatchTST     finbert    TSLA   0.0583     0.0979     0.2302     0.0070     0.1109     1.3014    
+PatchTST     lr         AAPL   0.2727     0.4392     0.5446     0.0806     0.4456     5.7384    
+PatchTST     lr         AMZN   0.6232     0.4158     0.5279     0.0739     0.4280     3.7149    
+PatchTST     lr         MSFT   0.8535     0.3294     0.4182     0.0450     0.3417     2.7432    
+PatchTST     lr         NFLX   0.5880     0.4413     0.5888     0.0912     0.4591     3.2625    
+PatchTST     lr         TSLA   0.3424     0.0950     0.2168     0.0067     0.1104     1.2958    
+PatchTST     rf         AAPL   0.1871     0.4385     0.5433     0.0811     0.4453     5.7345    
+PatchTST     rf         AMZN   0.5729     0.4155     0.5265     0.0747     0.4285     3.7198    
+PatchTST     rf         MSFT   0.9004     0.3319     0.4216     0.0472     0.3437     2.7592    
+PatchTST     rf         NFLX   0.6959     0.4542     0.6067     0.0983     0.4709     3.3468    
+PatchTST     rf         TSLA   0.3049     0.0964     0.2257     0.0069     0.1108     1.2998    
+PatchTST     roberta    AAPL   0.1538     0.5530     0.6875     0.1445     0.5585     7.1920    
+PatchTST     roberta    AMZN   0.6365     0.5058     0.6450     0.1189     0.5168     4.4861    
+PatchTST     roberta    MSFT   0.8490     0.3723     0.4754     0.0684     0.3836     3.0795    
+PatchTST     roberta    NFLX   0.2638     0.4930     0.6579     0.1306     0.5150     3.6601    
+PatchTST     roberta    TSLA   0.0528     0.1696     0.3851     0.0237     0.1876     2.2018    
+PatchTST     svm        AAPL   0.2391     0.4314     0.5347     0.0789     0.4383     5.6441    
+PatchTST     svm        AMZN   0.6797     0.4097     0.5204     0.0725     0.4214     3.6583    
+PatchTST     svm        MSFT   0.8611     0.3209     0.4076     0.0449     0.3335     2.6773    
+PatchTST     svm        NFLX   0.5529     0.4371     0.5819     0.0926     0.4565     3.2443    
+PatchTST     svm        TSLA   0.2949     0.1012     0.2331     0.0076     0.1183     1.3890    
+TimesNet     deberta    AAPL   0.4555     0.4341     0.5446     0.0865     0.4512     5.8105    
+TimesNet     deberta    AMZN   0.2584     0.3917     0.4995     0.0730     0.4193     3.6394    
+TimesNet     deberta    MSFT   0.6598     0.1427     0.1910     0.0131     0.1828     1.4673    
+TimesNet     deberta    NFLX   0.6595     0.4524     0.6203     0.0959     0.4643     3.2994    
+TimesNet     deberta    TSLA   0.7582     0.0952     0.2394     0.0068     0.1124     1.3190    
+TimesNet     finbert    AAPL   0.3598     0.4482     0.5602     0.0909     0.4637     5.9719    
+TimesNet     finbert    AMZN   0.0802     0.4510     0.5719     0.0939     0.4723     4.1000    
+TimesNet     finbert    MSFT   0.4983     0.1543     0.1979     0.0149     0.1982     1.5912    
+TimesNet     finbert    NFLX   0.6367     0.4912     0.6693     0.1146     0.5033     3.5766    
+TimesNet     finbert    TSLA   0.5059     0.1026     0.2556     0.0082     0.1323     1.5524    
+TimesNet     lr         AAPL   0.5225     0.3575     0.4499     0.0588     0.3795     4.8868    
+TimesNet     lr         AMZN   0.3242     0.3506     0.4454     0.0554     0.3737     3.2441    
+TimesNet     lr         MSFT   0.6926     0.1566     0.2083     0.0142     0.1911     1.5342    
+TimesNet     lr         NFLX   0.6745     0.4057     0.5572     0.0763     0.4198     2.9834    
+TimesNet     lr         TSLA   0.7059     0.0984     0.2412     0.0069     0.1180     1.3850    
+TimesNet     rf         AAPL   0.4746     0.3717     0.4679     0.0666     0.3992     5.1405    
+TimesNet     rf         AMZN   0.3060     0.3331     0.4237     0.0524     0.3623     3.1450    
+TimesNet     rf         MSFT   0.6013     0.1258     0.1650     0.0100     0.1634     1.3118    
+TimesNet     rf         NFLX   0.6756     0.3957     0.5449     0.0735     0.4112     2.9225    
+TimesNet     rf         TSLA   0.7201     0.1225     0.2943     0.0094     0.1427     1.6752    
+TimesNet     roberta    AAPL   0.4215     0.4570     0.5733     0.0998     0.4781     6.1572    
+TimesNet     roberta    AMZN   0.1894     0.4297     0.5462     0.0856     0.4523     3.9260    
+TimesNet     roberta    MSFT   0.6033     0.1598     0.2113     0.0152     0.1984     1.5927    
+TimesNet     roberta    NFLX   0.3810     0.4291     0.5795     0.0884     0.4512     3.2069    
+TimesNet     roberta    TSLA   0.6775     0.1165     0.2949     0.0107     0.1365     1.6018    
+TimesNet     svm        AAPL   0.5411     0.3608     0.4547     0.0607     0.3839     4.9446    
+TimesNet     svm        AMZN   0.4091     0.3397     0.4331     0.0518     0.3618     3.1409    
+TimesNet     svm        MSFT   0.6567     0.1414     0.1870     0.0123     0.1778     1.4276    
+TimesNet     svm        NFLX   0.6057     0.3952     0.5383     0.0728     0.4120     2.9277    
+TimesNet     svm        TSLA   0.7164     0.0872     0.2172     0.0056     0.1057     1.2404    
+tPatchGNN    deberta    AAPL   0.0630     0.3528     0.4356     0.0704     0.3645     4.6936    
+tPatchGNN    deberta    AMZN   0.2480     0.3355     0.4224     0.0661     0.3555     3.0863    
+tPatchGNN    deberta    MSFT   0.1105     0.3464     0.4365     0.0672     0.3687     2.9593    
+tPatchGNN    deberta    NFLX   0.2974     0.3089     0.4058     0.0585     0.3345     2.3771    
+tPatchGNN    deberta    TSLA   0.2876     0.1048     0.2335     0.0089     0.1254     1.4712    
+tPatchGNN    finbert    AAPL   0.2327     0.3314     0.4085     0.0616     0.3428     4.4144    
+tPatchGNN    finbert    AMZN   0.3463     0.3092     0.3865     0.0576     0.3323     2.8843    
+tPatchGNN    finbert    MSFT   0.4366     0.3398     0.4262     0.0614     0.3611     2.8989    
+tPatchGNN    finbert    NFLX   0.5102     0.2823     0.3688     0.0507     0.3100     2.2029    
+tPatchGNN    finbert    TSLA   0.3780     0.0983     0.2240     0.0080     0.1168     1.3703    
+tPatchGNN    lr         AAPL   0.1698     0.3154     0.3888     0.0592     0.3267     4.2074    
+tPatchGNN    lr         AMZN   0.3789     0.2971     0.3722     0.0556     0.3189     2.7682    
+tPatchGNN    lr         MSFT   0.1225     0.3250     0.4078     0.0587     0.3466     2.7820    
+tPatchGNN    lr         NFLX   0.3788     0.2718     0.3563     0.0492     0.2995     2.1286    
+tPatchGNN    lr         TSLA   0.5292     0.0982     0.2216     0.0078     0.1154     1.3542    
+tPatchGNN    rf         AAPL   0.2520     0.3107     0.3831     0.0594     0.3229     4.1590    
+tPatchGNN    rf         AMZN   0.3549     0.2965     0.3727     0.0558     0.3157     2.7401    
+tPatchGNN    rf         MSFT   0.2189     0.3221     0.4051     0.0585     0.3425     2.7495    
+tPatchGNN    rf         NFLX   0.4246     0.2741     0.3596     0.0498     0.3007     2.1372    
+tPatchGNN    rf         TSLA   0.5041     0.0988     0.2218     0.0079     0.1164     1.3663    
+tPatchGNN    roberta    AAPL   0.0330     0.3788     0.4678     0.0737     0.3889     5.0090    
+tPatchGNN    roberta    AMZN   0.2552     0.3479     0.4367     0.0677     0.3688     3.2014    
+tPatchGNN    roberta    MSFT   0.3204     0.3520     0.4436     0.0678     0.3721     2.9869    
+tPatchGNN    roberta    NFLX   0.3819     0.3202     0.4199     0.0601     0.3474     2.4691    
+tPatchGNN    roberta    TSLA   0.4212     0.1047     0.2342     0.0089     0.1245     1.4607    
+tPatchGNN    svm        AAPL   0.2801     0.3076     0.3793     0.0585     0.3196     4.1154    
+tPatchGNN    svm        AMZN   0.4571     0.2886     0.3626     0.0547     0.3077     2.6712    
+tPatchGNN    svm        MSFT   0.3180     0.3153     0.3967     0.0575     0.3357     2.6946    
+tPatchGNN    svm        NFLX   0.4791     0.2716     0.3559     0.0489     0.2975     2.1141    
+tPatchGNN    svm        TSLA   0.4979     0.0967     0.2171     0.0077     0.1156     1.3563    
+
+BEST PERFORMING MODELS (by metric):
+--------------------------------------------------
+CORR           : LSTM-finbert-MSFT              (0.9599)
+MAE            : LSTM-deberta-NFLX              (29.2859)
+MAPE           : PatchTST-roberta-AAPL          (0.6875)
+MSLE           : PatchTST-roberta-AAPL          (0.1445)
+RMSE           : LSTM-deberta-NFLX              (33.4001)
+RSE            : PatchTST-roberta-AAPL          (7.1920)
