@@ -444,9 +444,24 @@ def generate_comparison_report(seed_means: Dict) -> str:
                         if metric in metrics:
                             value = metrics[metric]
                             if value is not None and not (isinstance(value, float) and np.isnan(value)):
-                                if best_value is None or value > best_value:  # Assuming higher is better
+                                if best_value is None:
                                     best_value = value
                                     best_combination = f"{model_type}-{sentiment_model}-{ticker}"
+                                else:
+                                    # For classification metrics, higher is better
+                                    if metric in ['AUC', 'Accuracy', 'Precision', 'Recall', 'F1-Score']:
+                                        if value > best_value:
+                                            best_value = value
+                                            best_combination = f"{model_type}-{sentiment_model}-{ticker}"
+                                    # For regression metrics, lower is better (except CORR)
+                                    elif metric == 'CORR':
+                                        if value > best_value:
+                                            best_value = value
+                                            best_combination = f"{model_type}-{sentiment_model}-{ticker}"
+                                    else:  # All other regression error metrics
+                                        if value < best_value:
+                                            best_value = value
+                                            best_combination = f"{model_type}-{sentiment_model}-{ticker}"
             
             if best_combination:
                 report_lines.append(f"{metric:<15}: {best_combination:<30} ({best_value:.4f})")
