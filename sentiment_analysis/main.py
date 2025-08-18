@@ -12,7 +12,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 def main():
-    
+    '''
     # Run the sentiment analysis of Roberta, FinBERT and DeBERTa models with SentFiN-v1.1 dataset and save the results
     dataset_paths = [
         PROJ_ROOT / "data/raw/human_labeled/SEntFiN-v1.1.csv",
@@ -50,15 +50,13 @@ def main():
     model_trainer.train_logistic_regression()
     model_trainer.train_svm()
     model_trainer.train_random_forest()
+    '''
 
+    
     # Running Bert-based models for the financial news of each ticker
     from pathlib import Path
     dataset_paths = [
-        PROJ_ROOT / "data/raw/news data/AAPL_financial_news.csv",
-        PROJ_ROOT / "data/raw/news data/TSLA_financial_news.csv",
-        PROJ_ROOT / "data/raw/news data/AMZN_financial_news.csv",
-        PROJ_ROOT / "data/raw/news data/NFLX_financial_news.csv",
-        PROJ_ROOT / "data/raw/news data/MSFT_financial_news.csv",
+        PROJ_ROOT / "data/raw/csv/news.csv",
     ]
 
     for csv_path in dataset_paths:
@@ -83,7 +81,7 @@ def main():
         for col in results_df.columns:
             logger.info(f"       · {col}")
     
-
+'''
     # Added trained lr, svm and rf with the financial news
     dataset_paths = [
         PROJ_ROOT / "data/interim/AAPL_financial_news_sentiment_analysis_results.csv",
@@ -101,6 +99,7 @@ def main():
         df = pd.read_csv(csv_path)
         analyzer = StockSentimentComparison(path=None, ticker=source_name)
         df = analyzer.create_comparison_table(df, models_dir=str(PROJ_ROOT / "models"))
+        '''
 
 if __name__ == "__main__":
     main()
