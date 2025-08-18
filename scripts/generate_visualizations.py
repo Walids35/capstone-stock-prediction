@@ -15,7 +15,6 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # Set style for better plots
-plt.style.use('seaborn-v0_8')
 sns.set_palette("husl")
 
 # Define the constants
