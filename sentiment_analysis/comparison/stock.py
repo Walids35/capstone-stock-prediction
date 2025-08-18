@@ -42,25 +42,19 @@ class StockSentimentComparison(BaseSentimentComparison):
     def load_fin_data(self, path):
         import re
         df = pd.read_csv(path)
-        df["sentiment_label"] = pd.Categorical(
-            df["sentiment_label"],
-            categories=["Bearish", "Somewhat-Bearish", "Neutral", "Somewhat-Bullish", "Bullish"],
-            ordered=True
-        )
-        df["title_sentiment_class"] = self.sentiment_to_numeric(df["sentiment_label"])
-        df = self._drop_text_duplicates(df, "title")
         return df
 
     def create_sample_data(self):
         temp = self.load_fin_data(self.path)
+        
         sample_data = {
             'title': temp['title'],
-            'original_sentiment': temp['title_sentiment_class'],
-            'sentiment_score': temp['sentiment_score'],
-            'date': temp['time_published'],
-            'relevance_score': temp['relevance_score']
+            'date': temp['date']
         }
-        return pd.DataFrame(sample_data)
+        data = pd.DataFrame(sample_data)
+        logger.info(data.isnull().sum())
+        data.dropna(inplace=True)
+        return data
 
     def sentiment_to_numeric(self, series) -> pd.Series:
         mapping = {
@@ -79,19 +73,27 @@ class StockSentimentComparison(BaseSentimentComparison):
         logger.info("\n" + "="*80)
         logger.success("DETAILED MODEL COMPARISON REPORT")
         logger.info("="*80)
+        
+        # Inter-model agreement analysis
         models = ['finbert_sentiment', 'roberta_sentiment', 'deberta_sentiment']
         model_names = ['FinBERT', 'RoBERTa', 'DeBERTa']
+        
+        logger.success("\nInter-Model Agreement Analysis:")
+        logger.info("-" * 40)
+        
+        # Calculate pairwise agreements
+        for i, (model1, name1) in enumerate(zip(models, model_names)):
+            for j, (model2, name2) in enumerate(zip(models, model_names)):
+                if i < j:  # Only calculate upper triangle to avoid duplicates
+                    agreement = accuracy_score(df[model1], df[model2])
+                    logger.info(f"{name1} vs {name2} Agreement: {agreement:.3f}")
+        
+        # Show sentiment distribution for each model
+        logger.success("\nSentiment Distribution by Model:")
+        logger.info("-" * 40)
         for model, name in zip(models, model_names):
-            logger.success(f"\n{name} Performance:")
-            logger.info("-" * 30)
-            accuracy = accuracy_score(df['original_sentiment'], df[model])
-            logger.success(f"Overall Accuracy: {accuracy:.3f}")
-            report = classification_report(df['original_sentiment'], df[model],
-                                         target_names=['Negative', 'Neutral', 'Positive'],
-                                         output_dict=True)
-            logger.info(f"Precision - Negative: {report['Negative']['precision']:.3f}")
-            logger.info(f"Precision - Neutral: {report['Neutral']['precision']:.3f}")
-            logger.info(f"Precision - Positive: {report['Positive']['precision']:.3f}")
+            sentiment_counts = df[model].value_counts().sort_index()
+            logger.info(f"{name}: {dict(sentiment_counts)}")
 
     def add_classical_model_predictions(self, df, models_dir="models/"):
         """
@@ -131,10 +133,10 @@ class StockSentimentComparison(BaseSentimentComparison):
         """
         logger.info("Creating comparison table")
         df = self.add_classical_model_predictions(df, models_dir)
-        # Compute correlation matrix for the classical model predictions
-        classical_cols = ["svm_sentiment", "lr_sentiment", "rf_sentiment","finbert_sentiment","roberta_sentiment","deberta_sentiment","original_sentiment"]
+        # Compute correlation matrix for the classical model predictions (excluding original_sentiment)
+        classical_cols = ["svm_sentiment", "lr_sentiment", "rf_sentiment","finbert_sentiment","roberta_sentiment","deberta_sentiment"]
         correlation_matrix = df[classical_cols].corr()
-        logger.info("Correlation matrix between classical model predictions:")
+        logger.info("Correlation matrix between classical model and transformer predictions:")
         logger.info(f"\n{correlation_matrix}")
         
         import matplotlib.pyplot as plt
