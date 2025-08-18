@@ -11,7 +11,6 @@ from collections import Counter
 from models.base import BaseSentimentComparison
 
 # Set style for better plots
-plt.style.use('seaborn-v0_8')
 sns.set_palette("husl")
 
 class FinancialSentimentComparison(BaseSentimentComparison):
