@@ -2,7 +2,7 @@
 # GLOBALS                                                                       #
 #################################################################################
 
-PROJECT_NAME = capstone-stock-prediction
+PROJECT_NAME = capstone-stock-prediction-bloomberg
 PYTHON_VERSION = 3.10
 PYTHON_INTERPRETER = python3
 
