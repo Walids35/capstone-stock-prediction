@@ -39,37 +39,41 @@ class FinancialNewsAnalyzer:
             raise ValueError("Either data_path or df must be provided")
 
         # Define feature groups
-        self.sentiment_features = [
-            "majority_vote_deberta",
-            "min_score_deberta",
-            "max_score_deberta",
-            "mean_score_deberta",
-            "std_score_deberta",
-            "majority_vote_finbert",
-            "min_score_finbert",
-            "max_score_finbert",
-            "mean_score_finbert",
-            "std_score_finbert",
-            "majority_vote_roberta",
-            "min_score_roberta",
-            "max_score_roberta",
-            "mean_score_roberta",
-            "std_score_roberta",
-            "majority_vote_lr",
-            "min_score_lr",
-            "max_score_lr",
-            "mean_score_lr",
-            "std_score_lr",
-            "majority_vote_svm",
-            "min_score_svm",
-            "max_score_svm",
-            "mean_score_svm",
-            "std_score_svm",
-            "majority_vote_rf",
-            "min_score_rf",
-            "max_score_rf",
-            "mean_score_rf",
-            "std_score_rf",
+        self.sentiment_features = ["total_news_count",
+                                   "finbert_majority_vote",
+                                   "finbert_count_negative",
+                                   "finbert_count_neutral",
+                                   "finbert_count_positive",
+                                   "finbert"
+                                   "roberta_majority_vote",
+                                   "roberta_count_negative",
+                                   "roberta_count_neutral",
+                                   "roberta_count_positive",
+                                   "deberta_majority_vote", 
+                                   "deberta_count_negative",
+                                   "deberta_count_neutral",
+                                   "deberta_count_positive",
+                                   "svm_majority_vote",
+                                   "svm_count_negative",
+                                   "svm_count_neutral",
+                                   "svm_count_positive",
+                                   "rf_majority_vote",
+                                   "rf_count_negative",
+                                   "rf_count_neutral",
+                                   "rf_count_positive",
+                                   "lr_majority_vote",
+                                   "lr_count_negative",
+                                   "lr_count_neutral",
+                                   "lr_count_positive",
+                                   "finbert_label_positive_sum",
+                                   "finbert_label_negative_sum",
+                                   "finbert_label_neutral_sum",
+                                   "roberta_label_positive_sum",
+                                   "roberta_label_negative_sum",
+                                   "roberta_label_neutral_sum",
+                                   "deberta_label_negative_sum",
+                                   "deberta_label_positive_sum",
+                                   "deberta_label_neutral_sum"
         ]
 
         self.output_features = ['Float_Price', 'Binary_Price', 'Factor_Price', 'Delta_Price']
@@ -121,7 +125,7 @@ class FinancialNewsAnalyzer:
                     ax.legend()
 
         plt.tight_layout()
-        plt.show()
+        plt.savefig(PROJ_ROOT / f"reports/figures/sentiment_vs_output/{self.stock_symbol}_output_distributions.png")
 
     def plot_sentiment_distributions(self, figsize=(20, 15)):
         """Plot distributions of sentiment features"""
@@ -162,7 +166,7 @@ class FinancialNewsAnalyzer:
             axes[i].set_visible(False)
 
         plt.tight_layout()
-        plt.show()
+        plt.savefig(PROJ_ROOT / f"reports/figures/sentiment_vs_output/{self.stock_symbol}_sentiment_distributions.png")
 
     def plot_correlation_matrix(self, figsize=(15, 12)):
         """Plot correlation matrix between sentiment features and outputs"""
@@ -180,7 +184,7 @@ class FinancialNewsAnalyzer:
                    square=True, linewidths=0.5, cbar_kws={"shrink": 0.8}, fmt='.2f')
         plt.title('Correlation Matrix: Sentiment Features vs Output Variables')
         plt.tight_layout()
-        plt.show()
+        
         plt.savefig(PROJ_ROOT / f"reports/figures/sentiment_vs_output/{self.stock_symbol}_correlation_matrix.png")
 
         # Print strongest correlations with outputs
@@ -229,7 +233,7 @@ class FinancialNewsAnalyzer:
                 ax.tick_params(axis='both', labelsize=6)
 
         plt.tight_layout()
-        plt.show()
+        
 
     def plot_binary_target_analysis(self, figsize=(15, 10)):
         """Analyze sentiment features by binary target groups"""
@@ -240,7 +244,15 @@ class FinancialNewsAnalyzer:
         # Select numeric sentiment features
         numeric_cols = self.df.columns
         sentiment_cols = [col for col in self.sentiment_features if col in numeric_cols]
-        cols = ['mean_score_deberta', 'std_score_deberta', 'mean_score_finbert', 'std_score_finbert', 'mean_score_roberta', 'std_score_roberta', 'mean_score_lr', 'std_score_lr', 'mean_score_svm', 'std_score_svm', 'mean_score_rf', 'std_score_rf']
+        cols = ["finbert_label_positive_sum",
+                                   "finbert_label_negative_sum",
+                                   "finbert_label_neutral_sum",
+                                   "roberta_label_positive_sum",
+                                   "roberta_label_negative_sum",
+                                   "roberta_label_neutral_sum",
+                                   "deberta_label_negative_sum",
+                                   "deberta_label_positive_sum",
+                                   "deberta_label_neutral_sum"]
         sentiment_cols = [col for col in sentiment_cols if col in cols]
 
         if not sentiment_cols:
@@ -271,7 +283,7 @@ class FinancialNewsAnalyzer:
             axes[i].set_visible(False)
 
         plt.tight_layout()
-        plt.show()
+        
         plt.savefig(PROJ_ROOT / f"reports/figures/sentiment_vs_output/{self.stock_symbol}_binary_target_analysis.png")
 
     def plot_time_series_analysis(self, figsize=(15, 8)):
@@ -299,7 +311,7 @@ class FinancialNewsAnalyzer:
 
             axes[-1].set_xlabel('Date')
             plt.tight_layout()
-            plt.show()
+            
 
     def generate_summary_report(self):
         """Generate a comprehensive summary report"""
@@ -357,11 +369,11 @@ class FinancialNewsAnalyzer:
 
 @app.command()
 def main(
-    input_path: Path = PROCESSED_DATA_DIR / "MSFT_preprocessed_dataset_with_features.csv"
+    input_path: Path = PROCESSED_DATA_DIR / "TSLA_preprocessed_dataset_with_features.csv"
 ):
     logger.info("Generating plot from data...")
     df = pd.read_csv(input_path)
-    analyzer = FinancialNewsAnalyzer(df=df, stock_symbol="MSFT")
+    analyzer = FinancialNewsAnalyzer(df=df, stock_symbol="TSLA")
     analyzer.run_complete_analysis()
     logger.success("Plot generation complete.") 
 
