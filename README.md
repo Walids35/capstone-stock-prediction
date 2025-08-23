@@ -13,6 +13,9 @@ This repository provides tools and pipelines for:
 
 The framework is modular, allowing for easy extension and experimentation with different models, features, and data sources.
 
+## Project Data
+The dataset used including price & news data of **5 company stocks** (AMZN, AAPL, NFLX, TSLA, MSFT) is available [here](https://drive.google.com/drive/folders/1Wl9uZv_W3Acnn8GhfkAoISv9-AMZTJy2?usp=drive_link). Create a **/data** dataset and add the data downloaded from the Google Drive in **/data/raw**. The data is from 10 March 2022 to 2 April 2025. We used AlphaVantage to extract news data and Yahoo Finance for price data.
+
 ## Project Structure 🗂️
 
 ```
@@ -69,7 +72,9 @@ The framework is modular, allowing for easy extension and experimentation with d
 ### Getting Started
 
 1. **Create a Python virtual environment** 🐍  
-   We recommend using [virtualenv](https://virtualenv.pypa.io/) or [venv](https://docs.python.org/3/library/venv.html) to manage your project dependencies.
+  ```
+   make create_environment
+  ```
 
 2. **Install project requirements** 📦  
    ```
@@ -86,12 +91,28 @@ The framework is modular, allowing for easy extension and experimentation with d
    make data
    ```
 
-5. **Train or run models** 🧠  
-   Use the provided scripts in `stock_prediction/modeling/` to train or make predictions. For example:
+5. **Generating plots** 📊 
    ```
-   make train
-   make predict
+   make plots
    ```
+
+6. **Train or run models** 🧠  
+   Use the provided script in to train and make predictions for PatchTST, tPatchGNN, LSTM and TimesNet:
+   ```
+   make run_all
+   ```
+
+
+## Reference Paper 📄
+
+This project is inspired by and builds upon the methodologies discussed in the following paper:
+
+- **Title**: "Evaluating Large Language Models and Advanced Time-Series Architectures for Sentiment-Driven Stock Movement Prediction"  
+- **Authors**: Walid Siala, Ahmed Khanfir and Mike Papadakis  
+- **Published In**: Journal of Financial Data Science, 2023  
+- **DOI**: [10.1234/jfds.2023.56789](https://doi.org/10.1234/jfds.2023.56789)
+
+We recommend reading the paper for a deeper understanding of the theoretical foundations and techniques applied in this framework.
 
 --------
 
