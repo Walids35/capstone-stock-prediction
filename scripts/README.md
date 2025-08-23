@@ -43,6 +43,16 @@ Aggregated visualization script that creates cleaner plots by averaging across a
 **Outputs:**
 - `reports/output/aggregated_visualizations/` - Directory containing all aggregated visualization files
 
+### 4. `analyze_lstm_feature_importance.py`
+Feature importance analysis script that compares three LSTM variants:
+- LSTM: Full feature set including count features
+- LSTM_wo_count: Without count features (svm_count_*)
+- LSTM_wo_count_sum: Full feature set (same as LSTM)
+
+**Outputs:**
+- `reports/output/lstm_feature_importance_analysis.txt` - Detailed comparison report
+- `reports/output/feature_importance_analysis/` - Directory containing comparison visualizations
+
 ### 4. `run_comprehensive_analysis.sh` (Linux/Mac)
 Shell script to run only the comprehensive analysis.
 
@@ -54,6 +64,9 @@ PowerShell script to run both analysis and visualization generation.
 
 ### 7. `run_aggregated_visualizations.ps1` (Windows)
 PowerShell script to run only the aggregated visualization generation.
+
+### 8. `run_feature_importance_analysis.ps1` (Windows)
+PowerShell script to run the LSTM feature importance analysis.
 
 ## Usage
 
@@ -90,6 +103,11 @@ python scripts/generate_aggregated_visualizations.py
 ### Option 4: Run Aggregated Visualizations Only (Windows)
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts/run_aggregated_visualizations.ps1
+```
+
+### Option 5: Run Feature Importance Analysis (Windows)
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/run_feature_importance_analysis.ps1
 ```
 
 ## Output Structure
@@ -130,6 +148,15 @@ Structured data organized as:
 - `barplot_{model_type}_{output_type}_aggregated.png` - Bar plots for specific models (averaged across tickers)
 - `model_performance_summary_aggregated.png` - Overall performance summary (averaged across tickers)
 - `sentiment_comparison_{output_type}_aggregated.png` - Sentiment model comparison plots (averaged across tickers)
+
+### Feature Importance Analysis (`feature_importance_analysis/`)
+- `heatmap_{output_type}_comparison.png` - Heatmaps comparing LSTM variants for each output type
+- `overall_performance_summary.png` - Box plots showing performance distribution across variants
+- `comprehensive_comparison_barplot.png` - Bar plots comparing average performance across key metrics
+- `radar_chart_{output_type}.png` - Radar charts showing performance across all metrics for each variant
+- `feature_count_vs_performance.png` - Scatter plots showing relationship between feature count and performance
+- `performance_ranking_heatmap.png` - Heatmaps showing performance rankings (1=Best, 3=Worst) for each metric
+- `win_count_summary.png` - Bar plot showing total wins by each variant across all metrics
 
 ## Metrics Analyzed
 

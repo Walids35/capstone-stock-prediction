@@ -33,11 +33,11 @@ for seed in 16 32 64 128 256 512 1024 2048 4096 8192; do
             esac
 
             python stock_prediction/modeling/train.py \
-                --model_path models/lstm_${target_column}_${model}_model_${seed}.pth \
+                --model_path models/lstm_price_${target_column}_${model}_model_${seed}.pth \
                 --data_path data/processed/AAPL_preprocessed_dataset_with_features.csv \
                 --feature_columns $feature_columns \
                 --target_column $target_column \
-                --scaler_path models/AAPL_lstm_${target_column}_${model}_scaler.pkl \
+                --scaler_path models/AAPL_lstm_price_${target_column}_${model}_scaler.pkl \
                 --seq_length $seq_length \
                 --hidden_size $hidden_size \
                 --num_layers $num_layers \
@@ -50,11 +50,11 @@ for seed in 16 32 64 128 256 512 1024 2048 4096 8192; do
 
             
             python stock_prediction/modeling/train.py \
-                --model_path models/lstm_${target_column}_${model}_model_${seed}.pth \
+                --model_path models/lstm_price_${target_column}_${model}_model_${seed}.pth \
                 --data_path data/processed/AMZN_preprocessed_dataset_with_features.csv \
                 --feature_columns $feature_columns \
                 --target_column $target_column \
-                --scaler_path models/AMZN_lstm_${target_column}_${model}_scaler.pkl \
+                --scaler_path models/AMZN_lstm_price_${target_column}_${model}_scaler.pkl \
                 --seq_length $seq_length \
                 --hidden_size $hidden_size \
                 --num_layers $num_layers \
@@ -65,11 +65,11 @@ for seed in 16 32 64 128 256 512 1024 2048 4096 8192; do
                 --seed $seed
 
             python stock_prediction/modeling/train.py \
-                --model_path models/lstm_${target_column}_${model}_model_${seed}.pth \
+                --model_path models/lstm_price_${target_column}_${model}_model_${seed}.pth \
                 --data_path data/processed/MSFT_preprocessed_dataset_with_features.csv \
                 --feature_columns $feature_columns \
                 --target_column $target_column \
-                --scaler_path models/MSFT_lstm_${target_column}_${model}_scaler.pkl \
+                --scaler_path models/MSFT_lstm_price_${target_column}_${model}_scaler.pkl \
                 --seq_length $seq_length \
                 --hidden_size $hidden_size \
                 --num_layers $num_layers \
@@ -80,11 +80,11 @@ for seed in 16 32 64 128 256 512 1024 2048 4096 8192; do
                 --seed $seed
 
             python stock_prediction/modeling/train.py \
-                --model_path models/lstm_${target_column}_${model}_model_${seed}.pth \
+                --model_path models/lstm_price_${target_column}_${model}_model_${seed}.pth \
                 --data_path data/processed/TSLA_preprocessed_dataset_with_features.csv \
                 --feature_columns $feature_columns \
                 --target_column $target_column \
-                --scaler_path models/TSLA_lstm_${target_column}_${model}_scaler.pkl \
+                --scaler_path models/TSLA_lstm_price_${target_column}_${model}_scaler.pkl \
                 --seq_length $seq_length \
                 --hidden_size $hidden_size \
                 --num_layers $num_layers \
@@ -95,11 +95,11 @@ for seed in 16 32 64 128 256 512 1024 2048 4096 8192; do
                 --seed $seed
 
             python stock_prediction/modeling/train.py \
-                --model_path models/lstm_${target_column}_${model}_model_${seed}.pth \
+                --model_path models/lstm_price_${target_column}_${model}_model_${seed}.pth \
                 --data_path data/processed/NFLX_preprocessed_dataset_with_features.csv \
                 --feature_columns $feature_columns \
                 --target_column $target_column \
-                --scaler_path models/NFLX_lstm_${target_column}_${model}_scaler.pkl \
+                --scaler_path models/NFLX_lstm_price_${target_column}_${model}_scaler.pkl \
                 --seq_length $seq_length \
                 --hidden_size $hidden_size \
                 --num_layers $num_layers \
@@ -111,8 +111,8 @@ for seed in 16 32 64 128 256 512 1024 2048 4096 8192; do
             
 
             python stock_prediction/modeling/predict.py \
-                --model_path models/lstm_${target_column}_${model}_model_${seed}.pth \
-                --scaler_path models/AAPL_lstm_${target_column}_${model}_scaler.pkl \
+                --model_path models/lstm_price_${target_column}_${model}_model_${seed}.pth \
+                --scaler_path models/AAPL_lstm_price_${target_column}_${model}_scaler.pkl \
                 --data_path data/processed/AAPL_preprocessed_dataset_with_features.csv \
                 --feature_columns $feature_columns \
                 --target_column $target_column \
@@ -127,8 +127,8 @@ for seed in 16 32 64 128 256 512 1024 2048 4096 8192; do
 
             
             python stock_prediction/modeling/predict.py \
-                --model_path models/lstm_${target_column}_${model}_model_${seed}.pth \
-                --scaler_path models/AMZN_lstm_${target_column}_${model}_scaler.pkl \
+                    --model_path models/lstm_price_${target_column}_${model}_model_${seed}.pth \
+                --scaler_path models/AMZN_lstm_price_${target_column}_${model}_scaler.pkl \
                 --data_path data/processed/AMZN_preprocessed_dataset_with_features.csv \
                 --feature_columns $feature_columns \
                 --target_column $target_column \
@@ -142,8 +142,8 @@ for seed in 16 32 64 128 256 512 1024 2048 4096 8192; do
                 --seed $seed
 
             python stock_prediction/modeling/predict.py \
-                --model_path models/lstm_${target_column}_${model}_model_${seed}.pth \
-                --scaler_path models/MSFT_lstm_${target_column}_${model}_scaler.pkl \
+                --model_path models/lstm_price_${target_column}_${model}_model_${seed}.pth \
+                --scaler_path models/MSFT_lstm_price_${target_column}_${model}_scaler.pkl \
                 --data_path data/processed/MSFT_preprocessed_dataset_with_features.csv \
                 --feature_columns $feature_columns \
                 --target_column $target_column \
@@ -157,8 +157,8 @@ for seed in 16 32 64 128 256 512 1024 2048 4096 8192; do
                 --seed $seed
 
             python stock_prediction/modeling/predict.py \
-                --model_path models/lstm_${target_column}_${model}_model_${seed}.pth \
-                --scaler_path models/TSLA_lstm_${target_column}_${model}_scaler.pkl \
+                --model_path models/lstm_price_${target_column}_${model}_model_${seed}.pth \
+                --scaler_path models/TSLA_lstm_price_${target_column}_${model}_scaler.pkl \
                 --data_path data/processed/TSLA_preprocessed_dataset_with_features.csv \
                 --feature_columns $feature_columns \
                 --target_column $target_column \
@@ -172,8 +172,8 @@ for seed in 16 32 64 128 256 512 1024 2048 4096 8192; do
                 --seed $seed
 
             python stock_prediction/modeling/predict.py \
-                --model_path models/lstm_${target_column}_${model}_model_${seed}.pth \
-                --scaler_path models/NFLX_lstm_${target_column}_${model}_scaler.pkl \
+                --model_path models/lstm_price_${target_column}_${model}_model_${seed}.pth \
+                --scaler_path models/NFLX_lstm_price_${target_column}_${model}_scaler.pkl \
                 --data_path data/processed/NFLX_preprocessed_dataset_with_features.csv \
                 --feature_columns $feature_columns \
                 --target_column $target_column \

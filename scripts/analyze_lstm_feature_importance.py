@@ -25,7 +25,7 @@ warnings.filterwarnings('ignore')
 TICKERS = ['AAPL', 'AMZN', 'MSFT', 'NFLX', 'TSLA']
 SENTIMENT_MODELS = ['deberta', 'finbert', 'lr', 'rf', 'roberta', 'svm']
 OUTPUT_TYPES = ['Binary_Price', 'Delta_Price', 'Factor_Price', 'Float_Price']
-LSTM_VARIANTS = ['LSTM', 'LSTM_wo_count', 'LSTM_wo_count_sum']
+LSTM_VARIANTS = ['LSTM', 'LSTM_wo_count', 'LSTM_wo_count_sum', 'LSTM_wo_sum','LSTM_wo_majority']
 BASE_DIR = 'reports/output'
 
 def parse_metrics_from_file(file_path):
@@ -320,6 +320,7 @@ def generate_comparison_report(variant_means):
     report_lines.append("- LSTM: Full feature set including count features")
     report_lines.append("- LSTM_wo_count: Without count features (svm_count_*)")
     report_lines.append("- LSTM_wo_count_sum: Full feature set (same as LSTM)")
+    report_lines.append("- LSTM_wo_sum: Full feature set (same as LSTM)")
     report_lines.append("")
     
     # Feature set comparison
@@ -574,68 +575,94 @@ def create_comparison_visualizations(variant_means):
         plt.close()
         print(f"Heatmap saved: {save_path}")
     
-    # 2. Overall performance summary
-    fig, axes = plt.subplots(2, 2, figsize=(16, 12))
-    axes = axes.flatten()
-    
-    for i, output_type in enumerate(OUTPUT_TYPES):
-        ax = axes[i]
-        
-        # Collect data for this output type
-        plot_data = []
-        variant_names = []
-        
-        for variant in LSTM_VARIANTS:
-            if variant not in variant_means:
-                continue
-                
-            all_metrics = []
-            count = 0
-            
-            for sentiment_model in SENTIMENT_MODELS:
-                if (sentiment_model in variant_means[variant] and
-                    output_type in variant_means[variant][sentiment_model]):
-                    
-                    metrics = variant_means[variant][sentiment_model][output_type]['metrics']
-                    for metric, value in metrics.items():
-                        if value is not None and not (isinstance(value, float) and np.isnan(value)):
-                            all_metrics.append(value)
-                    count += 1
-            
-            if all_metrics:
-                plot_data.append(all_metrics)
-                variant_names.append(variant)
-        
-        if plot_data:
-            # Create box plot
-            bp = ax.boxplot(plot_data, labels=variant_names, patch_artist=True)
-            
-            # Color the boxes
-            colors = ['lightblue', 'lightgreen', 'lightcoral']
-            for patch, color in zip(bp['boxes'], colors[:len(variant_names)]):
-                patch.set_facecolor(color)
-            
-            ax.set_title(f'{output_type} - Performance Distribution')
-            ax.set_ylabel('Metric Values')
-            ax.grid(True, alpha=0.3)
+    # 2. Overall performance summary - Individual metrics
+    for output_type in OUTPUT_TYPES:
+        # Get metrics for this output type
+        if output_type == 'Binary_Price':
+            metrics = ['AUC', 'Accuracy', 'Precision', 'Recall', 'F1-Score']
         else:
-            ax.text(0.5, 0.5, 'No data available', ha='center', va='center', transform=ax.transAxes)
-            ax.set_title(f'{output_type} - No Data')
-    
-    plt.tight_layout()
-    summary_path = os.path.join(viz_dir, "overall_performance_summary.png")
-    plt.savefig(summary_path, dpi=300, bbox_inches='tight')
-    plt.close()
-    print(f"Summary plot saved: {summary_path}")
+            metrics = ['MAE', 'RMSE', 'MAPE', 'RSE', 'CORR']
+            if output_type in ['Factor_Price', 'Float_Price']:
+                metrics.append('MSLE')
+        
+        # Create subplot for each metric
+        n_metrics = len(metrics)
+        fig, axes = plt.subplots(2, 3, figsize=(18, 12))
+        axes = axes.flatten()
+        
+        for j, metric in enumerate(metrics):
+            ax = axes[j]
+            
+            # Collect data for this metric across all variants
+            variant_values = []
+            variant_names = []
+            
+            for variant in LSTM_VARIANTS:
+                if variant not in variant_means:
+                    continue
+                    
+                values = []
+                for sentiment_model in SENTIMENT_MODELS:
+                    if (sentiment_model in variant_means[variant] and
+                        output_type in variant_means[variant][sentiment_model] and
+                        'metrics' in variant_means[variant][sentiment_model][output_type] and
+                        metric in variant_means[variant][sentiment_model][output_type]['metrics']):
+                        
+                        value = variant_means[variant][sentiment_model][output_type]['metrics'][metric]
+                        if value is not None and not (isinstance(value, float) and np.isnan(value)):
+                            values.append(value)
+                
+                if values:
+                    variant_values.append(np.mean(values))
+                    variant_names.append(variant)
+            
+            if variant_values:
+                # Create bar plot for this metric
+                colors = ['lightblue', 'lightgreen', 'lightcoral', 'lightyellow', 'lightpink']
+                bars = ax.bar(variant_names, variant_values, 
+                             color=colors[:len(variant_names)], alpha=0.8)
+                
+                # Add value labels on bars
+                for bar, value in zip(bars, variant_values):
+                    height = bar.get_height()
+                    ax.text(bar.get_x() + bar.get_width()/2., height,
+                           f'{value:.4f}', ha='center', va='bottom', fontweight='bold')
+                
+                ax.set_title(f'{metric}', fontsize=14, fontweight='bold')
+                ax.set_ylabel(metric)
+                ax.tick_params(axis='x', rotation=45)
+                ax.grid(True, alpha=0.3)
+                
+                # Highlight best performing variant
+                if metric in ['AUC', 'Accuracy', 'Precision', 'Recall', 'F1-Score', 'CORR']:
+                    # Higher is better
+                    best_idx = np.argmax(variant_values)
+                else:
+                    # Lower is better
+                    best_idx = np.argmin(variant_values)
+                bars[best_idx].set_color('gold')
+                bars[best_idx].set_edgecolor('red')
+                bars[best_idx].set_linewidth(2)
+            else:
+                ax.text(0.5, 0.5, 'No data available', ha='center', va='center', transform=ax.transAxes)
+                ax.set_title(f'{metric} - No Data')
+        
+        # Hide extra subplots
+        for idx in range(len(metrics), len(axes)):
+            axes[idx].set_visible(False)
+        
+        plt.suptitle(f'{output_type} - Performance by Metric and Variant', fontsize=16, fontweight='bold')
+        plt.tight_layout()
+        summary_path = os.path.join(viz_dir, f"performance_by_metric_{output_type}.png")
+        plt.savefig(summary_path, dpi=300, bbox_inches='tight')
+        plt.close()
+        print(f"Performance by metric plot saved: {summary_path}")
     
     # 3. Create comprehensive comparison plots
     create_comprehensive_comparison_plots(variant_means, viz_dir)
     
     # 4. Create feature importance analysis plots
     create_feature_importance_plots(variant_means, viz_dir)
-    
-    # 5. Create performance ranking plots
-    create_performance_ranking_plots(variant_means, viz_dir)
 
 def create_comprehensive_comparison_plots(variant_means, viz_dir):
     """
@@ -697,90 +724,6 @@ def create_comprehensive_comparison_plots(variant_means, viz_dir):
     plt.close()
     print(f"Comprehensive comparison plot saved: {save_path}")
     
-    # 2. Radar chart for each variant
-    create_radar_charts(variant_means, viz_dir)
-
-def create_radar_charts(variant_means, viz_dir):
-    """
-    Create radar charts showing performance across all metrics for each variant.
-    """
-    # Define metrics for radar chart
-    radar_metrics = {
-        'Binary_Price': ['AUC', 'Accuracy', 'F1-Score', 'Precision', 'Recall'],
-        'Delta_Price': ['CORR', 'RMSE', 'MAE', 'MAPE', 'RSE'],
-        'Factor_Price': ['CORR', 'RMSE', 'MAE', 'MAPE', 'RSE'],
-        'Float_Price': ['CORR', 'RMSE', 'MAE', 'MAPE', 'RSE']
-    }
-    
-    for output_type in OUTPUT_TYPES:
-        if output_type not in radar_metrics:
-            continue
-            
-        metrics = radar_metrics[output_type]
-        n_metrics = len(metrics)
-        
-        # Calculate angles for radar chart
-        angles = np.linspace(0, 2 * np.pi, n_metrics, endpoint=False).tolist()
-        angles += angles[:1]  # Complete the circle
-        
-        fig, ax = plt.subplots(figsize=(10, 10), subplot_kw=dict(projection='polar'))
-        
-        colors = ['blue', 'green', 'red']
-        
-        for i, variant in enumerate(LSTM_VARIANTS):
-            if variant not in variant_means:
-                continue
-                
-            # Calculate average values for each metric
-            values = []
-            for metric in metrics:
-                metric_values = []
-                for sentiment_model in SENTIMENT_MODELS:
-                    if (sentiment_model in variant_means[variant] and
-                        output_type in variant_means[variant][sentiment_model] and
-                        metric in variant_means[variant][sentiment_model][output_type]['metrics']):
-                        
-                        value = variant_means[variant][sentiment_model][output_type]['metrics'][metric]
-                        if value is not None:
-                            metric_values.append(value)
-                
-                if metric_values:
-                    values.append(np.mean(metric_values))
-                else:
-                    values.append(0)
-            
-            if values:
-                # Normalize values for better visualization
-                if output_type == 'Binary_Price':
-                    # For classification, values are already in good range
-                    normalized_values = values
-                else:
-                    # For regression, normalize error metrics (lower is better)
-                    normalized_values = []
-                    for j, metric in enumerate(metrics):
-                        if metric == 'CORR':
-                            # Higher correlation is better
-                            normalized_values.append(values[j])
-                        else:
-                            # Lower error is better - invert and normalize
-                            normalized_values.append(1 / (1 + values[j]))
-                
-                normalized_values += normalized_values[:1]  # Complete the circle
-                
-                ax.plot(angles, normalized_values, 'o-', linewidth=2, label=variant, color=colors[i])
-                ax.fill(angles, normalized_values, alpha=0.25, color=colors[i])
-        
-        ax.set_xticks(angles[:-1])
-        ax.set_xticklabels(metrics)
-        ax.set_title(f'{output_type} - Performance Radar Chart', size=16, y=1.1)
-        ax.legend(loc='upper right', bbox_to_anchor=(1.3, 1.0))
-        ax.grid(True)
-        
-        plt.tight_layout()
-        save_path = os.path.join(viz_dir, f"radar_chart_{output_type}.png")
-        plt.savefig(save_path, dpi=300, bbox_inches='tight')
-        plt.close()
-        print(f"Radar chart saved: {save_path}")
 
 def create_feature_importance_plots(variant_means, viz_dir):
     """
@@ -861,209 +804,6 @@ def create_feature_importance_plots(variant_means, viz_dir):
     plt.savefig(save_path, dpi=300, bbox_inches='tight')
     plt.close()
     print(f"Feature importance plot saved: {save_path}")
-
-def create_performance_ranking_plots(variant_means, viz_dir):
-    """
-    Create performance ranking plots showing which variant performs best for each metric.
-    """
-    # 1. Ranking heatmap
-    fig, axes = plt.subplots(2, 2, figsize=(20, 16))
-    axes = axes.flatten()
-    
-    for i, output_type in enumerate(OUTPUT_TYPES):
-        ax = axes[i]
-        
-        # Get all metrics for this output type
-        all_metrics = set()
-        for variant in LSTM_VARIANTS:
-            if variant in variant_means:
-                for sentiment_model in SENTIMENT_MODELS:
-                    if (sentiment_model in variant_means[variant] and 
-                        output_type in variant_means[variant][sentiment_model]):
-                        metrics = variant_means[variant][sentiment_model][output_type]['metrics']
-                        all_metrics.update(metrics.keys())
-        
-        if not all_metrics:
-            continue
-        
-        all_metrics = sorted(list(all_metrics))
-        
-        # Create ranking matrix
-        ranking_data = []
-        for metric in all_metrics:
-            metric_values = []
-            for variant in LSTM_VARIANTS:
-                if variant not in variant_means:
-                    metric_values.append(np.nan)
-                    continue
-                    
-                # Calculate average across sentiment models
-                values = []
-                for sentiment_model in SENTIMENT_MODELS:
-                    if (sentiment_model in variant_means[variant] and
-                        output_type in variant_means[variant][sentiment_model] and
-                        metric in variant_means[variant][sentiment_model][output_type]['metrics']):
-                        
-                        value = variant_means[variant][sentiment_model][output_type]['metrics'][metric]
-                        if value is not None:
-                            values.append(value)
-                
-                if values:
-                    metric_values.append(np.mean(values))
-                else:
-                    metric_values.append(np.nan)
-            
-            ranking_data.append(metric_values)
-        
-        if ranking_data:
-            ranking_data = np.array(ranking_data)
-            
-            # Create ranking (1 = best, 3 = worst)
-            ranking_matrix = np.zeros_like(ranking_data)
-            for j in range(ranking_data.shape[0]):
-                valid_indices = ~np.isnan(ranking_data[j])
-                if np.sum(valid_indices) > 0:
-                    valid_values = ranking_data[j][valid_indices]
-                    if metric in ['AUC', 'Accuracy', 'F1-Score', 'Precision', 'Recall', 'CORR']:
-                        # Higher is better
-                        sorted_indices = np.argsort(valid_values)[::-1]
-                    else:
-                        # Lower is better
-                        sorted_indices = np.argsort(valid_values)
-                    
-                    # Assign ranks
-                    for k, idx in enumerate(sorted_indices):
-                        original_idx = np.where(valid_indices)[0][idx]
-                        ranking_matrix[j, original_idx] = k + 1
-            
-            # Create heatmap
-            im = ax.imshow(ranking_matrix, cmap='RdYlGn_r', aspect='auto', vmin=1, vmax=3)
-            
-            # Set labels
-            ax.set_xticks(range(len(LSTM_VARIANTS)))
-            ax.set_xticklabels(LSTM_VARIANTS)
-            ax.set_yticks(range(len(all_metrics)))
-            ax.set_yticklabels(all_metrics)
-            
-            # Add value annotations
-            for j in range(len(all_metrics)):
-                for k in range(len(LSTM_VARIANTS)):
-                    if not np.isnan(ranking_matrix[j, k]):
-                        rank_text = f'{int(ranking_matrix[j, k])}'
-                        if ranking_matrix[j, k] == 1:
-                            color = 'white'
-                            weight = 'bold'
-                        else:
-                            color = 'black'
-                            weight = 'normal'
-                        text = ax.text(k, j, rank_text, ha="center", va="center", 
-                                     color=color, fontsize=10, fontweight=weight)
-            
-            ax.set_title(f'{output_type} - Performance Ranking (1=Best, 3=Worst)')
-            
-            # Add colorbar
-            cbar = plt.colorbar(im, ax=ax, ticks=[1, 2, 3])
-            cbar.set_label('Rank')
-        else:
-            ax.text(0.5, 0.5, 'No data available', ha='center', va='center', transform=ax.transAxes)
-            ax.set_title(f'{output_type} - No Data')
-    
-    plt.tight_layout()
-    save_path = os.path.join(viz_dir, "performance_ranking_heatmap.png")
-    plt.savefig(save_path, dpi=300, bbox_inches='tight')
-    plt.close()
-    print(f"Performance ranking plot saved: {save_path}")
-    
-    # 2. Win count summary
-    create_win_count_summary(variant_means, viz_dir)
-
-def create_win_count_summary(variant_means, viz_dir):
-    """
-    Create a summary plot showing how many times each variant wins for each metric.
-    """
-    # Count wins for each variant
-    win_counts = {variant: 0 for variant in LSTM_VARIANTS}
-    total_metrics = 0
-    
-    for output_type in OUTPUT_TYPES:
-        # Get all metrics for this output type
-        all_metrics = set()
-        for variant in LSTM_VARIANTS:
-            if variant in variant_means:
-                for sentiment_model in SENTIMENT_MODELS:
-                    if (sentiment_model in variant_means[variant] and 
-                        output_type in variant_means[variant][sentiment_model]):
-                        metrics = variant_means[variant][sentiment_model][output_type]['metrics']
-                        all_metrics.update(metrics.keys())
-        
-        for metric in all_metrics:
-            total_metrics += 1
-            
-            # Find best performing variant
-            best_variant = None
-            best_value = None
-            
-            for variant in LSTM_VARIANTS:
-                if variant not in variant_means:
-                    continue
-                    
-                # Calculate average across sentiment models
-                values = []
-                for sentiment_model in SENTIMENT_MODELS:
-                    if (sentiment_model in variant_means[variant] and
-                        output_type in variant_means[variant][sentiment_model] and
-                        metric in variant_means[variant][sentiment_model][output_type]['metrics']):
-                        
-                        value = variant_means[variant][sentiment_model][output_type]['metrics'][metric]
-                        if value is not None:
-                            values.append(value)
-                
-                if values:
-                    avg_value = np.mean(values)
-                    if best_value is None:
-                        best_variant = variant
-                        best_value = avg_value
-                    else:
-                        # For classification metrics, higher is better
-                        if metric in ['AUC', 'Accuracy', 'F1-Score', 'Precision', 'Recall', 'CORR']:
-                            if avg_value > best_value:
-                                best_variant = variant
-                                best_value = avg_value
-                        # For regression metrics, lower is better
-                        else:
-                            if avg_value < best_value:
-                                best_variant = variant
-                                best_value = avg_value
-            
-            if best_variant:
-                win_counts[best_variant] += 1
-    
-    # Create bar plot
-    fig, ax = plt.subplots(figsize=(12, 8))
-    
-    variants = list(win_counts.keys())
-    counts = list(win_counts.values())
-    colors = ['lightblue', 'lightgreen', 'lightcoral']
-    
-    bars = ax.bar(variants, counts, color=colors[:len(variants)], alpha=0.8)
-    
-    # Add value labels on bars
-    for bar, count in zip(bars, counts):
-        height = bar.get_height()
-        ax.text(bar.get_x() + bar.get_width()/2., height + 0.5,
-                f'{count}/{total_metrics}', ha='center', va='bottom', fontweight='bold')
-    
-    ax.set_xlabel('LSTM Variants')
-    ax.set_ylabel('Number of Wins')
-    ax.set_title('Performance Wins by Variant Across All Metrics')
-    ax.set_ylim(0, max(counts) + 5)
-    ax.grid(True, alpha=0.3)
-    
-    plt.tight_layout()
-    save_path = os.path.join(viz_dir, "win_count_summary.png")
-    plt.savefig(save_path, dpi=300, bbox_inches='tight')
-    plt.close()
-    print(f"Win count summary saved: {save_path}")
 
 def main():
     """
