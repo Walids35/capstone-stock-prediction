@@ -37,23 +37,15 @@ format:
 	ruff check --fix
 	ruff format
 
-
-## Run the training script
-.PHONY: train
-train:
-	$(PYTHON_INTERPRETER) stock_prediction/modeling/train.py
-
-## Run the prediction script
-.PHONY: predict
-predict:
-	$(PYTHON_INTERPRETER) stock_prediction/modeling/predict.py
-
-
 ## Set up Python interpreter environment
 .PHONY: create_environment
 create_environment:
-	@bash -c "if [ ! -z `which virtualenvwrapper.sh` ]; then source `which virtualenvwrapper.sh`; mkvirtualenv $(PROJECT_NAME) --python=$(PYTHON_INTERPRETER); else mkvirtualenv.bat $(PROJECT_NAME) --python=$(PYTHON_INTERPRETER); fi"
-	@echo ">>> New virtualenv created. Activate with:\nworkon $(PROJECT_NAME)"
+	@bash -c "if conda info --envs | grep -q $(PROJECT_NAME); then \
+		echo '>>> Conda environment $(PROJECT_NAME) already exists.'; \
+	else \
+		conda create -n $(PROJECT_NAME) python=$(PYTHON_VERSION) -y; \
+		echo '>>> New conda environment created. Activate with:\nconda activate $(PROJECT_NAME)'; \
+	fi"
 	
 ## Run the sentiment analysis
 .PHONY: sentiment_analysis
@@ -61,11 +53,26 @@ sentiment_analysis:
 	$(PYTHON_INTERPRETER) sentiment_analysis/main.py
 
 
-## Process dataset with arguments (usage: make data STOCK=AAPL)
+## Process dataset with arguments
 .PHONY: data
 data:
 	$(PYTHON_INTERPRETER) stock_prediction/dataset.py
+	$(PYTHON_INTERPRETER) stock_prediction/features.py
 
+## EDA
+.PHONY: plots
+plots:
+	$(PYTHON_INTERPRETER) stock_prediction/plots.py
+
+## Run training and prediction for the four architectures
+.PHONY: run_all
+run_all:
+	sh scripts/script.sh
+
+## Making trading simulation
+.PHONY: simulate
+simulate:
+	sh scripts/trading.sh
 
 #################################################################################
 # PROJECT RULES                                                                 #
