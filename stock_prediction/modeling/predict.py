@@ -172,7 +172,7 @@ def main(
 
     logger.info(f"Metrics: {results}")
 
-    output_dir = REPORTS_DIR / "output" / "LSTM" / f"{seed}"
+    output_dir = REPORTS_DIR / "output" / "LSTM_price" / f"{seed}"
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # --- Plotting ---

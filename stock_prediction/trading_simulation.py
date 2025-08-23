@@ -11,13 +11,14 @@ from utils.configs import configs
 from sklearn.metrics import roc_curve, roc_auc_score
 
 class ProfitAnalyzer:
-    def __init__(self, model, X_test, actual_prices, y_test, ticker, news_model, model_type="lstm", investment=1000.0, commission=0.001, risk_free_rate=0.02):
+    def __init__(self, model, X_test, actual_prices, y_test, ticker, news_model, seed, model_type="lstm", investment=1000.0, commission=0.001, risk_free_rate=0.02, ):
         self.model = model
         self.X_test = X_test
         self.actual_prices = actual_prices
         self.investment = investment
         self.commission = commission
         self.risk_free_rate = risk_free_rate
+        self.seed = seed
         self.y_test = y_test
         self.ticker = ticker
         self.news_model = news_model
@@ -46,7 +47,7 @@ class ProfitAnalyzer:
 
         return y_pred_binary, optimal_threshold
 
-    def calculate_profit(self, buy_threshold=0, sell_threshold=0.42):
+    def calculate_profit(self):
         if len(self.actual_prices) < len(self.X_test):
             raise ValueError("Length of actual_prices must match or exceed X_test.")
 
@@ -216,7 +217,7 @@ class ProfitAnalyzer:
         plt.legend()
         plt.grid(True)
         plt.tight_layout()
-        plt.savefig(f"reports/simulation/{self.ticker}_{self.model_type}_Binary_Price_{self.news_model}_trading_decisions.png")
+        plt.savefig(f"reports/simulation/{self.ticker}_{self.model_type}_Binary_Price_{self.news_model}_trading_decisions_{self.seed}.png")
 
     def plot_threshold_heatmap(self, threshold_results):
         try:
@@ -233,7 +234,7 @@ class ProfitAnalyzer:
             plt.xlabel('Sell Threshold')
             plt.ylabel('Buy Threshold')
             plt.title('Profit by Buy/Sell Threshold')
-            plt.savefig(f"reports/simulation/{self.ticker}_{self.model_type}_Binary_Price_{self.news_model}_trading_threshold_heatmap.png")
+            plt.savefig(f"reports/simulation/{self.ticker}_{self.model_type}_Binary_Price_{self.news_model}_trading_threshold_heatmap_{self.seed}.png")
         except Exception as e:
             logger.error(f"Heatmap failed: {e}")
             best = max(threshold_results.items(), key=lambda x: x[1])
@@ -281,6 +282,7 @@ def main(
     news_model: str = configs.news_model,
     batch_size: int = configs.batch_size,
     dropout: float = configs.dropout,
+    seed: int = configs.seed
 ):
 
     pipeline = TimeSeriesDatasetPipeline(
@@ -290,7 +292,7 @@ def main(
     pipeline.load_and_preprocess()
     pipeline.load_scaler(scaler_path)
     pipeline.transform()
-    X_train, y_train, X_test, y_test = pipeline.train_test_split()
+    _, _, X_test, y_test = pipeline.train_test_split()
     input_size = X_test.shape[2]
 
     # Get actual prices from the test set by using the pipeline's inverse transform method
@@ -366,7 +368,7 @@ def main(
     
     analyzer = ProfitAnalyzer(model, X_test, actual_prices, y_test, ticker, news_model, model_type)
     profit, history, decisions = analyzer.run()    
-    analyzer.export_report(f"reports/simulation/{ticker}_{model_type}_Binary_Price_{news_model}_trading_analysis.json")
+    analyzer.export_report(f"reports/simulation/{ticker}_{model_type}_Binary_Price_{news_model}_trading_analysis_{seed}.json")
 
 
 if __name__ == "__main__":
