@@ -1,0 +1,13 @@
+{
+    "initial_investment": 1000.0,
+    "final_balance": 1004.4563295072209,
+    "total_profit": 4.4563295072208575,
+    "profit_percentage": 0.44563295072208575,
+    "buy_count": 26,
+    "sell_count": 25,
+    "max_drawdown": 8.46787177336048,
+    "annual_return": -0.03402708243386798,
+    "annual_volatility": 0.14085003293649137,
+    "sharpe_ratio": -0.3835787703239555,
+    "calmar_ratio": -0.40183747870291986
+}
