@@ -5,11 +5,11 @@ A comprehensive framework for predicting stock prices by analyzing the effect of
 ## Project Description 📝
 
 This repository provides tools and pipelines for:
-- 📰 Collecting and processing financial news and stock market data
-- 🤖 Performing sentiment analysis on news articles using state-of-the-art NLP models
-- 🛠️ Engineering features from both news and market data
-- 🧠 Training and evaluating machine learning models (including deep learning models in PyTorch) for stock price prediction
-- 📊 Visualizing results and generating reports for analysis
+- Collecting and processing financial news and stock market data
+- Performing sentiment analysis on news articles using state-of-the-art NLP models
+- Engineering features from both news and market data
+- Training and evaluating machine learning models (including deep learning models in PyTorch) for stock price prediction
+- Visualizing results and generating reports for analysis
 
 The framework is modular, allowing for easy extension and experimentation with different models, features, and data sources.
 
@@ -109,8 +109,8 @@ This project is inspired by and builds upon the methodologies discussed in the f
 
 - **Title**: "Evaluating Large Language Models and Advanced Time-Series Architectures for Sentiment-Driven Stock Movement Prediction"  
 - **Authors**: Walid Siala, Ahmed Khanfir and Mike Papadakis  
-- **Published In**: Journal of Financial Data Science, 2023  
-- **DOI**: [10.1234/jfds.2023.56789](https://doi.org/10.1234/jfds.2023.56789)
+- **Published In**: On progress...  
+- **DOI**: On progress...
 
 We recommend reading the paper for a deeper understanding of the theoretical foundations and techniques applied in this framework.
 
